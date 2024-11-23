@@ -20,14 +20,11 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+            "assets": [ "src/assets" ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/rose-red.css",
+              "src/styles/styles.scss",
+              "src/styles/vendors.scss"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -83,19 +80,19 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+            "assets": [ "src/assets" ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/rose-red.css",
+              "src/styles/styles.scss",
+              "src/styles/vendors.scss"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "8946d1d5-c504-4cf4-803b-66927e274866"
   }
 }

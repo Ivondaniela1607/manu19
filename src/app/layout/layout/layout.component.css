@@ -1,0 +1,16 @@
+/* Estilos generales para el componente */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el componente ocupe al menos toda la altura de la ventana */
+}
+
+/* Estilos para el contenido principal */
+main {
+  flex: 1; /* El main ocupará todo el espacio vertical restante */
+}
+
+/* Estilos para el footer */
+.myfooter {
+  margin-top: auto; /* Empuja el footer hacia abajo */
+}

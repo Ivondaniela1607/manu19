@@ -1,0 +1,22 @@
+@media (max-width: 1310px) { 
+  .contenedorCategory {
+    max-width: 1008px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .contenedorCategory {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .contenedor{
+    
+    padding-left: 28px;
+    padding-right: 28px;
+    
+  }
+}
+  

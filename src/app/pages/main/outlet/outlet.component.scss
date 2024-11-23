@@ -1,0 +1,129 @@
+img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 75% !important;
+  width: 100% !important;
+  object-fit: cover;
+}
+
+.cuadricula {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 40px;
+  justify-content: start;
+  padding-left: 55px;
+  padding-right: 55px;
+  width: 100%;
+}
+
+.card {
+  height: 250px;
+  width: 256px;
+  -webkit-box-shadow: 0 0 10px 0 rgb(183 192 206 / 47%);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card:hover {
+  transition: .5s;
+  box-shadow: 0 0 10px 0 rgba(77, 77, 79, 0.331)
+}
+
+
+.tag {
+  padding: 1px 10px;
+  background-color: rgb(217, 0, 36);
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.tag-nuevo {
+  padding: 1px 10px;
+  background-color: rgb(217, 0, 36);
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  left: 15px;
+  top: 15px;
+  font-size: 14px;
+}
+
+
+.tag-oferta {
+  background-color: rgb(217, 0, 36);
+  clip-path: polygon(0 0, 88% 0, 98% 100%, 10% 100%);
+  margin-left: 8px;
+  top: 15px;
+  right: -10px;
+  font-size: 14px;
+}
+
+.tag-final {
+  background-color: rgb(217, 0, 36);
+  clip-path: polygon(0 0, 32% 41%, 100% 0);
+  height: 26px;
+  width: 34px;
+  right: -10px;
+  top: 39px;
+}
+
+.title {
+  margin-left: 120px;
+  margin-bottom: 40px;
+}
+
+.nameProducto {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 240px; 
+}
+
+::ng-deep .mat-mdc-tab-labels .mat-mdc-tab{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+::ng-deep  .mat-mdc-tab.mdc-tab--active:hover {
+  border-color: transparent !important;
+}
+::ng-deep  .mat-mdc-tab .mdc-tab-indicator__content--underline {
+  border-color: transparent !important;
+}
+@media screen and (max-width: 1304px) {
+  .cuadricula {
+    max-width: 940px;
+  }
+
+  .titleCategoria {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (max-width: 966px) {
+  .cuadricula {
+    justify-content: center;
+  }
+  
+  .title {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  ::ng-deep .mat-mdc-tab-labels{
+    flex-wrap: wrap !important;
+  }
+
+  ::ng-deep .mat-mdc-tab.mdc-tab {
+    flex-grow: 0 !important;
+    padding: 0 !important;
+  }
+}

@@ -1,0 +1,36 @@
+<div class="container text-center mt-2 h-[300px] md:h-full lg:h-full" >
+  <img class="hidden md:block lg:block  preview" appImgError [src]="selectedImage" alt="" />
+  <owl-carousel-o [options]="customOptions" >
+    @for (item of rows; track item) {
+      <ng-container >
+        <ng-template let-owlItem carouselSlide [id]="item.id">
+          <div
+            [id]="item.id"
+            class="timeline-carousel__item slide  carrusel-img"
+            [ngClass]="{ 'center-card': !owlItem.isCentered, 'single-image': rows.length === 1 }"
+          >
+            <div class="timeline-carousel__image">
+              <img
+                appImgError
+                class="media-wrapper media-wrapper--overlay imageCarrusel"
+                [src]="url + item?.ruta"
+                alt=""
+                (click)="selectImage(item)"
+              />
+            </div>
+            <div
+              style="
+                padding-right: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+                flex-direction: column;
+              "
+            ></div>
+          </div>
+        </ng-template>
+      </ng-container>
+    }
+  </owl-carousel-o>
+</div>

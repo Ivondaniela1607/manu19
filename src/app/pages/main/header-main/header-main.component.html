@@ -1,0 +1,36 @@
+@defer(when showData()){
+  <div class="CTA bg-image" >
+    <div class="background-image "  [@fadeInOut] [style]="{ 'background-image': 'url(' + url+ data().ruta + ')' }">
+    </div>
+    <div class="content">
+      <div
+        class="lg:text-[2.5rem] md:text-[2.5rem] sm:text-[2.0rem] xs:text-[2.0rem] text-[2.0rem] text-white text-center "
+        [innerHTML]="getTitulo(data())"></div>
+      <div 
+        class="lg:text-2xl md:text-2xl sm:text-xl xs:text-xl text-2lg text-white mb-1" 
+        [innerHTML]="getEslogan(data())">
+      </div>
+      <div 
+        class="lg:text-xl md:text-xl sm:text-base xs:text-base text-base text-white mt-2" 
+        [innerHTML]="getTexto(data())">
+      </div>
+      @if(lenguajes.includes(lenguaje()) && data()){
+        <button (click)="ver(data())" type="button"
+          class="bg-transparent mt-5 px-6 py-3 border borderwhite text-lg font-medium  text-white hover:bg-gray-50 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          {{ txt_btn() | uppercase }}
+        </button>
+      }
+    </div>
+  </div>
+}@placeholder {
+  <div class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-800 bg-opacity-20 z-50">
+    <div class="flex items-center justify-center">
+      <div class="relative flex items-center justify-center">
+        <div class="w-16 h-16 border-4 border-primary border-dashed rounded-full animate-spin"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-10 h-10 bg-primary rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,14 @@
+<div class="mt-10">
+  <div class="cuadricula ">
+    @for (item of cards; track item) {
+      <div (click)="getSubcatProducts(item)">
+        <div class="card relative">
+          <img appImgError fill [src]="urlSeries + item.imagen" alt="" />
+        </div>
+        <div class="mt-4 text-center fw-semibold ">
+          <label class="text-center" [innerHTML]="getSeries(item)"></label>
+        </div>
+      </div>
+    }
+  </div>
+</div>

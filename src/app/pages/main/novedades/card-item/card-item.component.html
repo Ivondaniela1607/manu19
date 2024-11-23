@@ -1,0 +1,34 @@
+<div class="card relative">
+  <img [style]="{'height': i % 5 === 0 ? '100%' : '75%',}" class="mi-imagen" appImgError [src]="url+item?.image?.ruta" [alt]="item?.image?.ruta" />
+  @if (item.novedad === '1') {
+    <div class="absolute tag-nuevo" [ngClass]="{'tag-center': i % 5 === 0, 'tag-normal': i % 5 !== 0}">
+      {{ "nuevo"  | uppercase }}
+    </div>
+  }
+  @if (getOfertaTexto(item)) {
+    <ng-container>
+      <div class="absolute tag-oferta tag">
+        {{ getOfertaTexto(item) }}
+      </div>
+      @if (getOfertaTexto(item)) {
+        <div class="absolute tag-final tag"></div>
+      }
+    </ng-container>
+  }
+  <div [ngClass]="{
+      'gradient-box': i % 5 === 0, '': i % 5 !== 0
+    }" class="absolute pt-2 pb-2 ps-3 pe-3 flex flex-col" style="bottom: 1px">
+    <label [ngClass]="{
+          'text-white': i % 5 === 0,
+          'text-gray-400 ': i % 5 !== 0
+        }" class="m-0 nameProducto font-semibold">
+      {{item.referencia}}
+    </label>
+    <label class="m-0 nameProducto font-semibold" [ngClass]="{
+      'text-white': i % 5 === 0, 
+      'text-gray-400': i % 5 !== 0
+      }">
+      {{ getNombreProducto(item) }}
+    </label>
+  </div>
+</div>

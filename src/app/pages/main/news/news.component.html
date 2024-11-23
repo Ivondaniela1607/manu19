@@ -1,0 +1,170 @@
+<div class="contenedor my-10">
+  <div class="flex justify-center items-center">
+    <h4 class="font-semibold text-2xl mb-2">
+      {{ "noticias" | uppercase }} MD
+    </h4>
+  </div>
+</div>
+
+<div class="contenedor m-auto">
+  <div class="flex flex-col md:flex-row gap-4 mt-5">
+    <div class="w-full md:w-1/2">
+      <div class="w-full">
+        <img
+          (click)="detail(news()[0])"
+          appImgError
+          class="w-full mb-2 cursor-pointer"
+          style="height: 260px; object-fit: cover"
+          [src]="url + news()[0]?.ruta"
+          alt=""
+        />
+
+        <div class="limit-line heightTitle">
+          <span class="">
+            <strong>
+              <p>{{ news()[0]?.txt_es }}</p>
+            </strong>
+          </span>
+        </div>
+      </div>
+      <div class="limit-line my-2 heightDescripcion">
+        <span class="text-gray-500">
+          <p [innerHTML]="news()[0]?.descripcion_es"></p>
+        </span>
+      </div>
+      <div class="mb-2 cursor-pointer">
+        <strong class="flex items-center">
+          <svg
+            style="color: #c71522"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-4 h-4"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <a (click)="detail(news()[0])" class="text-primary underline">{{
+            "leer mas"
+          }}</a>
+        </strong>
+      </div>
+    </div>
+    <div class="w-full md:w-1/2 flex flex-col justify-around space-y-4">
+      <div class="flex flex-col md:flex-row gap-4">
+        <div class="w-6/6 md:w-1/2 lg:w-1/2">
+          <div class="w-full">
+            <img
+              (click)="detail(news()[1])"
+              appImgError
+              class="w-full mb-2 cursor-pointer"
+              style="height: 230px; object-fit: cover"
+              [src]="url + news()[1]?.ruta"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="w-6/6 md:w-1/2 lg:w-1/2">
+          <div class="limit-line heightTitle">
+            <span class="">
+              <strong>
+                <p>{{ news()[1]?.txt_es }}</p>
+              </strong>
+            </span>
+          </div>
+          <div class="limit-line my-2 heightDescripcion">
+            <span class="text-gray-500">
+              <div [innerHTML]="news()[1]?.descripcion_es"></div>
+            </span>
+          </div>
+          <div class="mb-2 cursor-pointer">
+            <strong class="flex items-center">
+              <svg
+                style="color: #c71522"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-4 h-4"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <a (click)="detail(news()[1])" class="text-primary underline">{{
+                "leer mas"
+              }}</a>
+            </strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tercer elemento pequeño -->
+      <div class="flex flex-col md:flex-row gap-4 mt-3">
+        <div class="w-6/6 md:w-1/2 lg:w-1/2">
+          <div class="w-full">
+            <img
+              (click)="detail(news()[2])"
+              appImgError
+              class="w-full mb-2"
+              style="height: 230px; object-fit: cover"
+              [src]="url + news()[2]?.ruta"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="w-6/6 md:w-1/2 lg:w-1/2">
+          <div class="limit-line heightTitle">
+            <span class="font-bold">
+              <strong>
+                <p>{{ news()[2]?.txt_es }}</p>
+              </strong>
+            </span>
+          </div>
+          <div class="limit-line my-2 heightDescripcion">
+            <span class="text-gray-500">
+              <div>
+                <p [innerHTML]="news()[2]?.descripcion_es"></p>
+              </div>
+            </span>
+          </div>
+          <div class="mb-2 cursor-pointer">
+            <strong class="flex items-center">
+              <svg
+                style="color: #c71522"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-4 h-4"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <a (click)="detail(news()[2])" class="text-primary underline">{{
+                "leer mas"
+              }}</a>
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col mt-5">
+    <div class="mt-10 mb-10" style="text-align: center">
+      <button
+        [routerLink]="['/view-news']"
+        class="bg-white border-gray-900 text-2xl border rounded px-8 py-2 hover:bg-primary text-gray-900 hover:text-white"
+      >
+        {{ "acceder" | uppercase }}
+      </button>
+    </div>
+  </div>
+</div>

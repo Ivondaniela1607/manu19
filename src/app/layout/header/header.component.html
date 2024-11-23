@@ -1,0 +1,172 @@
+<div class=" w-full mb-0">
+  <div class="flex mx-auto justify-between items-center  w-full mb-2">
+    <div class="bg-grayLigth w-full">
+      <div class="contenedor flex lg:justify-end md:justify-end sm:justify-between justify-between items-center">
+        <img appImgError class="block md:hidden lg:hidden"  [routerLink]="['']" width="80"
+          src="assets/images/icons/logo-manufacturas.svg" alt="" />
+        <div class="flex items-center" style="height: 30px;">
+          @for( element of socialNetwoks(); track element){
+          <div class="flex mx-1">
+            <a [href]="element.link" target="_blank">
+              @if (element.img) {
+              <img appImgError container="body" matTooltip="{{ element.nombre }}"
+                [src]="SOCIAL_PATH + element.img" [alt]="element.nombre"  class="w-[30px]"/>
+              }@else {
+              <em class="feather icon-image" style="font-size: 2.5rem; color: gray"></em>
+              }
+            </a>
+          </div>
+          }
+          <div class="flex  justify-center items-center">
+            <div class="w-[50px] text-gray-900">
+            <div class="relative w-full group">
+              <button 
+                class="py-2.5 px-3 w-full md:text-sm text-site bg-transparent focus:border-brand focus:outline-none focus:ring-0 peer flex items-center justify-between rounded font-semibold">    
+                @if(currentFlag) {
+                  <div class="flex items-center cursor-pointer">
+                    <img appImgError style="cursor: pointer;" width="25" [src]="currentFlag.src" [alt]="currentFlag.alt" />
+                    <p>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                      </svg>
+                    </p>
+                  </div>
+                }
+              </button>
+              <div
+                class="absolute z-[99] top-[100%] left-[50%] translate-x-[-50%] rounded-md overflow-hidden shadow-lg min-w-[50px] w-max peer-focus:visible peer-focus:opacity-100 opacity-0 invisible duration-200 p-1 bg-gray-100   border border-dimmed text-xs md:text-sm">
+                @for(lang of languages; track lang) {
+                  <div class="my-2">
+                    <img appImgError style="cursor: pointer; margin: 0 auto;" width="25" [src]="lang.src" [alt]="lang.alt"
+                      (click)="changeLanguague(lang.code)" />
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contenedor">
+    <div class="flex justify-between items-center">
+      <div class="imgButtom">
+        <img
+          appImgError
+          [routerLink]="['']"
+          width="100"
+          height="46"
+          class="hidden md:block lg:block me-4 cursor-pointer "
+          src="assets/images/illustrator/logoAI.svg"
+          alt="logo-manufacturas"
+        />
+      </div>
+      <nav class="nav-container " [ngClass]="{'w-full': menuOpen}">
+        <div class="relative">
+          <button class="burger-menu md:hidden" (click)="toggleMenu()">&#9776;</button>
+          <ul class="menu -z-50 bg-white" [class.open]="menuOpen">
+            @for (item of menuItems; track item) {
+              <li (click)="toggleSubMenu(item)">
+                <a (click)="onClick1(item)">{{ getLabel(item) }}   
+                  @if (item.subItems) {
+                    <span>
+                      <mat-icon class="text-gray-600 text-3xl">keyboard_arrow_down</mat-icon>
+                    </span>
+                  }
+                </a>
+                @if (item.subItems) {
+                  <ul [class.open]="item.open">
+                    @for (subItem of item.subItems; track $index) {
+                      <li >
+                       <a (click)="onClick(subItem)">{{ getLabel(subItem) }}</a>
+                      </li>
+                    }
+                  </ul>
+                }
+              </li>
+            }
+          </ul>
+        </div>
+      </nav>
+      <div class="menu-manu items-center  hidden md:flex lg:flex">
+        @for ( item of menuItems; track item) {
+          @if (item.subItems) {
+            <a 
+              (click)="onClick1NoResp(item)" 
+              class="menu-item flex items-center cursor-pointer linea ms-4 " 
+              [matMenuTriggerFor]="menu1"
+            >
+              <span class="text-gray-500 text-md"><strong>{{ getLabel(item) }}</strong></span>
+              <mat-icon class="text-gray-600 text-3xl">keyboard_arrow_down</mat-icon>
+            </a>
+          }
+          @if (!item.subItems) {
+            <a (click)="onClick1NoResp(item)" class="menu-item flex cursor-pointer linea me-4 ">
+              <span class="text-gray-500 text-md"><strong>{{ getLabel(item) }}</strong></span>
+            </a>
+          }              
+          <mat-menu #menu1="matMenu">
+            @if (item.subItems) {
+              <ng-container  >
+                @for (subitem of item.subItems; track subitem) {
+                  <div class="flex items-center h-[40px]">
+                    <img src="assets/icons/circle.svg" class="w-1.5 h-1.5 me-2" alt="" >  
+                     <a class="  text-base text-gray-500 flex items-center" 
+                      (click)="onClickNoResp(subitem.link)" 
+                        [routerLink]="subitem.link">
+                        
+                        {{ getLabel(subitem) }}
+                      </a>
+                  </div>
+                }
+              </ng-container>
+            }
+          </mat-menu>
+        }
+      </div>
+      
+      @if (!menuOpen) {
+        <div class="search-cart-container flex items-center">
+          <div class="relative input-wrapper">
+            <input
+              type="text"
+              (keypress)="searchGlobalPress($event)"
+              [(ngModel)]="busqueda"
+              class="text-gray-900 w-full py-2 pl-4 pr-5 border rounded-3xl border-red-500 focus:outline-none focus:ring-1 focus:ring-red-600"
+              placeholder="{{ 'header search'  }}"
+            />
+            <label (click)="searchGlobal()" class="text-danger search">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 text-primary"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                />
+              </svg>
+            </label>
+          </div>
+          <div class="shopping-container ml-2 md:ml-10 lg:ml-10">
+            <img
+              appImgError
+              style="cursor: pointer"
+              class="me-2 w-[40px] h-[40px]"
+              src="assets/images/illustrator/CARRITO.svg"
+              alt="shopping"
+              [routerLink]="['shopping']"
+            />
+            <div class="badge">{{ carrito ? carrito : 0 }}</div>
+          </div>
+        </div>
+      }
+  
+    </div>
+  </div>
+</div>

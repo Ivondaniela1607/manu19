@@ -1,0 +1,69 @@
+
+<div class="contenedor mt-10 mb-0">
+  <div class="flex justify-center items-center">
+    <h4 class="text-2xl mb-2" style="font-weight: 700;">{{'novedades'  | uppercase}} MD</h4>
+  </div>
+</div>
+<div class="contenedor">
+  @if(slideBoolean()){
+    <owl-carousel-o [options]="customOptions">
+      @for(item of slidesStore(); track item) {
+        <ng-container >
+          <ng-template let-owlItem carouselSlide [id]="item.id">
+            <div
+              (mousedown)="onMouseDown()"
+              (mouseup)="onMouseUp(item)"
+              (mousemove)="onMouseMove()"
+              [id]="item.id"
+              class="timeline-carousel__item slide cursor-pointer"
+              [ngClass]="{ 'center-card': !owlItem.isCentered }"
+            >
+              <div class="timeline-carousel__image">
+                <div
+                  style="border-radius: 12px; overflow: hidden; position: relative; width: 100%; height: 100%;"
+                  class="media-wrapper media-wrapper--overlay"
+                >
+                  <img
+                    appImgError
+                    [src]="url + item?.image?.ruta"
+                    alt="Imagen"
+                    style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"
+                  />
+                </div>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin-top: 20px;
+                  flex-direction: column;
+                "
+              >
+                <span class="novedad mb-2">{{'novedad'  | uppercase}}</span>
+                <span class="nombreArticulo">
+                  {{getNombreCatalogo(item) }}
+                </span>  
+            
+                <span class="text-gray-500  font-bold">{{item.referencia}}</span>
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+      }@empty {
+        <div class="text-center py-4 text-2xl font-semibold mt-4">
+          <h3>{{"no articulos" }}</h3>
+          <br>
+          <h4>{{"no articulos.txt" }}</h4>
+        </div>
+      }
+    </owl-carousel-o>
+  }
+</div>
+
+<div class="mt-10 mb-10" style="text-align: center;">
+  <button 
+    class="bg-white border-gray-900 text-2xl border rounded px-4 py-2 hover:bg-primary duration-500 text-gray-900 hover:text-white" [routerLink]="['/novedades']">
+    {{"acceder"  | uppercase}}
+  </button>
+</div>

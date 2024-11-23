@@ -1,0 +1,33 @@
+:host ::ng-deep {
+  .ngx-pagination a:hover,
+  .ngx-pagination button:hover {
+    background:transparent;
+  }
+}
+
+
+.limit-line {
+  overflow: hidden;
+  text-align: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.heightTitle{
+  height: 20px;
+  -webkit-line-clamp: 1;
+}
+
+.heightTitle p {
+  font-size: 18px;
+  line-height: 20px;
+  color: #010101;
+  font-weight: 600;
+}
+
+.heightDescripcion{
+  height: 70px;
+  -webkit-line-clamp: 3;
+}

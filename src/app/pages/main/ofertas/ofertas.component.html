@@ -1,0 +1,316 @@
+@defer (when isLoading()) {
+  <div style="background-color: rgb(242, 243, 246);  min-height: 70vh;">
+    <div class="contenedor ">
+      <div class="font-semibold text-gray-500 py-5">
+        <label class="flex flex-wrap items-center md:flex lg:flex" for="">
+          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+            <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+            <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+          </svg>
+          <a class="cursor-pointer" [routerLink]="['']">{{ "inicio"  | titlecase }}</a> &nbsp;|&nbsp;
+          <a class="cursor-default">{{ "ofertas"  | titlecase }} </a> &nbsp;|&nbsp;
+  
+          @if (opc && opc === 1) {
+          <a class="cursor-default underline underline-offset-1">{{ "parques infantiles"  | titlecase }} </a>
+          }
+          @if (opc && opc === 2) {
+          <a class="cursor-default underline underline-offset-1">{{ "equipamiento deportivo"  | titlecase }} </a>
+          }
+          @if (opc && opc === 3) {
+          <a class="cursor-default underline underline-offset-1">{{ "mobiliario urbano"  | titlecase }} </a>
+          }
+          @if (opc && opc === 4) {
+          <a class="cursor-default underline underline-offset-1">{{ "todo"  | titlecase }} </a>
+          }
+        </label>
+      </div>
+      <div class="">
+        <div class="text-center mb-4 mt-4 text-3xl">
+          <label for=""><strong>{{ "ofertas"  | uppercase }}</strong></label>
+        </div>
+        @if(isLoading()){
+          <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" (selectedTabChange)="onTabChange($event)">
+            <mat-tab>
+              <ng-template matTabLabel>
+                <strong>
+                  <a (click)="opcOferta(1)" [style]="{
+                    'background-color': selectedTabIndex === 0 ? 'rgb(106, 31, 142)' : 'white',
+                    'color': selectedTabIndex === 0 ? 'white' : 'rgb(106, 31, 142)',
+                    'padding': '10px 20px'
+                  }">{{ "parques infantiles"  | titlecase }}</a>
+                </strong>
+              </ng-template>
+              <ng-template matTabContent="">
+                @if(ofertasFilter.length === 0){
+                  <div class="text-center py-4 text-2xl font-semibold mt-4">
+                    <h3>{{"no articulos" }}</h3>
+                    <br>
+                    <h4>{{"no articulos.txt" }}</h4>
+                  </div>
+                }
+                @if (ofertasFilter.length > 0 ) {
+                  <div class="grid-container mt-10 bg-white py-11 px-5 md:px-0 lg:px-0" 
+                      [style]="{
+                        'display': display,
+                        'grid-template-columns': 'repeat(4, 220px)',
+                        'grid-template-rows': alturaFilas,
+                        'gap': '30px',
+                        'grid-template-areas': secuencia,
+                        'justify-content': 'center'
+                      }">
+                    @for (item of ofertasFilter; track item; let i = $index) {
+                    <ng-container>
+                      <manu-card-item 
+                        class="cursor-pointer" [style]="{'grid-area': 'item' + (i + 1)}" (click)="detail(item)"
+                        [item]="item"
+                        [i]="i"
+                        [url]="url"
+                        >
+                      </manu-card-item>
+                    </ng-container>
+                    }@empty {
+                      <div class="text-center py-4 text-2xl font-semibold mt-4">
+                        <h3>{{"no articulos" }}</h3>
+                        <br>
+                        <h4>{{"no articulos.txt" }}</h4>
+                      </div>
+                    }
+                  </div>
+                }
+              </ng-template>
+            </mat-tab>
+            <mat-tab>
+              <ng-template matTabLabel>
+                <strong>
+                  <a (click)="opcOferta(2)" [style]="{
+                    'background-color': selectedTabIndex === 1 ? 'rgb(38, 144, 204)' : 'white',
+                    'color': selectedTabIndex === 1 ? 'white' : 'rgb(38, 144, 204)',
+                    'padding': '10px 20px'
+                  }">{{ "equipamiento deportivo"  | titlecase }}</a>
+                </strong>
+              </ng-template>
+              <ng-template matTabContent="">
+                @if(ofertasFilter.length === 0){
+                  <div class="text-center py-4 text-2xl font-semibold mt-4">
+                    <h3>{{"no articulos" }}</h3>
+                    <br>
+                    <h4>{{"no articulos.txt" }}</h4>
+                  </div>
+                }
+                @if (ofertasFilter.length > 0) {
+                  <div class="grid-container mt-10 bg-white py-11 px-5 md:px-0 lg:px-0" [style]="{
+                        'display': display,
+                        'grid-template-columns': 'repeat(4, 220px)',
+                        'grid-template-rows': alturaFilas,
+                        'gap': '30px',
+                        'grid-template-areas': secuencia,
+                        'justify-content': 'center'
+                    }">
+                    @for (item of ofertasFilter; track item; let i = $index) {
+                      <ng-container>
+                        <manu-card-item 
+                          class="cursor-pointer" [style]="{'grid-area': 'item' + (i + 1)}" (click)="detail(item)"
+                          [item]="item"
+                          [i]="i"
+                          [url]="url"
+                          >
+                        </manu-card-item>
+                      </ng-container>
+                    }@empty {
+                      <div class="text-center py-4 text-2xl font-semibold mt-4">
+                        <h3>{{"no articulos" }}</h3>
+                        <br>
+                        <h4>{{"no articulos.txt" }}</h4>
+                      </div>
+                    }
+                  </div>
+                }
+              </ng-template>
+            </mat-tab>
+            <mat-tab>
+              <ng-template matTabLabel>
+                <strong>
+                  <a (click)="opcOferta(3)" [style]="{
+                    'background-color': selectedTabIndex === 2 ? 'rgb(158, 184, 38)' : 'white',
+                    'color': selectedTabIndex === 2 ? 'white' : 'rgb(158, 184, 38)',
+                    'padding': '10px 20px'
+                  }">{{ "mobiliario urbano"  | titlecase }}</a>
+                </strong>
+              </ng-template>
+              <ng-template matTabContent="">
+                @if(ofertasFilter.length === 0){
+                  <div class="text-center py-4 text-2xl font-semibold mt-4">
+                    <h3>{{"no articulos" }}</h3>
+                    <br>
+                    <h4>{{"no articulos.txt" }}</h4>
+                  </div>
+                }
+                @if (ofertasFilter.length > 0) {
+                  <div class="grid-container mt-10 bg-white py-11 px-5 md:px-0 lg:px-0" [style]="{
+                        'display': display,
+                        'grid-template-columns': 'repeat(4, 220px)',
+                        'grid-template-rows': alturaFilas,
+                        'gap': '30px',
+                        'grid-template-areas': secuencia,
+                        'justify-content': 'center'
+                    }">
+                    @for (item of ofertasFilter; track item; let i = $index) {
+                      <ng-container>
+                        <manu-card-item 
+                          class="cursor-pointer" [style]="{'grid-area': 'item' + (i + 1)}" (click)="detail(item)"
+                          [item]="item"
+                          [i]="i"
+                          [url]="url"
+                          >
+                        </manu-card-item>
+                      </ng-container>
+                    }@empty {
+                      <div class="text-center py-4 text-2xl font-semibold mt-4">
+                        <h3>{{"no articulos" }}</h3>
+                        <br>
+                        <h4>{{"no articulos.txt" }}</h4>
+                      </div>
+                    }
+                  </div>
+                }
+              </ng-template>
+            </mat-tab>
+            <mat-tab>
+              <ng-template matTabLabel>
+                <strong>
+                  <a (click)="opcOferta(4)" [style]="{
+                    'background-color': selectedTabIndex === 3 ? 'rgb(183, 45, 44)' : 'white',
+                    'color': selectedTabIndex === 3 ? 'white' : 'rgb(183, 45, 44)',
+                    'padding': '10px 20px'
+                  }">{{ "todo"  | titlecase }}</a>
+                </strong>
+              </ng-template>
+              <ng-template matTabContent="" >
+                @if(ofertasFilter.length === 0){
+                  <div class="text-center py-4 text-2xl font-semibold mt-4">
+                    <h3>{{"no articulos" }}</h3>
+                    <br>
+                    <h4>{{"no articulos.txt" }}</h4>
+                  </div>
+                }
+                @if (byCategoriaPI.length > 0) {
+                  <div class="bg-white mt-10 pt-10 px-4 text-center lg:ps-10 md:ps-10 md:text-start lg:text-start">
+                    <label class="text-gray-600 font-semibold text-2xl title">
+                      {{ getCategoriaTexto(byCategoriaPI) | uppercase }}
+                    </label>
+                  </div>
+                  <div class="grid-container  bg-white py-11 px-5 md:px-0 lg:px-0" [style]="{
+                        'display': display,
+                        'grid-template-columns': 'repeat(4, 220px)',
+                        'grid-template-rows': alturaFilasPI,
+                        'gap': '30px',
+                        'grid-template-areas': secuenciaPI,
+                        'justify-content': 'center'
+                    }">
+                    @for (item of byCategoriaPI; track item; let i = $index) {
+                      <ng-container>
+                        <manu-card-item 
+                          class="cursor-pointer" [style]="{'grid-area': 'item' + (i + 1)}" (click)="detail(item)"
+                          [item]="item"
+                          [i]="i"
+                          [url]="url"
+                          >
+                        </manu-card-item>
+                      </ng-container>
+                    }@empty {
+                      <div class="text-center py-4 text-2xl font-semibold mt-4">
+                        <h3>{{"no articulos" }}</h3>
+                        <br>
+                        <h4>{{"no articulos.txt" }}</h4>
+                      </div>
+                    }
+      
+                  </div>
+                }
+                @if (byCategoriaED.length > 0) {
+                  <div class="bg-white mt-10 pt-10 px-4 text-center lg:ps-10 md:ps-10 md:text-start lg:text-start">
+                    <label class="text-gray-600 font-semibold text-2xl title">
+                      {{ getCategoriaTexto(byCategoriaED) | uppercase }}
+                    </label>
+                  </div>
+                  <div class="grid-container  bg-white py-11 px-5 md:px-0 lg:px-0" [style]="{
+                        'display': display,
+                        'grid-template-columns': 'repeat(4, 220px)',
+                        'grid-template-rows': alturaFilasED,
+                        'gap': '30px',
+                        'grid-template-areas': secuenciaED,
+                        'justify-content': 'center'
+                    }">
+                    @for (item of byCategoriaED; track item; let i = $index) {
+                      <ng-container>
+                        <manu-card-item 
+                          class="cursor-pointer" [style]="{'grid-area': 'item' + (i + 1)}" (click)="detail(item)"
+                          [item]="item"
+                          [i]="i"
+                          [url]="url"
+                          >
+                        </manu-card-item>
+                      </ng-container>
+                    }@empty {
+                      <div class="text-center py-4 text-2xl font-semibold mt-4">
+                        <h3>{{"no articulos" }}</h3>
+                        <br>
+                        <h4>{{"no articulos.txt" }}</h4>
+                      </div>
+                    }
+      
+                  </div>
+                }
+                @if (byCategoriaMU.length > 0) {
+                  <div class="bg-white mt-10 pt-10 px-4 text-center lg:ps-10 md:ps-10 md:text-start lg:text-start">
+                    <label class="text-gray-600 font-semibold text-2xl title">
+                      {{ getCategoriaTexto(byCategoriaMU) | uppercase }}
+                    </label>
+                  </div>
+                  <div class="grid-container  bg-white py-11 px-5 md:px-0 lg:px-0" [style]="{
+                        'display': display,
+                        'grid-template-columns': 'repeat(4, 220px)',
+                        'grid-template-rows': alturaFilasMU,
+                        'gap': '30px',
+                        'grid-template-areas': secuenciaMU,
+                        'justify-content': 'center'
+                    }">
+                    @for (item of byCategoriaMU; track item; let i = $index) {
+                      <ng-container>
+                        <manu-card-item 
+                          class="cursor-pointer" [style]="{'grid-area': 'item' + (i + 1)}" (click)="detail(item)"
+                          [item]="item"
+                          [i]="i"
+                          [url]="url"
+                          >
+                        </manu-card-item>
+                      </ng-container>
+                    }@empty {
+                      <div class="text-center py-4 text-2xl font-semibold mt-4">
+                        <h3>{{"no articulos" }}</h3>
+                        <br>
+                        <h4>{{"no articulos.txt" }}</h4>
+                      </div>
+                    }
+      
+                  </div>
+                }
+              </ng-template>
+            </mat-tab>
+          </mat-tab-group>
+        }
+      </div>
+    </div>
+  </div>
+}@placeholder {
+  <div class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
+    <div class="flex items-center justify-center">
+      <div class="relative flex items-center justify-center">
+        <div class="w-16 h-16 border-4 border-primary border-dashed rounded-full animate-spin"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-10 h-10 bg-primary rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

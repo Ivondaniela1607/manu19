@@ -1,0 +1,272 @@
+
+ 
+  <!--//* VISIBLE XS -->
+  @if(breakpoint() === 'XSmall' || breakpoint() === 'Small'){
+    <div class="contenedor bg-[#f1f3f6]  ">
+      <footer
+        class="w-full min-h-16 items-center justify-center pt-8 pb-4"
+      >
+        <!-- Grid container -->
+        <div class="grid grid-cols-12  justify-center gap-x-3 text-white">
+          <!--Grid row-->
+            
+          
+            <!--Grid column-->
+    
+            <!--Grid column-->
+            <div class="col-span-6 self-start ">
+              <ul class=" mb-0">
+                <li>
+                  <a class="text-black font-normal cursor-default"><strong>{{"productos"  | uppercase}}</strong></a>
+                </li>
+                <li>
+                  <a (click)="onClick('categoria/1')" class="text-black font-normal cursor-pointer"><strong>{{"parques infantiles"  | uppercase}}</strong></a>
+                </li>
+                <li>
+                  <a (click)="onClick('categoria/3')" class="text-black font-normal cursor-pointer"><strong>{{"mobiliario urbano"  | uppercase}}</strong></a>
+                </li>
+                <li>
+                  <a (click)="onClick('categoria/2')" class="text-black font-normal cursor-pointer"><strong>{{"equipamiento deportivo"  | uppercase}}</strong></a>
+                </li>
+              </ul>
+            </div>
+            <!--Grid column-->
+    
+            <!--Grid column-->
+            <div class="col-span-6 self-start  ">
+              <ul class="text-right">
+                <li>
+                  <a class="text-black" [routerLink]="'empresa/sobrenosotros'" ><strong>{{"sobre nosotros"  | uppercase}}</strong></a>
+                </li>
+                <li>
+                  <a routerLink="view-news" class="text-black"><strong>{{"noticias"  | uppercase}}</strong></a>
+                </li>
+                <li>
+                  <a routerLink="catalogo" class="text-black"><strong>{{"catalogos"  | uppercase}}</strong></a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-span-6 self-start ">
+              <ul class="list-unstyled">
+                <li>
+                  <a class="text-black" [routerLink]="'empresa/contacto'"><strong>{{"contacto"  | uppercase}}</strong></a>
+                </li>
+              </ul>
+            </div>
+
+
+         
+
+
+          <!--SIGUENOS-->
+            <div class="col-span-12 self-center mt-10">
+             <div class="flex justify-between items-center">
+              <div class="flex flex-col justify-start items-center">
+                <div class="flex mx-auto flex-row w-full mt-2">
+                  @for( element of socialNetwoks(); track element){
+
+          
+                      <div class="mx-1">
+                      <a [href]="element.link" target="_blank">
+                        @if (element.img) {
+                          <img 
+                          appImgError
+                          container="body"
+                          matTooltip="{{element.nombre}}"
+                        
+                          class="ms-1 me-1 w-[50px]"
+                     
+                          [src]="SOCIAL_PATH+element.img"
+                          [alt]="element.nombre"
+                        />
+                        }
+                        @if (!element.img) {
+                          <em
+                            class="feather icon-image ms-1 me-1"
+                            style="font-size: 2.5rem; color: gray"
+                          ></em>
+                        }
+                      </a>
+                    </div>
+                  
+                  }
+                
+                
+                </div>
+                <div class=" mt-2">
+                  <a href="javascript:void(0)" class="text-black"
+                    ><strong>¡{{"siguenos"  | uppercase}}!</strong></a
+                  >
+                </div>
+              </div>
+           
+                   <!--IMAGERN-->
+            <div >
+              <img 
+                appImgError
+                width="150"
+                class="object-fill mr-2"
+                src="assets/images/illustrator/logoAI.svg"
+                alt="logo-manufacturas-deportivas"
+              />
+           
+              </div>
+            </div>
+             
+             
+
+
+            </div>
+
+           
+        
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+       
+        <!-- Grid container -->
+    
+        
+        
+        <!-- Copyright -->
+      </footer>
+     
+    </div>
+    <div class="mx-auto bg-[#f1f3f6] py-5 ">
+      <div class="contenedor grid grid-cols-12  text-gray-800  items-center">
+        <div class="col-span-12 text-center">
+          <span>©{{ year }} <span class="text-gray-900 ">Manufacturas deportivas</span> | Todos los derechos reservados.</span>
+        </div>
+        <div class="col-span-12 text-center">
+          <span class="text-gray-900 "> Aviso Legal</span><span> | Política de Cookies | Política de Privacidad</span>
+        </div>
+      </div>
+    </div>
+  }@else {
+    <div class="mx-auto footLarge w-full bg-[#f1f3f6] pt-2 pb-4">
+      <footer
+        class="w-full  min-h-16 items-center justify-center contenedor"
+      >
+        <!-- Grid container -->
+        <div class="grid grid-cols-12  justify-center gap-x-3 text-white">
+          <!--Grid row-->
+            
+            <!--Grid column-->
+            <div class="col-span-2 self-center">
+              <img 
+                appImgError
+                width="150"
+                class="object-fill"
+                src="assets/images/illustrator/logoAI.svg"
+                alt="logo-manufacturas-deportivas"
+              />
+            </div>
+            <!--Grid column-->
+    
+            <!--Grid column-->
+            <div class="col-span-3 self-start ">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a class="text-black cursor-default"><strong>{{"productos"  | uppercase}}</strong></a>
+                </li>
+                <li>
+                  <a (click)="onClick('categoria/1')" class="text-black cursor-pointer"><strong>{{"parques infantiles"  | uppercase}}</strong></a>
+                </li>
+                <li>
+                  <a (click)="onClick('categoria/3')" class="text-black cursor-pointer"><strong>{{"mobiliario urbano"  | uppercase}}</strong></a>
+                </li>
+                <li>
+                  <a (click)="onClick('categoria/2')" class="text-black cursor-pointer"><strong>{{"equipamiento deportivo"  | uppercase}}</strong></a>
+                </li>
+              </ul>
+            </div>
+            <!--Grid column-->
+    
+            <!--Grid column-->
+            <div class="col-span-3 self-start ">
+              <ul class="list-unstyled">
+                <li>
+                  <a class="text-black" [routerLink]="'empresa/sobrenosotros'" ><strong>{{"sobre nosotros"  | uppercase}}</strong></a>
+                </li>
+                <li>
+                  <a routerLink="view-news" class="text-black"><strong>{{"noticias"  | uppercase}}</strong></a>
+                </li>
+                <li>
+                  <a routerLink="catalogo" class="text-black"><strong>{{"catalogos"  | uppercase}}</strong></a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-span-2 self-start ">
+              <ul class="list-unstyled">
+                <li>
+                  <a class="text-black" [routerLink]="'empresa/contacto'"><strong>{{"contacto"  | uppercase}}</strong></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-span-2 self-start ">
+              <ul class="list-unstyled">
+                <li>
+                  <a href="javascript:void(0)" class="text-black folow"
+                    ><strong>¡{{"siguenos"  | uppercase}}!</strong></a
+                  >
+                </li>
+                <div class="flex mx-auto flex-row w-full mt-2">
+                  @for( element of socialNetwoks(); track element){
+
+          
+                      <div class="mx-1">
+                      <a [href]="element.link" target="_blank">
+                        @if(element.img){
+                          <img 
+                          appImgError
+                          container="body"
+                          matTooltip="{{element.nombre}}"
+                          class="ms-1 me-1 w-[50px]"
+                          [src]="SOCIAL_PATH+element.img"
+                          [alt]="element.nombre"
+                        />
+                        }
+                        @if(!element.img){
+                          <em
+                            class="feather icon-image ms-1 me-1"
+                            style="font-size: 2.5rem; color: gray"
+                          ></em>
+                        }
+                      </a>
+                    </div>
+                  
+                  }
+                
+                
+                </div>
+              </ul>
+            </div>
+        
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+       
+        <!-- Grid container -->
+    
+        
+       
+        <!-- Copyright -->
+      </footer>
+
+    </div>
+    <div class="mx-auto bg-[rgb(230,232,236)] py-3 ">
+      <div class="contenedor grid grid-cols-12  text-gray-800  items-center font-semibold">
+        <div class="col-span-6 text-left">
+          <span>©{{ year }} <span class="text-gray-900">Manufacturas deportivas</span> | Todos los derechos reservados.</span>
+        </div>
+        <div class="col-span-6 text-right">
+          <span  (click)="info('aviso legal')" class="text-gray-900 cursor-pointer"> Aviso Legal</span><span class="cursor-pointer" (click)="info('tratamiento de datos personales')"> | Política de Cookies | Política de Privacidad</span>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright -->
+    
+  }
+  

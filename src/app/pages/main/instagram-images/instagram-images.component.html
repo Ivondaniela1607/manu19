@@ -1,0 +1,52 @@
+<div style="background: #f1f3f6; margin-bottom: 20px">
+  <div
+    class=" px-10 py-10 flex flex-col md:flex-row lg:flex-row justify-between items-center w-full"
+  >
+    <span style="color: black; font-size: 40px"
+      ><strong>#MDWePlay</strong></span
+    >
+    <a
+      href="https://www.instagram.com/md_weplay/"
+      target="_blank"
+      class="flex items-center underline decoration-solid text-black"
+    >
+      <img
+        width="20"
+        class="me-2"
+        src="assets/images/icons/instagram.svg"
+        alt="instagram"
+      />
+      <strong>{{ "siguenos instagram"  }}</strong>
+    </a>
+  </div>
+  @if(slideBoolean()){
+    <owl-carousel-o [options]="customOptions">
+      @for (item of slidesStore(); track item) {
+        <ng-container >
+          <ng-template let-owlItem carouselSlide [id]="item.id">
+            <a 
+              [href]="item.link"  
+              target="_blank">
+              <div
+                [id]="item.id"
+                class="timeline-carousel__item slide"
+                [ngClass]="{ 'center-card': !owlItem.isCentered }"
+              >
+                <div class="timeline-carousel__image">
+                  <div
+                    style="border-radius: 12px"
+                    class="media-wrapper media-wrapper--overlay"
+                    [style]="{
+                      'background-image': 'url(' + url + item?.ruta + ')',
+                      'background-position': 'center center'
+                    }"
+                  ></div>
+                </div>
+              </div>
+            </a>
+          </ng-template>
+        </ng-container>
+      }
+    </owl-carousel-o>
+  }
+</div>

@@ -1,0 +1,123 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the theme object.
+$manufacturas-landing-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette,
+  ),
+  density: (
+    scale: 0,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+:root {
+  @include mat.all-component-themes($manufacturas-landing-theme);
+}
+
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+// @include mat.typography-hierarchy($theme);
+
+// Comment out the line below if you want to use the deprecated `color` inputs.
+// @include mat.color-variants-backwards-compatibility($theme);
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html, body { height: 100%; }
+body { margin: 0; font-family: "Montserrat", "Helvetica Neue", sans-serif; }
+
+
+.contenedor{
+  @apply  max-w-[1300px]  px-8 p-1 mx-auto;
+}
+
+.contenedorCategory {
+  @apply bg-gray-100 p-0 px-12 py-5 min-h-75 mb-5 max-w-[1306px] m-auto;
+}
+
+
+.center-card {
+  transform: scale(0.8);
+  opacity: 0.6;
+}
+
+.slide {
+  transition: transform 1s;
+}
+
+.novedad{
+  color: white;
+  padding: 0.3rem;
+  background: #c71522;
+}
+
+.inactivo-gris {
+  filter: grayscale(100%);
+}
+
+.animated {
+  display: block;
+}
+
+.slick-dots li button {
+  display: block;
+  font-size: 0;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  -webkit-transition: all 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  -o-transition: all 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transition: all 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.owl-stage-outer > .owl-stage {
+  margin: 0 auto;
+}
+
+.ql-align-right {
+  text-align: right !important;
+  display: flex;
+  justify-content: right;
+}
+.ql-align-center {
+  text-align: center !important;
+  display: flex;
+  justify-content: center;
+}
+
+.ql-align-left {
+  text-align: left !important;
+  display: flex;
+  justify-content: left;
+}
+
+.ql-align-justify {
+  text-align: justify !important;
+
+}
+.ql-size-huge {
+  font-size: 50px !important;
+
+}
+.ql-size-large {
+  font-size: 24px !important;
+
+}

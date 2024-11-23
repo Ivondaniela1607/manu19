@@ -1,0 +1,23 @@
+<div class="mb-10">
+  <div class="cuadricula">
+    @for (item of cards; track item) {
+      <div (click)="getSubcatProducts(item)" >
+        <div class="card relative">
+          <img appImgError fill [src]="url + item.img" alt="" />
+        </div>
+        <div style="width: 256px;" class="mt-2 text-center font-medium ">
+          <label 
+            class="text-center nameProducto" 
+            [innerHTML]="getNombreSubcategoria(item)"
+          ></label>
+        </div>
+      </div>
+    }@empty {
+      <div class="text-center py-4 text-2xl font-semibold mt-4">
+        <h3>{{"no articulos" }}</h3>
+        <br>
+        <h4>{{"no articulos.txt" }}</h4>
+      </div>
+    }
+  </div>
+</div>

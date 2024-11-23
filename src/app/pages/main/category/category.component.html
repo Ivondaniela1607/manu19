@@ -1,0 +1,63 @@
+@defer(when showData()){
+  <div class="contenedorCategory">
+    <div class="contenedor">
+      <div class="font-semibold text-[#979CA2]">
+        <label for="" class="flex flex-wrap items-center ">
+          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+            <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+            <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+          </svg>
+          
+          <a class="cursor-pointer" [routerLink]="['/']">{{ "inicio" | translate | titlecase }}</a>
+          &nbsp;|&nbsp;
+          <a class="underline underline-offset-1" >{{ getNombreCategoria(category()) | titlecase}}</a>
+        </label>
+      </div>
+      @if (subcategories().length > 0) {
+        <div [ngClass]="{
+            'text-manu-pi': idCategory() === 1,
+            'text-manu-ed': idCategory() === 2,
+            'text-manu-mu': idCategory() === 3
+            }" class="text-center text-2xl md:text-3xl lg:text-3xl my-10 lg:my-16 md:my-16">
+            <label for=""> <strong>{{ getNombreCategoria(category()) }}</strong></label> 
+        </div>
+      }
+      <manu-card 
+        #cardComponent 
+        [categoryBase]="category()" 
+        [cards]="subcategories()" 
+        [url]="url"
+      ></manu-card>
+    </div>
+  </div>
+  <div class="contenedorCategory">
+    @if (series().length > 0) {
+      <div class="contenedor">
+        <div [ngClass]="{
+          'text-manu-pi': idCategory() === 1,
+          'text-manu-ed': idCategory() === 2,
+          'text-manu-mu': idCategory() === 3
+        }" class="text-center mb-4 mt-4 text-4xl">
+          <label class="mt-8 mb-8"><strong>{{'series' | translate | uppercase}}</strong></label>
+        </div>
+        <manu-card-series 
+          #cardComponent 
+          [categoryBase]="category()" 
+          [cards]="series()"
+          [urlSeries]="urlSeries">
+        </manu-card-series>
+      </div>
+    }  
+  </div>
+}@placeholder {
+  <div class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-800 bg-opacity-20 z-50">
+    <div class="flex items-center justify-center">
+      <div class="relative flex items-center justify-center">
+        <div class="w-16 h-16 border-4 border-primary border-dashed rounded-full animate-spin"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-10 h-10 bg-primary rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

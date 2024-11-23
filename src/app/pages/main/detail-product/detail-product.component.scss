@@ -1,0 +1,124 @@
+.color-option {
+  display: flex;
+  align-items: center;
+}
+
+.color-indicator {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container2 {
+  margin: 40px auto;
+  background-color: white;
+  padding: 40px 50px;
+  width: 84%;
+  min-width: 340px;
+  max-width: 1035px;
+}
+
+.contenedor2 {
+  margin: 40px auto;
+  background-color: white;
+  padding: 40px 50px 0 50px;
+  width: 84%;
+  min-width: 340px;
+  max-width: 1035px;
+}
+
+.carrito {
+  padding: 6px 12px;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+}
+
+.carrito:hover {
+  background-color: #c71521e8;
+}
+
+:host ::ng-deep {
+  .accordion-button:not(.collapsed){
+    background-color: transparent;
+  }
+  .accordion-button{
+    color: #9ea6ad;
+    font-weight: 500;
+    background-color: transparent;
+    line-height: 18px;
+  }
+}
+
+.docsItems a, i{
+  font-size: 14px;
+  letter-spacing: 0px;
+  line-height: 16px;
+  color: #000000;
+  font-weight: 400;
+
+}
+.containLinks a:hover {
+  color: red;
+  transition: .5s;
+}
+
+::ng-deep .mat-accordion .mat-expansion-panel-spacing {
+  margin: 0;
+}
+
+::ng-deep .mat-accordion .mat-expansion-panel{
+  background-color: white !important;
+}
+
+::ng-deep .mat-accordion .mat-expansion-panel-header{
+  background-color: white !important;
+  border: none!important;
+  padding: 0 !important;
+}
+
+::ng-deep .mat-expansion-indicator svg{
+  position: relative !important;
+  left: -15px !important;
+}
+
+::ng-deep .mat-expansion-indicator{
+  transform: rotate(0) !important;
+}
+
+::ng-deep .mat-accordion .mat-expansion-panel{
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+}
+::ng-deep .mat-accordion .mat-expansion-panel:first-of-type{
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+}
+
+@media only screen and (max-width: 600px) { 
+  .contenedor {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 512px) { 
+  .container2 {
+    padding: 40px 10px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .contenedor2 {
+    padding: 40px 10px 0 10px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .contenedorCategory {
+    padding: 20px 20px 10px 20px;
+  }
+}
