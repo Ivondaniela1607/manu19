@@ -1,0 +1,124 @@
+@if(byCategoriaPI.length > 0){
+  <div class="mt-4">
+    <label class=" text-gray-400 font-semibold text-3xl title mb-4">
+      {{ getNombreCategoria(byCategoriaPI[0]) | uppercase}}
+    </label>
+    <div class="flex justify-center">
+      <div class="cuadricula">
+        @for (item of byCategoriaPI; track item.id_catalogo) {
+          <div (click)="detail(item)" class="mt-4">
+            <div class="card relative">
+              <img appImgError fill [src]="url+item?.image?.ruta" alt="" />
+              @if (item.novedad === '1') {
+                <div class="absolute tag-nuevo tag-normal">
+                  {{ "nuevo" | uppercase }}
+                </div>
+              }
+              @if (getOfertaTexto(item)) {
+                <div class="absolute tag-oferta tag">
+                  {{ getOfertaTexto(item) }}
+                </div>
+                <div class="absolute tag-final tag"></div>
+              }
+            </div>
+            <div class="mt-4 " style="width: 256px">
+              <strong>
+                <label class="text-center" >
+                  {{item.referencia}}
+                </label>
+              </strong>
+              <br />
+              <strong>
+                <label class="text-center">
+                  {{ getNombreCatalago(item) }}
+                </label>
+              </strong>
+            </div>
+          </div>
+        }@empty {
+          <div class="text-center py-4 text-2xl font-semibold mt-4">
+            <h3>{{"no articulos"}}</h3>
+            <br>
+            <h4>{{"no articulos.txt"}}</h4>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  }
+  
+  @if(byCategoriaED.length > 0){
+  <div class="mt-4">
+    <label class=" text-gray-400 font-semibold text-3xl title mb-4">
+      {{ getNombreCategoria(byCategoriaED[0]) | uppercase}}
+    </label>
+    <div class="flex justify-center">
+      <div class="cuadricula">
+        @for (item of byCategoriaED; track item.id_catalogo) {
+          <div (click)="detail(item)" class="mt-4">
+            <div class="card relative">
+              <img appImgError fill [src]="url+item?.image?.ruta" alt="" />
+            </div>
+            <div class="mt-4 " style="width: 256px">
+              <strong>
+                <label class="text-center" >
+                  {{item.referencia}}
+                </label>
+              </strong>
+              <br />
+              <strong>
+                <label class="text-center">
+                  {{ getNombreCatalago(item) }}
+                </label>
+              </strong>
+            </div>
+          </div>
+        }@empty {
+          <div class="text-center py-4 text-2xl font-semibold mt-4">
+            <h3>{{"no articulos"}}</h3>
+            <br>
+            <h4>{{"no articulos.txt"}}</h4>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  }
+  
+  @if(byCategoriaMU.length > 0){
+  <div class="mt-4">
+    <label class=" text-gray-400 font-semibold text-3xl title mb-4">
+      {{ getNombreCategoria(byCategoriaMU[0]) | uppercase}}
+    </label>
+    <div class="flex justify-center">
+      <div class="cuadricula">
+        @for (item of byCategoriaMU; track item.id_catalogo) {
+          <div (click)="detail(item)" class="mt-4">
+            <div class="card relative">
+              <img appImgError fill [src]="url+item?.image?.ruta" alt="" />
+            </div>
+            <div class="mt-4 " style="width: 256px">
+              <strong>
+                <label class="text-center" >
+                  {{item.referencia}}
+                </label>
+              </strong>
+              <br />
+              <strong>
+                <label class="text-center" >
+                  {{ getNombreCatalago(item) }}
+                </label>
+              </strong>
+            </div>
+          </div>
+        }@empty {
+          <div class="text-center py-4 text-2xl font-semibold mt-4">
+            <h3>{{"no articulos"}}</h3>
+            <br>
+            <h4>{{"no articulos.txt"}}</h4>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  }

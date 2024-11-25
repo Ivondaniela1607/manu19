@@ -1,0 +1,23 @@
+
+
+.text {
+  width: 80%;
+}
+
+.container-nav label {
+  color: rgb(151, 156, 162);
+   a {
+    color: rgb(151, 156, 162);
+   }
+}
+
+.container-nav {
+  padding: 20px 40px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .text {
+    width: 100%;
+  }
+  
+}

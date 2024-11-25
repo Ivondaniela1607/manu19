@@ -11,8 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchService } from '@app/services/search.service';
 
 
-@Component({
-    standalone: true,
+@Component({  
     selector: 'manu-presentacion-header',
     imports: [FormsModule, ImgErrorDirective, CommonModule],
     templateUrl: './presentacion-header.component.html',

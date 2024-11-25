@@ -1,0 +1,162 @@
+
+.calidad {
+  padding: 10px 110px 20px 110px;
+}
+
+.textfirst {
+  text-align: end;
+}
+
+.services {
+  padding: 10px 180px 20px 180px;
+  background-color: rgb(242, 243, 246);
+}
+
+.gober {
+  padding: 10px 180px 40px 180px;
+}
+
+.services img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 50px;
+}
+
+
+.install-mant {
+  display: grid;
+  grid-template-areas:"image1 image1 image2 image3"
+                      "image1 image1 image4 image5";
+  row-gap: 20px;
+  column-gap: 20px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0;
+    }
+}
+
+.img1{
+  grid-area: image1;
+}
+.img2{
+  grid-area: image2;
+}
+.img3{
+  grid-area: image3;
+}
+.img4{
+  grid-area: image4;
+}
+.img5{
+  grid-area: image5;
+}
+
+.column-container {
+  display: grid;
+  grid-template-columns: 1fr 5fr; 
+  row-gap: 40px; 
+  column-gap: 10px; 
+}
+
+.column-container img {
+  width: 30px !important;
+  border: 1px red solid !important;
+}
+
+
+@media screen and (max-width: 1400px) {
+  .containImg {
+    justify-content: space-between;
+  }
+  
+}
+
+@media screen and (max-width: 1024px) {
+  .calidad {
+    padding: 10px 20px 20px 20px;
+  }
+
+  .contentNav {
+    padding: 50px 50px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .services {
+    padding: 10px 20px 20px 20px;
+  }
+
+  .gober {
+    padding: 10px 80px 20px 80px;
+  }
+
+  .containImg {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+  .services {
+    padding: 10px 50px 20px 50px;
+  }
+
+  .gober {
+    padding: 10px 50px 20px 50px;
+  }
+
+  .install-mant {
+    display: grid;
+    grid-template-areas:"image1 image2"
+                        "image3 image4"
+                        "image5 image5";
+  }
+
+  .services {
+    padding: 10px 20px 20px 20px;
+  }
+  .gober {
+    padding: 10px 20px 20px 20px;
+  }
+  .item {
+    flex-direction: column;
+  }
+  
+  .textfirst {
+    text-align: start;
+  }
+
+  .install-mant {
+    display: grid;
+    grid-template-areas:"image1"
+                        "image2"
+                        "image3"
+                        "image4"
+                        "image5";
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .contenedor{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .column-container {
+    row-gap: 20px; 
+    grid-template-columns: 1fr; 
+  }
+
+  .calidad {
+    padding: 10px 30px 20px 30px;
+  }
+
+  ::ng-deep .ql-align-right {
+    text-align: left !important;
+    display: flex;
+    justify-content: left !important;
+  }
+}

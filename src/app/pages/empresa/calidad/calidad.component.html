@@ -1,0 +1,68 @@
+<section>
+  <div class="contenedor">
+    <div class="font-semibold text-[#979CA2] mt-4">
+      <label for="" class="flex flex-wrap items-center  ms-0 lg:ms-8 md:ms-8">
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+          <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+          <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+        </svg>
+        <a [routerLink]="['/']">{{ "inicio"  | titlecase }}</a>
+        &nbsp;|&nbsp;
+        <a class="underline underline-offset-1 cursor-default " [routerLink]="['/empresa/calidad']">{{ 'calidad'  }}</a>
+      </label>
+    </div>
+  </div>
+  @if(data().length > 0){
+    <div class=" calidad">
+      <div class="text-center mb-4 mt-4 text-3xl">
+        <label for=""><strong>{{ getTitulo(data()[0]) | uppercase }}</strong></label>
+      </div>
+      <div class="calidad">
+          <div class=" mb-2 mt-6 pe-4 ps-4 pb-4 text flex justify-center">
+            <div class="calidad" [innerHTML]="getTexto1(data()[0])"></div>
+          </div>
+      </div>
+     
+    </div>
+    <div class="services">
+      <div class="contenedor calidad">
+        <div class="calidad" [innerHTML]="getTexto2(data()[0])"></div>
+      </div>
+    
+    </div>
+  }
+  <div class="">
+    <p class="text-center text-2xl font-semibold mt-4 mb-2 text-gray-900"> {{ 'calidad.documentos'  }}</p>
+    <div class="container-document mt-4" >
+      @for (item of documentsCalidad(); track item) {
+        <ng-container class="card cursor-pointer" >
+          @if (item.activo === 1 && (
+            lenguaje() === 'es' 
+            &&  (item.documento_es || item.linkexterno_es) 
+            ||  lenguaje() === 'en' 
+            &&  (item.documento_en || item.linkexterno_en) 
+            ||  lenguaje() === 'fr' 
+            &&  (item.documento_fr || item.linkexterno_fr) 
+            ||  lenguaje() === 'po' 
+            && (item.documento_po || item.linkexterno_po) 
+            ||  lenguaje() === 'it' 
+            && (item.documento_it || item.linkexterno_it)
+          )) {
+            <div  (click)="onClick(item)"
+              class="cursor-pointer" style="width: 250px;" >
+              <img appImgError [src]="url+item?.ruta" [alt]="item.imagen" class="w-full">
+              <div class="mt-3">
+                <p class="text-xl text-center"> 
+                  {{getDocumentoText(item)}}
+                </p>
+              </div>
+            </div>
+          }
+        </ng-container>
+      }
+    </div>
+  </div> 
+
+ 
+
+<section>

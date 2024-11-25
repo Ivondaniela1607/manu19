@@ -11,7 +11,6 @@ import { BreakpointService } from '@app/services/BreakPointObserver.service';
 
 
 @Component({
-    standalone: true,
     selector: 'manu-footer',
     imports: [ImgErrorDirective, CommonModule, RouterLink, MatTooltipModule, ImgErrorDirective],
     templateUrl: './footer.component.html',

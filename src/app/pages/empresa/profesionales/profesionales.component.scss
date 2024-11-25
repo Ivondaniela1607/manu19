@@ -1,0 +1,18 @@
+.calidad {
+  width: 70%;
+  margin: 0 auto;
+
+}
+
+@media screen and (max-width: 1024px) {
+  .calidad {
+    width: 100%;
+    padding: 10px 20px 20px 20px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .calidad {
+    
+    padding: 10px 10px 20px 10px;
+  }
+}

@@ -1,0 +1,190 @@
+<section>
+  <div class="contenedor">
+    <div class="font-semibold text-[#979CA2] mt-4">
+      <label for="" class="flex flex-wrap items-center cursor-pointer ms-0 lg:ms-8 md:ms-8">
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+          <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+          <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+        </svg>
+        <a [routerLink]="['/']">{{ "inicio" | titlecase }}</a>
+        &nbsp;|&nbsp;
+        <a class="underline underline-offset-1 cursor-default" [routerLink]="['/empresa/sobrenosotros']">{{ 'sobre nosotros' }}</a>
+      </label>
+    </div>
+  </div>
+  @if(data().length > 0){
+    <div class="contenedor calidad">
+      <div class="text-center mb-4 mt-4 text-3xl">
+        <label for=""><strong>{{ getTitulo(data()[0]) | uppercase }}</strong></label>
+      </div>
+      <div>
+        <div class="seccion1 grid grid-flow-row  md:grid-flow-col lg:gap-4 mt-4 " [innerHTML]="getTexto1(data()[0])"></div>
+      </div>
+      <!-- <div class="item mt-2">
+        <div class="me-3 w-full">
+          <p class="textfirst">{{'sobrenonostros.col1'}}</p>
+        </div>
+        <div class="md:ml-3 sm:ml-0 md:mt-3 lg:mt-0 w-full">
+          <p class="text-2xl font-medium">{{'sobrenonostros.col2' | titlecase}}</p>
+        </div>
+      </div> -->
+    </div>
+    <div class="services">
+      <div class="contenedor">
+        <div class="w-full mt-10">
+          <div class="column-container" [innerHTML]="getTexto2(data()[0])"></div>
+        </div>
+        <div class="install-mant mt-6 mb-6">
+          <img appImgError class="img1" src="assets/images/others/sob_2.jpg" alt="" />
+          <img appImgError class="img2" src="assets/images/others/sob_1.jpg" alt="" />
+          <img appImgError class="img3" src="assets/images/others/sob_3.jpg" alt="" />
+          <img appImgError class="img4" src="assets/images/others/sob_4.jpg" alt="" />
+          <img appImgError class="img5" src="assets/images/others/sob_5.jpg" alt="" />
+        </div>
+      </div>
+
+    </div>
+    <div class="gober">
+      <div class="contenedor">
+        <div class="item w-full mt-5">
+          <div class="flex flex-col " [innerHTML]="getTexto3(data()[0])"></div>
+        </div>
+      </div>
+    </div>
+  }
+<!--<div class="services">
+    <div class="contenedor">
+      <div class="item w-full mt-5">
+        <img appImgError src="assets/images/illustrator/SOBRENOSOTROS1.svg" alt="">
+        <div>
+          <p class="text-2xl font-semibold">{{'sobrenonostros.atencion.title'}}</p>
+          <p class="w-full">
+            {{'sobrenonostros.atencion'}}
+          </p>
+        </div>
+      </div>
+      <div class="item w-full mt-5">
+        <img appImgError src="assets/images/illustrator/SOBRENOSOTROS2.svg" alt="">
+        <div>
+          <p class="text-2xl font-semibold">{{'sobrenonostros.diseno.title' | titlecase}}</p>
+          <p class="w-full">
+            {{'sobrenonostros.diseno' }}
+          </p>
+        </div>
+      </div>
+      <div class="item w-full mt-5">
+        <img appImgError src="assets/images/illustrator/SOBRENOSOTROS3.svg" alt="">
+        <div>
+          <p class="text-2xl font-semibold">{{'sobrenonostros.transporte.title' | titlecase}}</p>
+          <p class="w-full">
+            {{'sobrenonostros.transporte' }}
+          </p>
+        </div>
+      </div>
+      <div class="item w-full mt-5">
+        <img appImgError src="assets/images/illustrator/SOBRENOSOTROS4.svg" alt="">
+        <div>
+          <p class="text-2xl font-semibold">{{'sobrenonostros.mantenimiento.title' | titlecase}}</p>
+          <p class="w-full">
+            {{'sobrenonostros.mantenimiento' }}
+          </p>
+        </div>
+      </div>
+      <div class="item w-full mt-5 mb-5">
+        <img appImgError src="assets/images/illustrator/SOBRENOSOTROS5.svg" alt="">
+        <div>
+          <p class="text-2xl font-semibold">{{'sobrenonostros.instalaciones.title' | titlecase}}</p>
+          <p class="w-full">
+            {{'sobrenonostros.instalaciones' }}
+          </p>
+        </div>
+      </div>
+      <div class="install-mant mt-6 mb-6">
+        <img appImgError class="img1" src="assets/images/others/sob_2.jpg" alt="" />
+        <img appImgError class="img2" src="assets/images/others/sob_1.jpg" alt="" />
+        <img appImgError class="img3" src="assets/images/others/sob_3.jpg" alt="" />
+        <img appImgError class="img4" src="assets/images/others/sob_4.jpg" alt="" />
+        <img appImgError class="img5" src="assets/images/others/sob_5.jpg" alt="" />
+      </div>
+    </div>
+  </div>
+  <div class="gober">
+    <div class="contenedor">
+      <div class="item w-full mt-5">
+        <img appImgError style="height: 70px;
+                    margin-right: 50px;
+                    object-fit: contain;" src="assets/images/others/UE-bandera.jpg" alt="">
+        <div>
+          <p class="text-2xl font-semibold text-muted ">UNIÓN EUROPEA. El Fondo Social Europeo invierte en tu futuro.</p>
+          <p class="w-full text-muted">
+            Esta empresa ha recibido una subvención destinada a fomentar la contratación indefinida de personas
+            desempleadas,
+            cofinanciada al 50 % por el Gobierno de Cantabria y el Fondo Social Europeo a través del Programa Operativo
+            FSE de Cantabria
+            2014-2020. <br><br>
+            DESARROLLO E IMPLANTACIÓN DE TECNOLOGÍA BIM PARA LA GESTIÓN INTEGRAL DEL CICLO DE VIDA DE LOS ARTÍCULOS DE
+            MOBILIARIO URBANO, PARQUES INFANTILES Y EQUIPAMIENTO DEPORTIVO, A TRAVÉS DE UNA MAQUETA VIRTUAL
+            INTELIGENTE. <br><br>
+            El objetivo general del proyecto es desarrollar e implantar la tecnología conocida como BIM (Building
+            Information Modeling) en la
+            cadena de valor de los productos de la empresa, de tal manera que cada artículo
+            diseñado/fabricado/distribuido por MD, cuente
+            con su maqueta virtual inteligente, consistente en un modelo tridimensionales que alberga una base de datos
+            central, actualizado
+            en tiempo real y con total conectividad entre sistemas y usuarios, de tal manera que su aplicación práctica
+            permita hacer una
+            gestión integral del ciclo de vida del artículo de mobiliario, desde que comienza su propio proceso de
+            fabricación, almacenaje,
+            puesta en obra, explotación, mantenimiento y reposición. <br><br>
+            La empresa ha alcanzado con éxito los objetivos planteados al comienzo del proyecto. Cuenta con un catálogo
+            100% BIM, que se
+            ha incorporado en la página web corporativa para su descarga y uso. <br><br>
+            CREACIÓN DE METODOLOGÍA INTEGRAL A TRAVÉS DEL USO BIM (BUILDING INFORMATION MODELING) Y SIMULACIÓN 4D
+            PARA LA OPTIMIZACIÓN DEL CICLO DE MONTAJE DE PARQUES INFANTILES E INSTALACIONES DEPORTIVAS. <br><br>
+            Se acomete el diseño de una metodología virtual para la optimización del proceso de montaje. Para ello se
+            tomarán como base los
+            principios de la metodología BIM, ampliando su alcance a través de la fusión de tecnologías de simulación
+            virtual interactiva. <br><br>
+            Con el objetivo de testear y validar el proyecto, se efectuará una prueba piloto experimental tomando como
+            base una muestra
+            representativa de elementos del catálogo de MD, de donde puedan extraerse indicadores que igualmente sean
+            representativos
+            para la estimación del grado de mejora logrado con el presente desarrollo e implantación del modelo
+            metodológico. <br><br>
+            Proyecto Cofinanciado por el Fondo Europeo de Desarrollo Regional.<br><br>
+            Programa Operativo FEDER de Cantabria 2014-2020.<br><br>
+            "Una manera de hacer Europa".
+          </p>
+        </div>
+      </div>
+      <div class="item w-full mt-5 mb-5">
+        <img appImgError style="height: 70px;
+                width: 140px;
+                margin-right: 30px;" src="assets/images/illustrator/gob_cantabriaAI.svg" alt="">
+        <div>
+          <p class="text-2xl font-semibold text-muted ">CONSEJERÍA DE INNOVACIÓN, INDUSTRIA, TURISMO Y COMERCIO</p>
+          <p class="w-full text-muted">
+            DIRECCIÓN GENERAL DE INNOVACIÓN, DESARROLLO TECNOLÓGICO Y EMPRENDIMIENTO INDUSTRIAL
+            OPERACIÓN: Fondos FEDER REACT-UE <br><br>
+            “Implantación de tecnología de realidad aumentada en parques infantiles” <br><br>
+            DESCRIPCIÓN OPERACIÓN – Manufacturas es una empresa de fabricación de parques infantiles que desarrolla
+            continuamente
+            inversiones en I+D para aportar valor a sus clientes. En muchas ocasiones estas actuaciones se apoyan en los
+            incentivos como
+            palanca para su desarrollo, de forma que se garantice la viabilidad de realizar las inversiones que suponen
+            este tipo de proyectos.
+            Envueltos en este halo de mejora continua de sus productos, catálogos y procesos ha desarrollado un nuevo
+            proceso comercial
+            que aprovecha la realidad aumentada para la venta de su catálogo. Este nuevo proceso servirá para ofrecer a
+            sus clientes una
+            experiencia que permita observar el resultado final de la implantación del modelo/producto en un entorno
+            real. <br><br>
+            OBJETIVO PRINCIPAL: Inversión incentivadora del uso de nuevas tecnologías.<br><br>
+            PRESUPUESTO: 20.000,00 € <br><br>
+            Cofinanciación FEDER 50% con recursos REACT-UE
+          </p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</section>

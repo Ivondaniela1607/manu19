@@ -1,0 +1,21 @@
+.detailNews {
+  padding: 0 300px;
+  margin: 0 auto;
+}
+
+img {
+  object-fit: cover;
+}
+
+.decorative-line {
+  height: 1px;
+  width: 20%;
+  background-color: #C71522; 
+
+}
+
+@media only screen and (max-width: 992px) { 
+  .detailNews {
+    padding: 0 20px;
+  }
+}

@@ -1,0 +1,88 @@
+.card {
+  height: 250px;
+  width: 256px;
+  cursor: pointer;
+  border-radius: 10px;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(183,192,206,.2);
+}
+
+.cuadricula {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 40px;
+  justify-content: flex-start;
+  padding: 0 35px;
+}
+
+img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+}
+
+.card:hover {
+  transition: .5s;
+  box-shadow: 0 0 10px 0 rgba(77, 77, 79, 0.331)
+}
+
+.tag {
+  padding: 1px 10px;
+  background-color: rgb(217, 0, 36);
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.tag-nuevo {
+  padding: 1px 10px;
+  background-color: rgb(217, 0, 36);
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.tag-oferta {
+  background-color: rgb(217, 0, 36);
+  clip-path: polygon(0 0, 88% 0, 98% 100%, 10% 100%);
+  margin-left: 8px;
+  top: 15px;
+  right: -10px;
+  font-size: 14px;
+}
+
+.tag-final {
+  background-color: rgb(217, 0, 36);
+  clip-path: polygon(0 0, 32% 41%, 100% 0);
+  height: 26px;
+  width: 34px;
+  right: -10px;
+  top: 39px;
+}
+
+.tag-normal {
+  left: 15px;
+  top: 15px;
+  font-size: 14px;
+}
+
+
+@media only screen and (max-width: 992px) { 
+  .cuadricula {
+    justify-content: center;
+  }
+
+}
+@media only screen and (max-width: 425px) { 
+  .cuadricula {
+    padding: 0 0;
+    margin-top: 40px;
+  }
+
+}

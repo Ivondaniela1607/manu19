@@ -1,0 +1,200 @@
+*{
+  font-family: 'Montserrat', sans-serif !important;
+}
+.calidad {
+  padding: 10px 120px 20px 120px;
+  p {
+    text-align: justify;
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+/* Para Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.contentNav {
+  background-color: white; 
+  padding: 50px 50px;
+}
+
+p{
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700;
+  color: #979CA2;
+}
+
+.b-grey {
+  background-color: rgb(201, 205, 208);
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.detailForm {
+  width: 75%;
+}
+
+.text-parques-infantiles {
+  color: #622489;
+}
+.text-mobiliario-urbano {
+  color: #9eb826;
+}
+.text-equipamiento-deportivo {
+  color: #2690cc;
+}
+
+.b-grey-light {
+  background-color: rgba(241, 244, 246);
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.sumar-restar-button {
+  color: black;
+  border: none;
+  padding: 1px 4px;
+  cursor: pointer;
+  border: 1px #90898955 solid;
+}
+
+.sumar-button:hover {
+  background-color: #2690cc;
+  transition: .5s;
+}
+
+.restar-button:hover {
+  background-color: #9eb826;
+  transition: .5s;
+}
+
+.sumar-restar-input {
+  text-align: center;
+  font-size: 16px;
+  width: 40px;
+  border: none;
+}
+
+.back {
+  color: rgb(149, 156, 152);
+  text-decoration: underline;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-w {
+  width: 30%;
+}
+
+.texto {
+  width: 60%
+}
+
+.mat-step-header {
+  pointer-events: none !important;
+
+}
+
+::ng-deep .custom-stepper .mat-step-header:hover {
+  background-color: transparent !important;
+}
+::ng-deep .mat-horizontal-stepper-header-container {
+  padding-top: 20px !important;
+  display: flex !important;
+  align-items: start !important;
+  max-width: 700px;
+}
+::ng-deep .mat-stepper-horizontal-line {
+  border-top-color: rgba(128, 128, 128, 0.313) !important;
+  border-top-width: 2px !important;
+  min-width: 80px !important;
+}
+::ng-deep .custom-stepper .mat-step-header:hover:not {
+  background-color: transparent !important;
+}
+::ng-deep .mat-horizontal-stepper-wrapper {
+  background-color: white !important;
+  align-items: center !important;
+}
+::ng-deep .custom-stepper .mat-step-icon {
+  width: 12px !important;
+  height: 12px !important;
+}
+::ng-deep .custom-stepper .mat-step-header {
+  display: flex !important;
+  flex-direction: column !important;
+/*   border-top: 2px rgba(128, 128, 128, 0.313) solid !important; */
+}
+::ng-deep .custom-stepper .mat-step-label {
+  white-space: break-spaces !important;
+}
+
+::ng-deep .custom-stepper .mat-step-icon-selected {
+  background-color: red !important;
+}
+::ng-deep .custom-stepper .mat-step-icon-state-edit {
+  background-color: green !important;
+}
+::ng-deep .custom-stepper .mat-step-icon-state-done {
+  background-color: green !important;
+}
+::ng-deep .custom-stepper .mat-step-icon-content {
+  display: none !important;
+}
+::ng-deep .custom-stepper .mat-step-icon-state-edit {
+  background-color: green !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .calidad {
+    padding: 10px 0 20px 0;
+  }
+  
+  .contentNav {
+    padding: 50px 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sumar-restar-input {
+    width: 20px;
+  }
+  .sumar-restar-button {
+    padding: 1px 2px;
+  }
+  .btn-w {
+    width: 70%;
+  }
+
+  .contentNav {
+    padding: 50px 0;
+  }
+  
+  .detailForm {
+    width: 70%;
+    margin: 0 auto;
+  }
+  
+  .b-grey-light {
+    padding: 20px 15px;
+  }
+  
+  .texto {
+    width: 100%
+  }
+
+}
+
+@media screen and (max-width: 425px) {
+    .detailForm {
+      width: 100%;
+    }
+}

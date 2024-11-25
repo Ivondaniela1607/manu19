@@ -1,0 +1,117 @@
+
+.timeline-carousel__item .media-wrapper {
+  /* opacity: 0.4; */
+   background-size: contain !important;
+   background-repeat: no-repeat !important;
+   border-radius: 0px !important;
+  padding-bottom: 71.4%;
+  -webkit-transition: all 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  -o-transition: all 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transition: all 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+
+:host ::ng-deep {
+  .owl-carousel .owl-nav .owl-prev,
+  .owl-carousel .owl-nav .owl-next,
+  .owl-carousel .owl-dot {
+    font-family: "fontAwesome";
+  }
+  .owl-carousel .owl-nav .owl-prev {
+    background: transparent;
+    height: 400px;
+    width: 310px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .owl-carousel .owl-nav .owl-next {
+    background: transparent;
+    height: 400px;
+    width: 310px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+  
+  .owl-theme .owl-nav [class*="owl-"] {
+    color: gray;
+    font-size: 4rem;
+
+  }
+  
+  .owl-next {
+    position: absolute;
+    top: 10%;
+    right: 3%;
+  }
+  .owl-prev {
+    position: absolute;
+    top: 10%;
+    left: 3%;
+  }
+  .owl-next img{
+    width: 70px;
+    height: 70px;
+  }
+  .owl-prev img{
+    width: 70px;
+    height: 70px;
+
+  }
+}
+
+
+.timeline-carousel:after,
+.timeline-carousel:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  height: 100%;
+  width: 6.9444%;
+  /* background-color: #1d1d1e; */
+  z-index: 3;
+  width: 6.9444%;
+}
+
+
+.timeline-carousel__item:last-child .timeline-carousel__item-inner:after {
+  width: calc(100% - 30px);
+}
+
+
+.timeline-carousel__item-inner .pointer:after,
+.timeline-carousel__item-inner .pointer:before {
+  position: absolute;
+  content: "";
+}
+
+
+.timeline-carousel .slick-active .media-wrapper {
+  opacity: 1 !important;
+}
+
+::ng-deep .owl-prev img {
+  width: 70px;
+  height: 70px;
+}
+
+.timeline-carousel__item .media-wrapper {
+  /* opacity: 0.4; */
+  aspect-ratio: 1 / 1;
+  min-height: 250px;
+  background-color: white;
+   border-radius: 0px !important;
+      background-size: contain !important;
+  background-repeat: no-repeat !important;
+/*   padding-bottom: 71.4%; */
+  -webkit-transition: all 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  -o-transition: all 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transition: all 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+* {
+  outline: none !important;
+}
+

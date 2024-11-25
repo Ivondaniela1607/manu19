@@ -1,8 +1,7 @@
 import { Directive, ElementRef, HostListener, inject } from '@angular/core';
 
 @Directive({
-  selector: '[appImgError]',
-  standalone: true,
+  selector: '[appImgError]',  
 })
 export class ImgErrorDirective {
 

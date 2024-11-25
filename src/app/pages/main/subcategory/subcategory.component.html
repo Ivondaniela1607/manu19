@@ -1,0 +1,321 @@
+@if (isLoading()) {
+  <div class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-800 bg-opacity-20 z-50">
+    <div class="flex items-center justify-center">
+      <div class="relative flex items-center justify-center">
+        <div class="w-16 h-16 border-4 border-primary border-dashed rounded-full animate-spin"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-10 h-10 bg-primary rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+}
+
+@defer(when showData()){
+  <div class="contenedorCategory">
+    <div class="contenedor">
+      <div class="font-semibold text-[#979CA2]">
+        <label for="" class="flex flex-wrap items-center cursor-pointer">
+          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+            <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+            <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+          </svg>
+          <a [routerLink]="['/']">{{ "inicio"  | titlecase }}</a>
+          &nbsp;|&nbsp;
+          <a class="cursor-pointer"(click)="detail(category())">{{
+            getCategoriaText(category()) | titlecase }}
+          </a>
+          &nbsp;|&nbsp;
+          <a class="underline underline-offset-1">
+            {{ getSubcategoriaText(opc) | titlecase }}
+          </a>
+        </label>
+      </div>
+      <div class="text-center text-2xl md:text-3xl lg:text-3xl my-10 lg:my-16 md:my-16">
+        <label for="">
+          <strong [innerHTML]="getSubcategoriaText(opc)"></strong>
+        </label>  
+      </div>
+    </div>
+    <div class="grid grid-cols-12 gap-4">
+      <div class="col-span-12 md:col-span-3 lg:col-span-3">
+        <div class="w-full bg-white px-4 py-4">
+          <strong>
+            <label for="" class="font-semibold w-full">
+              {{ "que necesitas"  | uppercase }}
+            </label>
+          </strong>
+        </div>
+        <hr>
+        <!-- app.component.html -->
+        <mat-accordion [multi]="true">
+          <!-- ordenafr -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span>{{ "ordenar"  | uppercase }}</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+              <ul class="p-0 m-0 text-gray-400">
+                @for (i of ordenar; track i) {
+                  <li>
+                    <input type="radio" name="opcion1" class="me-1" [checked]="filtros.ordenar[i.id_ordenar]"
+                      (change)="checkOdernar(i)" />
+                      <label class="text-gray-800">
+                        {{ getLabel(i) }}</label>
+                  </li>
+                }
+              </ul>
+            </div>
+          </mat-expansion-panel>
+          <hr>
+          <!-- edades -->
+          @if (serieOpc() || (opc.id_categoria === 1 )) {
+            <mat-expansion-panel >
+               <mat-expansion-panel-header>
+                 <mat-panel-title>
+                   <span>{{ "edad"  | uppercase }} </span>
+                 </mat-panel-title>
+               </mat-expansion-panel-header>
+               <div >
+                 <ul class="p-0 m-0 text-muted">
+                  @for (i of edades(); track i) {   
+                    <li >
+                      <input
+                        type="checkbox"
+                        name="opcion2"
+                        class="me-1"
+                        [checked]="filtros.edad[i.id_edad]"
+                        (click)="checkEdades(i)"
+                      />
+                      <label class="" [style.color]="filtros.edad[i.id_edad] === true ? 'black' : 'inherit'">
+                        {{ getEdad(i) }}</label
+                      >
+                    </li>
+                  }
+                 </ul>
+               </div>
+            </mat-expansion-panel>
+            <hr>
+          }
+          <!-- series -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span>{{ "serie"  | uppercase }}</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+              <ul class="p-0 m-0 text-muted">
+                @for (i of series(); track i) {
+                  <li >
+                    <input
+                      type="checkbox"
+                      name="opcion3"
+                      class="me-1"
+                      [checked]="filtros.serie[i.id_serie]"
+                      (click)="checkSeries(i)"
+                    />
+                    <label class="" [style.color]="filtros.serie[i.id_serie] === true ? 'black' : 'inherit'">
+                      {{ getSeries(i) | titlecase}}
+                    </label>
+                  </li>
+                }
+                
+              </ul>
+            </div>
+          </mat-expansion-panel>
+          <hr>
+          <!-- colores -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span>{{ "color"  | uppercase }}</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+              <ul class="p-0 m-0 grid grid-cols-12">
+                @for ( i of colores(); track i) {
+                  <li
+     
+                    class="col-span-3 md:col-span-3 lg:col-span-3"
+                  >
+                    <div class="color-option">
+                      <div
+                        class="color-indicator border border-gray-300"
+                         tabindex="0"
+                        [ngClass]="{ 'selected-color': filtros.color[i.id_color] }"
+             
+                        (click)="checkColor(i)"
+                        [style.background-color]="i.color"
+             
+                      
+                      >
+                      </div>
+                    </div>
+                  </li>
+                }
+              </ul>
+            </div>
+          </mat-expansion-panel>
+          <hr>
+          <!-- materiales -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span>{{ "materiales"  | uppercase }}</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+              <ul class="p-0 m-0 text-muted">
+                @for ( i of materiales(); track i) {
+                  <li>
+                    <input
+                      type="checkbox"
+                      name="opcion4"
+                      class="me-1"
+                      [checked]="filtros.material[i.id_material]"
+                      (click)="checkMateriales(i)"
+                    />
+
+                    <label class="" [style.color]="filtros.material[i.id_material] === true ? 'black' : 'inherit'">
+                      {{ getMaterialesText(i) | titlecase}}</label
+                    >
+                  </li>
+                }
+              </ul>
+            </div>
+          </mat-expansion-panel>
+          <hr>
+        </mat-accordion>
+        <div class="p-4 flex flex-col bg-white">
+          <div>
+            <input
+              type="radio"
+              name="opcion5"
+              class="me-1"
+              [checked]="filtros.inclusivo"
+              (click)="checkInclusivo()"
+            />
+   
+            <label>{{"inclusivo"  | uppercase}} </label>
+          </div>
+          <hr class="my-4"/>
+          <div>
+            <input
+              type="radio"
+              name="opcion7"
+              class="me-1"
+              (click)="checkNovedad()"
+              [checked]="filtros.novedad"
+            />
+            <label> {{"novedad"  | uppercase}} </label>
+          </div>
+          <hr class="my-4"/>
+          <div>
+            <input
+              type="radio"
+              name="opcion8"
+              class="me-1"
+              (click)="checkOferta()"
+              [checked]="filtros.oferta"
+            />
+            <label> {{"oferta"  | uppercase}} </label>
+          </div>
+          <hr class="my-4"/>
+          @if (opc.id_categoria === 1 ) {
+            <label for="">{{'altura caida'  | uppercase}}</label>
+            <div class="mt-4">
+              <div class="mb-3">
+                <small><strong>{{minSelectedAlturaCaida()}}m - {{maxSelectedAlturaCaida()}}m</strong> </small>
+              </div>
+              <div class="range-slider">
+                <span class="range-selected" [style.left.%]="minPercent()" [style.right.%]="maxPercent()"></span>
+              </div>
+              <div class="range-input">
+                <input 
+                  type="range" 
+                  class="min" 
+                  min="0" 
+                  max="1000" 
+                  step="100" 
+                  [(ngModel)]="minValue"
+                  (input)="onInputChangeAlturaCaida()"
+                >
+                <input 
+                  type="range" 
+                  class="max" 
+                  min="0" 
+                  max="1000" 
+                  step="100" 
+                  [(ngModel)]="maxValue"
+                  (input)="onInputChangeAlturaCaida()"
+                >
+              </div>
+              <div class="flex justify-between mt-2">
+                <span class="text-sm min-label">{{alturaCaidaInicio()}}m</span>
+                <span class="text-sm max-label">{{alturaCaidaFin()}}m</span>
+              </div>
+            </div>
+            <div class="range mt-2 mb-4">
+              <label for="">{{'superficie impacto'  | uppercase}}</label>
+              <div class="mt-4">
+                <div class="mb-3">
+                  <small><strong>{{minSelectedSuperficieImpacto()}}m2 - {{maxSelectedSuperficieImpacto()}}m2</strong> </small>
+                </div>
+                <div class="range-slider">
+                  <span class="range-selected" [style.left.%]="minPercentSuperficie()" [style.right.%]="maxPercentSuperficie()"></span>
+                </div>
+                <div class="range-input">
+                  <input 
+                    type="range" 
+                    class="min" 
+                    min="0" 
+                    max="1000" 
+                    step="100" 
+                    [(ngModel)]="minValueSuperficie"
+                    (input)="onInputChangeSuperficieImpacto()"
+                  >
+                  <input 
+                    type="range" 
+                    class="max" 
+                    min="0" 
+                    max="1000" 
+                    step="100" 
+                    [(ngModel)]="maxValueSuperficie"
+                    (input)="onInputChangeSuperficieImpacto()"
+                  >
+                </div>
+                <div class="flex justify-between mt-2">
+                  <span class="text-sm min-label">{{superficieImpactoInicio()}}m2</span>
+                  <span class="text-sm max-label">{{superficieImpactoFin()}}m2</span>
+                </div>
+              </div>
+              <hr class="my-4"/>
+            </div> 
+          }
+          <label> {{cantReferencias()}} {{"referencias"  | uppercase}} </label>
+        </div>
+      </div>
+      <div class="col-span-12 md:col-span-9 lg:col-span-9">
+        <manu-card-subcategory          
+          [subcatProducts]="subcatProducts"
+          [opc]="opc"
+        >
+        </manu-card-subcategory>
+      </div>
+    </div>
+  </div>
+}@placeholder {
+  <div class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-800 bg-opacity-20 z-50">
+    <div class="flex items-center justify-center">
+      <div class="relative flex items-center justify-center">
+        <div class="w-16 h-16 border-4 border-primary border-dashed rounded-full animate-spin"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-10 h-10 bg-primary rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

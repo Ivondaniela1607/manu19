@@ -1,0 +1,28 @@
+.services {
+  padding: 50px 0;
+  background-color: rgb(242, 243, 246);
+}
+
+img {
+  width: 40px;
+}
+
+
+:host ::ng-deep {
+  iframe {
+    width: 325px !important; 
+    height: 277px !important;
+  }
+}
+
+/* Para navegadores basados en WebKit (como Chrome, Safari y Edge) */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+/* Para Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}

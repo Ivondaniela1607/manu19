@@ -5,8 +5,7 @@ import { environment } from '@env/environment';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
-@Component({
-    standalone: true,
+@Component({    
     selector: 'manu-carrusel',
     imports: [ImgErrorDirective, CarouselModule, CommonModule],
     templateUrl: './carrusel.component.html',

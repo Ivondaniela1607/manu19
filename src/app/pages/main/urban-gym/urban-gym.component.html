@@ -1,0 +1,58 @@
+<div [style]="{ 'background-color': data().color }" class="pt-8 pb-2 mt-2">
+  <div style="min-height: 80px"
+    class="contenedor flex flex-col md:flex-row lg:flex-row justify-between items-center w-full">
+    <span class="text-white text-[32px] sm:text-[32px] md:text-[40px] lg:text-[40px] font-semibold ">{{ data().hashtag }}</span>
+    <img appImgError style="width: 200px; height: 75px; object-fit: fill;" [src]="url+data().ruta"
+      alt="urbagym" />
+  </div>
+</div>
+<div [style]="{ 'background-color': data().color }" class="px-2 md:px-0 lg:px-0 pb-4">
+  @if(slideBoolean() && this.slidesStore().length > 0){
+  <owl-carousel-o [options]="customOptions" >
+    @for(item of slidesStore(); track item) {
+    <ng-container>
+      <ng-template let-owlItem carouselSlide [id]="item.id" class="px-4">
+        <div (mousedown)="onMouseDown()" (mouseup)="onMouseUp(item)" (mousemove)="onMouseMove()"
+          [id]="item.id" class="timeline-carousel__item slide cursor-pointer"
+          [ngClass]="{ 'center-card': !owlItem.isCentered }">
+          <div class="timeline-carousel__image">
+            <div style="border-radius: 12px; overflow: hidden; position: relative; width: 100%; height: 100%;"
+              class="media-wrapper media-wrapper--overlay">
+              <img [src]="url + item?.image?.ruta" alt="Imagen"
+                style="width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0;" />
+            </div>
+          </div>
+          <div style="
+                  cursor: pointer;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin-top: 15px;
+                  flex-direction: column;
+                ">
+            <span class="nombreArticulo">
+              {{ getNombreCatalogo(item) }}
+            </span>
+            <span style="color: black; font-weight: 700" class="text-center">{{
+              item.referencia
+              }}</span>
+          </div>
+        </div>
+      </ng-template>
+    </ng-container>
+    }@empty {
+    <div class="text-center py-4 text-2xl font-semibold mt-4">
+      <h3>{{"no articulos" }}</h3>
+      <br>
+      <h4>{{"no articulos.txt" }}</h4>
+    </div>
+    }
+  </owl-carousel-o>
+  <div class="w-full flex items-center justify-center mt-2 mb-8">
+    <button (click)="getSubcatProducts()">
+      <img appImgError src="https://manu-deportivas.tech/assets/products/Asset%206.svg" alt="" style="height: 40px;" />
+    </button>
+  </div>
+  }
+
+</div>

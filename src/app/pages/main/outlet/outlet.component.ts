@@ -9,7 +9,6 @@ import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 
 @Component({
-    standalone: true,
     selector: 'manu-outlet',
     imports: [ImgErrorDirective, MatTabsModule, RouterLink, CommonModule],
     templateUrl: './outlet.component.html',

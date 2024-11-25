@@ -1,0 +1,206 @@
+<section>
+  <div class="contenedor">
+    <div class="font-semibold text-[#979CA2] mt-4">
+      <label for="" class="flex flex-wrap items-center cursor-pointer ms-0 lg:ms-8 md:ms-8">
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+          <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+          <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+        </svg>
+        <a [routerLink]="['/']">{{ "inicio"  | titlecase }}</a>
+        &nbsp;|&nbsp;
+        <a class="underline underline-offset-1 cursor-default" [routerLink]="['/empresa/contacto']">{{ 'contacto'  }}</a>
+      </label>
+    </div>
+  </div>
+  <div class="contenedor calidad">
+    <div class="text-center mb-4 mt-4 text-3xl">
+      <label for=""><strong>{{ 'contacto.location'  | uppercase }}</strong></label>
+    </div>
+  </div>
+  <div class="services">
+    <div class="w-full max-w-[890px] mx-auto">
+      <div class="contenedor flex justify-center" >
+        <p class="w-full">
+          {{'contacto.txt' }}
+        </p>
+      </div>
+      <div class="px-10 lg:px-20 md:px-20 mt-4 items-center">
+        <div class="flex flex-col md:flex-row justify-between">
+          <div class="mt-4">
+            <div class="flex items-center mt-4">
+              <img appImgError src="assets/images/illustrator/UBICACION.svg" class=" me-1 lg:me-6 md:me-6" alt="">
+              <p>
+                Parque Empresarial Morero, <br>
+                Parc 1-2 39611 Guarnizo <br>
+                Cantabria - España</p> 
+            </div>
+            <div class="flex items-center mt-4">
+              <img appImgError src="assets/images/illustrator/TELEFONO.svg" class="me-1 lg:me-6 md:me-6" alt="">
+              <p>
+                Telf: (+34) 942 336 711
+              </p> 
+            </div>
+            <div class="flex items-center mt-6">
+              <img appImgError src="assets/images/illustrator/CORREO.svg" class="me-1 lg:me-6 md:me-6" alt="">
+              <p>
+                Email Contacto: <br>
+                md&#64;manufacturasdeportivas.com
+              </p> 
+            </div>
+          </div>
+          <div class="mt-4">
+            <div class="flex justify-center items-center ps-4 pe-4">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2899.1709712172114!2d-3.848224124232175!3d43.39435576913436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd49366b99a0d5d3%3A0xab9e267827cc6196!2sManufacturas%20Deportivas%20Javier%20Gonz%C3%A1lez%20Ruiz!5e0!3m2!1ses-419!2sco!4v1707741293007!5m2!1ses-419!2sco" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <a href="https://www.google.es/maps/place/Manufacturas+Deportivas+Javier+Gonz%C3%A1lez+Ruiz/@43.3943558,-3.8482241,17z/data=!4m14!1m7!3m6!1s0xd49366b99a0d5d3:0xab9e267827cc6196!2sManufacturas+Deportivas+Javier+Gonz%C3%A1lez+Ruiz!8m2!3d43.3943519!4d-3.8456492!16s%2Fg%2F1tdpby84!3m5!1s0xd49366b99a0d5d3:0xab9e267827cc6196!8m2!3d43.3943519!4d-3.8456492!16s%2Fg%2F1tdpby84?entry=ttu" target="_blank" class="underline underline-offset-1 text-gray-400 mt-4 cursor-pointer ps-4">{{"abrir maps" }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contenedor calidad mt-10">
+    <p class="text-center mb-6 ">
+      {{'contacto.txt1' }}
+    </p>
+    <div class="justify-center mt-4">
+      <div class="w-full max-w-[642px] mx-auto detailForm">
+        <form [formGroup]="form" class="mb-4">
+          <div class="grid grid-cols-12 gap-1 lg:gap-4 md:gap-4">
+            <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+              <label class="mb-0">*{{'nombre' }}</label>
+            </div>
+            <div class="col-span-12 md:col-span-9 ">
+              <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="nombre" />
+              @if (form.get('nombre')?.touched &&
+              (form.get('nombre')?.hasError('required') ||
+                form.get('nombre')?.hasError('minlength'))) {
+                  <small
+                    class="text-red-600"
+                  >
+                    {{
+                      form.get("nombre")?.hasError("required")
+                        ? "El nombre es requerido"
+                        : "El nombre debe tener al menos 3 caracteres"
+                    }}
+                  </small>
+                }
+            </div>
+            <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+              <label class="m-0">{{'empresa.entidad' }}</label>
+            </div>
+            <div class="col-span-12 md:col-span-9 ">
+              <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="empresa" />
+            </div>
+            <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+              <label class="m-0">{{'direccion' }}</label>
+            </div>
+            <div class="col-span-12 md:col-span-9 ">
+              <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="direccion" />
+            </div>
+            <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+              <label class="m-0">{{'localidad' }}</label>
+            </div>
+            <div class="col-span-12 md:col-span-9 ">
+              <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="localidad" />
+            </div>
+            <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+              <label class="m-0">{{'codigo.postal' }}</label>
+            </div>
+            <div class="col-span-12 md:col-span-6 lg:col-span-6">
+              <input type="number" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="codigo_postal" />
+            </div>
+            <div class="col-span-3"></div>
+            <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+              <label class="m-0">*{{'provincia' }}</label>
+            </div>
+            <div class="col-span-12 md:col-span-9 ">
+              <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="provincia"/>
+              @if (form.get('provincia')?.touched &&
+              (form.get('provincia')?.hasError('required') ||
+                form.get('provincia')?.hasError('minlength'))) {
+                  <small
+                    class="text-red-600"
+                  >
+                    {{
+                      form.get("provincia")?.hasError("required")
+                        ? "La provincia es requerida"
+                        : "La provincia debe tener al menos 3 caracteres"
+                    }}
+                  </small>
+                }
+            </div>
+            <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+              <label class="m-0">*{{'telefono' }}</label>
+            </div>
+            <div class="col-span-12 md:col-span-6 lg:col-span-6">
+              <input type="number" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="telefono" />
+              @if (form.get('telefono')?.touched &&
+              (form.get('telefono')?.hasError('required') ||
+                form.get('telefono')?.hasError('minlength'))) {
+                  <small
+                    class="text-red-600"
+                  >
+                    {{
+                      form.get("telefono")?.hasError("required")
+                        ? "El teléfono es requerido"
+                        : "El teléfono debe tener al menos 10 caracteres"
+                    }}
+                  </small>
+
+                }
+            </div>
+            <div class="col-span-3"></div>
+            <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+              <label class="m-0">*{{'email' }}</label>
+            </div>
+            <div class="col-span-12 md:col-span-9 ">
+              <input type="email" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="email" />
+              @if (form.get('email')?.touched &&
+              (form.get('email')?.hasError('required') ||
+                form.get('email')?.hasError('minlength'))) {
+                  <small
+                    class="text-red-600"
+                  >
+                    {{
+                      form.get("email")?.hasError("required")
+                        ? "El email es requerido"
+                        : ""
+                    }}
+                  </small>
+                }
+            </div>
+            <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+              <label class="m-0">{{'observaciones' }}</label>
+            </div>
+            <div class="col-span-12 md:col-span-7 lg:col-span-7">
+              <textarea type="text" class="border border-gray-400 w-full h-[105px]" formControlName="observaciones"></textarea>
+              <label for="" class="text-sm">*{{'campos.obligatorios' }}</label>
+            </div>
+            <div class="col-span-2">
+            </div>
+          </div>   
+          <div class="mt-4 mb-4 w-full  mx-auto">
+            <input type="checkbox" class="mt-4 me-2 "  formControlName="check1">
+            <label for="" class="text-gray-400">   {{'campos.check1' }}</label>
+            <br>
+            <input type="checkbox" class="mt-4 me-2 " formControlName="check2">
+            <label for="" class="text-gray-400">{{'campos.check2' }}</label>
+          </div>
+          <div class="text-center " >
+            <button
+              [disabled]="form.invalid"
+              [ngClass]="{ 'hover:bg-primary hover:text-white bg-white': form.valid}"
+              class="disabled:opacity-40 disabled:cursor-not-allowed mt-6 mb-8 px-4 py-2 rounded text-black border border-black w-[300px] lg:w-[380px] md:w-[380px] h-[72px]" 
+              (click)="enviar()"
+            > 
+            {{'campos.enviar' }}
+            </button>
+          </div>
+  
+        </form>
+   
+      </div>
+  
+    </div>
+  </div>
+</section>

@@ -1,0 +1,118 @@
+@defer (when showData()) {
+  <section>
+    <div class="contenedor">
+      <div class="font-semibold text-[#979CA2] mt-4">
+        <label for="" class="flex flex-wrap items-center cursor-pointer ms-0 lg:ms-8 md:ms-8">
+          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+            <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+            <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+          </svg>
+          <a [routerLink]="['/']">{{ "inicio"  | titlecase }}</a>
+          &nbsp;|&nbsp;
+          <a class="underline underline-offset-1 cursor-default" [routerLink]="['/view-news']">{{ 'noticias'  }}</a>
+        </label>
+      </div>
+    </div>
+    <div class="contenedor detailNews">
+      <div class="text-center mb-4 mt-4 text-3xl">
+        <label for=""><strong>{{ "noticias"  | uppercase }}</strong></label>
+      </div>
+      @for (item of news(); track item; let i = $index) {
+        <div class=" hidden md:grid lg:grid grid-cols-12 align-items-end" (click)="viewNews(item)"  (keyup)="handleKeyEvent($event)" tabindex="0">
+          <div [ngClass]="{
+                'col-span-6 ': i === 0,
+                'col-span-4': i !== 0
+              }">
+            <img
+              class="mb-4 w-full"
+              alt="Manufacturas deportivas"
+              appImgError
+              [src]="url + item?.image?.ruta"
+              [style.width.px]="i === 0 ? 336 : 204"
+              [style.height.px]="i === 0 ? 202 : 133"
+            />
+          </div>
+          <div  [ngClass]="{
+               
+                'col-span-6 text-primary text-2xl': i === 0,
+                'col-span-8 text-gray-900': i !== 0
+              }"
+              class="ps-0 flex items-end"
+              style="cursor: pointer; margin-bottom: 30px;">
+            <span class="link-title">
+              <strong>
+                <p class="">{{ item?.txt_es }}</p>
+              </strong>
+            </span>
+          </div>
+        </div>
+        <div class="flex flex-col md:hidden lg:hidden mt-4" (click)="viewNews(item)" (keyup)="handleKeyEvent($event)" tabindex="0">
+       
+          <img
+            class=" w-full mb-4"
+            appImgError
+            alt="Manufacturas deportivas"
+            [src]="url + item?.image?.ruta"
+       
+          />
+          <div [ngClass]="{
+            'col-span-6 text-primary text-2xl': i === 0,
+            'col-span-8 text-gray-900': i !== 0
+            }"
+          >
+            <span class="link-title">
+              <strong>
+                <p class="text-2xl text-center ">{{ item?.txt_es }}</p>
+              </strong>
+            </span>
+
+          </div>
+        </div>
+        
+      }
+    </div>
+  @if (news().length > 0) {
+    <div
+      class="flex justify-center flex-col items-center mb-4"
+    >
+      <div class="decorative-line mt-4"></div>
+       <!-- Paginación -->
+       <div class="pagination flex items-center my-4">
+        <button (click)="previousPage()" [disabled]="currentPage === 1">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+        @for (page of [].constructor(totalPages); track page; let i = $index ) {
+          <ng-container >
+            <button
+              (click)="goToPage(i + 1)"
+              [ngClass]="{ 'text-primary bg-red-300 py-1 px-2 font-semibold': currentPage === i + 1, 'text-black': currentPage !== i + 1 }"
+              class="mx-2"
+            >
+              {{ i + 1 }}
+            </button>
+          </ng-container>
+        }
+        <button (click)="nextPage()" [disabled]="currentPage === news().length">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+        </button>
+      </div>
+      <div class="decorative-line mt-0"></div>
+    </div>
+  }
+  </section>
+}@placeholder {
+  <div class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-800 bg-opacity-20 z-50">
+    <div class="flex items-center justify-center">
+      <div class="relative flex items-center justify-center">
+        <div class="w-16 h-16 border-4 border-primary border-dashed rounded-full animate-spin"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-10 h-10 bg-primary rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

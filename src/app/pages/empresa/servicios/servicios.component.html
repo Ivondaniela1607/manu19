@@ -1,0 +1,181 @@
+<section style="background-color: rgb(242, 243, 246)">
+  <div class="contenedor">
+    <div class="font-semibold text-[#979CA2] mt-4">
+      <label for="" class="flex flex-wrap items-center cursor-pointer ms-0 lg:ms-8 md:ms-8">
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+          <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+          <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+        </svg>
+        <a [routerLink]="['/']">{{ "inicio" | titlecase }}</a>
+        &nbsp;|&nbsp;
+        <a class="underline underline-offset-1 cursor-default" [routerLink]="['/empresa/servicios']">{{ 'servicios' }}</a>
+      </label>
+    </div>
+  </div>
+  <div class="contenedor calidad">
+    <div class="text-center mb-4 mt-4 text-3xl">
+      <label for=""><strong>{{ 'servicios' | uppercase }}</strong></label>
+    </div>
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" (selectedTabChange)="onTabChange($event)">
+      <mat-tab>
+        <ng-template matTabLabel>
+          <strong>
+            <a [style]="{
+              'background-color': selectedTabIndex === 0 ? '#C71522' : 'white',
+              'color': selectedTabIndex === 0 ? 'white' : 'black',
+              'padding': '10px 20px'
+            }">{{ "instalacion" | titlecase }}</a>
+          </strong>
+        </ng-template>
+        <ng-template matTabContent="">
+          <div class="contentNav">
+            <p>
+              {{ "servicios.txt1" }}
+            </p>
+            <br />
+            <p>
+              {{ "servicios.txt2" }}
+            </p>
+            <br />
+            <p>
+              {{ "servicios.txt3" }}
+            </p>
+            <p>
+              {{ "servicios.txt4" }}
+            </p>
+            <br />
+            <p>
+              {{ "servicios.txt5" }}
+            </p>
+            <br />
+            <p>
+              {{ "servicios.txt6" }}
+            </p>
+            <div class="install-mant mt-6 mb-6">
+              <img (click)="viewImg('assets/images/others/Instalacion_Manufacturas_Deportivas_w1.jpg')" appImgError class="img1 cursor-pointer" src="assets/images/others/Instalacion_Manufacturas_Deportivas_w1.jpg" alt="" />
+              <img (click)="viewImg('assets/images/others/Instalacion_Manufacturas_Deportivas_w2.jpg')" appImgError class="img2 cursor-pointer" src="assets/images/others/Instalacion_Manufacturas_Deportivas_w2.jpg" alt="" />
+              <img (click)="viewImg('assets/images/others/Instalacion_Manufacturas_Deportivas_w3.jpg')" appImgError class="img3 cursor-pointer" src="assets/images/others/Instalacion_Manufacturas_Deportivas_w3.jpg" alt="" />
+              <img (click)="viewImg('assets/images/others/Instalacion_Manufacturas_Deportivas_w4.jpg')" appImgError class="img4 cursor-pointer" src="assets/images/others/Instalacion_Manufacturas_Deportivas_w4.jpg" alt="" />
+              <img (click)="viewImg('assets/images/others/Instalacion_Manufacturas_Deportivas_w5.jpg')" appImgError class="img5 cursor-pointer" src="assets/images/others/Instalacion_Manufacturas_Deportivas_w5.jpg" alt="" />
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template matTabLabel>
+          <strong>
+            <a [style]="{
+                     'background-color': selectedTabIndex === 1 ? '#C71522' : 'white',
+              'color': selectedTabIndex === 1? 'white' : 'black',
+              'padding': '10px 20px'
+            }">{{ "mantenimiento"  }}</a>
+          </strong>
+        </ng-template>
+        <ng-template matTabContent="">
+          <div class="contentNav">
+            <p class="text-2xl font-semibold mb-2">{{ "servicios.mantenimiento.title1" | uppercase}}</p>
+            <div class="ms-0 md:ms-16 lg:ms-16">
+              <p>
+                {{ "servicios.mantenimiento.txt1" }}
+              </p>
+              <br />
+              <p>
+                {{ "servicios.mantenimiento.txt2" }}
+              </p>
+              <div class="containImg mt-4 mb-2">
+                <img class="cursor-pointer" (click)="viewImg('assets/images/others/install1.png')" appImgError src="assets/images/others/install1.png" alt="" />
+                <img class="cursor-pointer ms-1 me-1" (click)="viewImg('assets/images/others/install2.png')" appImgError src="assets/images/others/install2.png" alt="" />
+                <img class="cursor-pointer" (click)="viewImg('assets/images/others/install3.png')" appImgError src="assets/images/others/install3.png" alt="" />
+              </div>
+            </div>
+            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.mantenimiento.title2" | uppercase}}</p>
+            <div class="ms-0 md:ms-16 lg:ms-16">
+              <p>
+                {{ "servicios.mantenimiento.txt3"}}
+              </p>
+              <br />
+              <p>{{ "servicios.mantenimiento.txt4"}}</p>
+              <br />
+              <p>
+                {{ "servicios.mantenimiento.txt5"}}
+              </p>
+            </div>
+
+            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.mantenimiento.title3" | uppercase}}</p>
+            <div class="flex justify-center cursor-pointer" [routerLink]="'/repuestos'">
+              <img appImgError src="assets/images/others/repuesto1.png" alt="" />
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template matTabLabel>
+          <strong>
+            <a [style]="{
+              'background-color': selectedTabIndex === 2 ? '#C71522' : 'white',
+              'color': selectedTabIndex === 2 ? 'white' : 'black',
+              'padding': '10px 20px'
+            }">{{ "pintura" | titlecase }}</a>
+          </strong>
+        </ng-template>
+        <ng-template matTabContent="">
+          <div class="contentNav">
+            <p class="text-2xl font-semibold mb-2">{{ "servicios.pintura.title1" }}</p>
+            <div class="ms-0 md:ms-16 lg:ms-16">
+              <p>
+                {{ "servicios.pintura.txt1" }} <br />
+                {{ "servicios.pintura.txt2" }}
+              </p>
+            </div>
+            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.pintura.title2" }}</p>
+            <div class="ms-0 md:ms-16 lg:ms-16">
+              <p>
+                {{ "servicios.pintura.txt3" }}
+              </p>
+            </div>
+            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.pintura.title3" }}</p>
+            <div class="ms-0 md:ms-16 lg:ms-16">
+              <p>
+                {{ "servicios.pintura.txt4" }}
+              </p>
+            </div>
+
+            <div class="ms-0 md:ms-16 lg:ms-16">
+
+              <div class="text-center flex justify-center">
+                <img appImgError class="w-100" src="assets/images/others/Esquema_tren_pintura_al_polvo_w.jpg" alt="" />
+              </div>
+              <p class="mb-1"><strong>{{ "servicios.pintura.title4" }}</strong></p>
+              <p class="mt-2">{{ "servicios.pintura.txt5"}}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt6" }}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt7" }}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt8" }}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt9" }}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt10" }}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt11" }}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt12" }}</p>
+            </div>
+            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.pintura.title5" }}</p>
+            <div class="ms-0 md:ms-16 lg:ms-16">
+              <p>
+                <strong>{{ "servicios.pintura.txt13" }}</strong> <br />
+                6000 x 2100 x 1000 mm.<br />
+                <strong>{{ "servicios.pintura.txt14" }}</strong> <br />
+                {{ "servicios.pintura.txt15" }}<br />
+              </p>
+            </div>
+
+         
+          </div>
+          <div class="containImg mb-2 bg-white pb-20" >
+            <img (click)="viewImg('assets/images/others/Foto-pintura-industrial-1.jpg')" class="mx-2 cursor-pointer" appImgError src="assets/images/others/Foto-pintura-industrial-1.jpg" alt="" />
+            <img (click)="viewImg('assets/images/others/Foto-pintura-industrial-2.jpg')" class="mx-2 cursor-pointer" appImgError src="assets/images/others/Foto-pintura-industrial-2.jpg" alt="" />
+            <img (click)="viewImg('assets/images/others/Foto-pintura-industrial-3.jpg')" class="mx-2 cursor-pointer" appImgError src="assets/images/others/Foto-pintura-industrial-3.jpg" alt="" />
+            <img (click)="viewImg('assets/images/others/Foto-pintura-industrial-4.jpg')" class="mx-2 cursor-pointer" appImgError src="assets/images/others/Foto-pintura-industrial-4.jpg" alt="" />
+
+          </div>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</section>

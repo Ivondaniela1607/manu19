@@ -14,8 +14,7 @@ import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 import Swal from 'sweetalert2';
 
 
-@Component({
-    standalone: true,
+@Component({   
     selector: 'manu-detail-product',
     imports: [ImgErrorDirective, MatExpansionModule, CarruselComponent, MatTooltipModule, ProductRelacionadoComponent, RouterLink, CommonModule],
     templateUrl: './detail-product.component.html',

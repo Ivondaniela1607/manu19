@@ -7,7 +7,7 @@
           <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
           <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
         </svg>
-        <a [routerLink]="['/']">{{ "inicio" | translate | titlecase }}</a>
+        <a [routerLink]="['/']">{{ "inicio" | titlecase }}</a>
         &nbsp;|&nbsp;
         <a class="cursor-pointer" (click)="volverCat(opc)">
           {{ getNombreCategoria(opc) | titlecase }}
@@ -35,7 +35,7 @@
                   d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
               </svg>
 
-              {{ "anadir" | translate }}
+              {{ "anadir" }}
             </a>
           </strong>
         </div>
@@ -57,7 +57,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
               </svg>
-              {{ "anadir" | translate }}
+              {{ "anadir" }}
             </a>
           </strong>
         </div>
@@ -68,7 +68,7 @@
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <h3 class="card-title text-xl md:text-2xl lg:text-2xl mb-0">
-                  {{ "caracteristicas" | translate | uppercase }}
+                  {{ "caracteristicas" | uppercase }}
                 </h3>
               </mat-panel-title>
             </mat-expansion-panel-header>
@@ -77,13 +77,13 @@
               <div class="mt-2">
                 <div class="block md:hidden lg:hidden">
                   <label for="" class="fw-bolder me-2">
-                    {{ "edades" | translate }}
+                    {{ "edades" }}
                   </label>
                   <p class="m-0">{{ getEdades(articulo()) }}</p>
                 </div>
                 <div class="block md:hidden lg:hidden">
                   <label for="" class="fw-bolder me-2">{{
-                    "masa" | translate
+                    "masa"
                     }}</label>
                   <p class="m-0">
                     {{ articulo()?.masa }}
@@ -91,7 +91,7 @@
                 </div>
                 <div class="block md:hidden lg:hidden">
                   <label for="" class="fw-bolder me-2">{{
-                    "dimensiones" | translate
+                    "dimensiones"
                     }}</label>
                   <p class="m-0">
                     {{
@@ -101,7 +101,7 @@
                 </div>
                 <div class="block md:hidden lg:hidden">
                   <label for="" class="fw-bolder me-2">{{
-                    "espacio" | translate
+                    "espacio"
                     }}</label>
                   <p class="m-0">
                     {{ articulo()?.espacio }}
@@ -120,7 +120,7 @@
         <div class="mt-2">
           <div class="hidden md:flex mt-3 items-center">
             <label for="" class="font-semibold me-2">
-              {{ "colores disponible" | translate }}
+              {{ "colores disponible" }}
             </label>
             @for (item of articulo()?.resultColores_productos; track item) {
             <div class="color-option">
@@ -128,9 +128,9 @@
             </div>
             }@empty {
             <div class="text-center py-4 text-2xl font-semibold mt-4">
-              <h3>{{ "no articulos" | translate }}</h3>
+              <h3>{{ "no articulos" }}</h3>
               <br />
-              <h4>{{ "no articulos.txt" | translate }}</h4>
+              <h4>{{ "no articulos.txt" }}</h4>
             </div>
             }
           </div>
@@ -140,7 +140,7 @@
           @if (articulo()?.edad_es) {
           <div class="hidden md:flex mt-3 items-center">
             <label for="" class="font-semibold me-2">
-              <img appImgError matTooltip="{{ 'edades' | translate }}" src="./assets/images/icons/Recurso_6.svg"
+              <img appImgError matTooltip="{{ 'edades' }}" src="./assets/images/icons/Recurso_6.svg"
                 alt="logo" style="width: 25px; height: 25px" />
             </label>
             <p class="m-0">{{ articulo()?.edad_es }}</p>
@@ -148,7 +148,7 @@
           } @if (articulo()?.altura_caida) {
           <div class="hidden md:flex mt-3 items-center">
             <label for="" class="font-semibold me-2">
-              <img appImgError matTooltip="{{ 'altura' | translate }}" src="./assets/images/icons/Recurso_5.svg"
+              <img appImgError matTooltip="{{ 'altura' }}" src="./assets/images/icons/Recurso_5.svg"
                 alt="logo" style="width: 25px; height: 25px" />
             </label>
             <p class="m-0">{{ articulo()?.altura_caida }}m</p>
@@ -157,7 +157,7 @@
           @if (articulo()?.superficie_impacto) {
           <div class="hidden md:flex mt-3 items-center">
             <label for="" class="font-semibold me-2">
-              <img appImgError matTooltip="{{ 'superficie impacto' | translate }}"
+              <img appImgError matTooltip="{{ 'superficie impacto' }}"
                 src="assets/images/icons/Recurso_3.svg" alt="logo" style="width: 25px; height: 25px" />
             </label>
             <p class="m-0">{{ articulo()?.superficie_impacto }}m2</p>
@@ -166,7 +166,7 @@
           @if (articulo()?.masa) {
           <div class="hidden md:flex mt-3 items-center">
             <label for="" class="font-semibold me-2">
-              <img appImgError matTooltip="{{ 'masa' | translate }}" src="assets/images/icons/Recurso_4.svg" alt="logo"
+              <img appImgError matTooltip="{{ 'masa' }}" src="assets/images/icons/Recurso_4.svg" alt="logo"
                 style="width: 25px; height: 25px" />
             </label>
             <p class="m-0">{{ articulo()?.masa }}</p>
@@ -175,7 +175,7 @@
           @if (articulo()?.dimensiones) {
           <div class="hidden md:flex mt-3 items-center">
             <label for="" class="font-semibold me-2">
-              <img appImgError matTooltip="{{ 'dimensiones' | translate }}" src="assets/images/icons/Recurso_1.svg"
+              <img appImgError matTooltip="{{ 'dimensiones' }}" src="assets/images/icons/Recurso_1.svg"
                 alt="logo" style="width: 25px; height: 25px" />
             </label>
             <p class="m-0">
@@ -186,7 +186,7 @@
           @if (articulo()?.espacio) {
           <div class="hidden md:flex mt-3 items-center">
             <label for="" class="font-semibold me-2">
-              <img appImgError matTooltip="{{ 'espacio' | translate }}" src="assets/images/icons/Recurso_2.svg"
+              <img appImgError matTooltip="{{ 'espacio' }}" src="assets/images/icons/Recurso_2.svg"
                 alt="logo" style="width: 25px; height: 25px" />
             </label>
             <p class="m-0">{{ articulo()?.espacio }}m</p>
@@ -208,9 +208,9 @@
             </div>
             }@empty {
             <div class="text-center py-4 text-2xl font-semibold mt-4">
-              <h3>{{ "no articulos" | translate }}</h3>
+              <h3>{{ "no articulos" }}</h3>
               <br />
-              <h4>{{ "no articulos.txt" | translate }}</h4>
+              <h4>{{ "no articulos.txt" }}</h4>
             </div>
             }
           </div>
@@ -224,7 +224,7 @@
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <h3 class="card-title text-xl md:text-2xl lg:text-2xl mb-0">
-                    {{ "descargas" | translate | uppercase }}
+                    {{ "descargas" | uppercase }}
                   </h3>
                 </mat-panel-title>
               </mat-expansion-panel-header>

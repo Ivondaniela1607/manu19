@@ -9,8 +9,7 @@ import { environment } from '@env/environment';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
-@Component({
-    standalone: true,
+@Component({    
     selector: 'manu-product-relacionado',
     imports: [CarouselModule, CommonModule, ImgErrorDirective],
     templateUrl: './product-relacionado.component.html',

@@ -8,6 +8,7 @@ import { ArticlesService } from '@app/services/articles.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { environment } from '@env/environment.development';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
+import { DomSanitizer } from "@angular/platform-browser";
 
 
 @Component({
@@ -37,8 +38,8 @@ export class NoveltyComponent implements OnInit {
     stagePadding: 30,
     startPosition: 'URLHash',
     navText: [
-      '<img src="assets/icons/chevron-left.svg" style="width: 70px; height: 70px;">',
-      '<img src="assets/icons/chevron-right.svg" style="width: 70px; height: 70px;">'
+      '<',
+      '>'
     ],
     // navText: ['Anterior', 'Siguiente'],
     nav: true,
@@ -74,6 +75,7 @@ export class NoveltyComponent implements OnInit {
 
 
   /* serivces */
+  private sanitizer = inject(DomSanitizer);
   private articlesService = inject(ArticlesService);
   private localStorageService = inject(LocalStorageService);
   private router = inject(Router);
@@ -119,11 +121,20 @@ export class NoveltyComponent implements OnInit {
         console.error('Lenguaje no válido');
         return;
     }
+
+    this.slidesStore.set(
+      this.arregloRes
+        .filter((elemento: any) => {
+          return conditionFunction(elemento) && elemento.image && elemento.image.ruta;
+        })
+        .map((elemento: any) => {
+          elemento.image.sanitizedRuta = this.sanitizer.bypassSecurityTrustUrl(elemento.image.ruta);
+          return elemento;
+        })
+    );    
+
+    console.log('this.slidesStore()', this.slidesStore());
     
-    this.slidesStore.set(this.arregloRes.filter(
-      (elemento:any) =>
-        conditionFunction(elemento)
-    ));
     this.slideBoolean.set(true);
   }
 

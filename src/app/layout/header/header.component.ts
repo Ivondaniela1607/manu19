@@ -16,8 +16,7 @@ import { FormsModule } from '@angular/forms';
 
 
 const CARRITO_KEY = makeStateKey<any>('carrito');
-@Component({
-    standalone: true,
+@Component({    
     selector: 'manu-header',
     imports: [FormsModule, ImgErrorDirective, MatToolbarModule, CommonModule, ImgErrorDirective, RouterLink, MatIconModule, MatTooltipModule, NgClass, MatMenuModule, MatButtonModule],
     templateUrl: './header.component.html',
