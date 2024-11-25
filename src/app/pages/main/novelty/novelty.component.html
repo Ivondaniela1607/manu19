@@ -5,7 +5,7 @@
   </div>
 </div>
 <div class="contenedor">
-  @if(slideBoolean()){
+  @if(slideBoolean() && this.slidesStore().length > 0){
     <owl-carousel-o [options]="customOptions">
       @for(item of slidesStore(); track item) {
         <ng-container >

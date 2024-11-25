@@ -33,7 +33,7 @@ export class NoveltyComponent implements OnInit {
 
     // slideBy: 2,
     navSpeed: 700,
-    URLhashListener: true,
+    URLhashListener: false,
     freeDrag: true,
     stagePadding: 30,
     startPosition: 'URLHash',
@@ -82,6 +82,13 @@ export class NoveltyComponent implements OnInit {
 
 
   constructor() {
+    const sanitizedLeftNav = this.sanitizer.bypassSecurityTrustHtml(
+      '<img src="assets/icons/chevron-left.svg" style="width: 70px; height: 70px;">'
+    );
+
+    const sanitizedRightNav = this.sanitizer.bypassSecurityTrustHtml(
+      '<img src="assets/icons/chevron-right.svg" style="width: 70px; height: 70px;">'
+    );
     effect( () => {
       this.lenguaje = this.localStorageService.getLanguageSignal();
       if (this.lenguaje()) {
@@ -122,7 +129,13 @@ export class NoveltyComponent implements OnInit {
         return;
     }
 
-    this.slidesStore.set(
+        
+    this.slidesStore.set(this.arregloRes.filter(
+      (elemento:any) =>
+        conditionFunction(elemento)
+    ));
+
+/*     this.slidesStore.set(
       this.arregloRes
         .filter((elemento: any) => {
           return conditionFunction(elemento) && elemento.image && elemento.image.ruta;
@@ -131,11 +144,8 @@ export class NoveltyComponent implements OnInit {
           elemento.image.sanitizedRuta = this.sanitizer.bypassSecurityTrustUrl(elemento.image.ruta);
           return elemento;
         })
-    );    
+    );  */   
 
-    console.log('this.slidesStore()', this.slidesStore());
-    
-    this.slideBoolean.set(true);
   }
 
   getNoveltyByCategoryHome() {

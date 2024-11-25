@@ -19,7 +19,7 @@
       <strong>{{ "siguenos instagram"  }}</strong>
     </a>
   </div>
-  @if(slideBoolean()){
+  @if(slideBoolean() && slidesStore().length > 0){
     <owl-carousel-o [options]="customOptions">
       @for (item of slidesStore(); track item) {
         <ng-container >

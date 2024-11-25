@@ -33,13 +33,13 @@ export class UrbanGymComponent implements OnInit{
 
     // slideBy: 2,
     navSpeed: 700,
-    URLhashListener: true,
+    URLhashListener: false,
     freeDrag: true,
     stagePadding: 30,
     startPosition: 'URLHash',
     navText: [
-      '<img src="assets/icons/chevron-left.svg" style="width: 70px; height: 70px;">',
-      '<img src="assets/icons/chevron-right.svg" style="width: 70px; height: 70px;">'
+      '<',
+      '>'
     ],
     nav: true,
     responsive: {
