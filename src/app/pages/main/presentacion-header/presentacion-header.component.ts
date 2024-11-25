@@ -5,7 +5,7 @@ import { ArticlesService } from '@app/services/articles.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { Router } from '@angular/router';
 import { environment } from '@env/environment.development';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 import { FormsModule } from '@angular/forms';
 import { SearchService } from '@app/services/search.service';
@@ -13,7 +13,7 @@ import { SearchService } from '@app/services/search.service';
 
 @Component({  
     selector: 'manu-presentacion-header',
-    imports: [FormsModule, ImgErrorDirective, CommonModule],
+    imports: [TranslateModule, FormsModule, ImgErrorDirective, CommonModule],
     templateUrl: './presentacion-header.component.html',
     styleUrl: './presentacion-header.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush

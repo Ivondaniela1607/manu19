@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ArticlesService } from '@app/services/articles.service';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { FormBuilder, FormGroup,FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
@@ -11,7 +11,7 @@ import { LocalStorageService } from '@app/services/localStorage.service';
 
 @Component({
     selector: 'manu-contacto',
-    imports: [ImgErrorDirective, ReactiveFormsModule, FormsModule, RouterLink, CommonModule],
+    imports: [TranslateModule, ImgErrorDirective, ReactiveFormsModule, FormsModule, RouterLink, CommonModule],
     templateUrl: './contacto.component.html',
     styleUrl: './contacto.component.scss'
 })

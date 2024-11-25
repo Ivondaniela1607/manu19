@@ -4,13 +4,13 @@ import { Router, RouterLink } from '@angular/router';
 import { ArticlesService } from '@app/services/articles.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { SearchService } from '@app/services/search.service';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { CardBusquedaComponent } from './card-busqueda/card-busqueda.component';
 
 
 @Component({
     selector: 'manu-search',
-    imports: [RouterLink, CommonModule, CardBusquedaComponent],
+    imports: [TranslateModule, RouterLink, CommonModule, CardBusquedaComponent],
     templateUrl: './search.component.html',
     styleUrl: './search.component.scss'
 })

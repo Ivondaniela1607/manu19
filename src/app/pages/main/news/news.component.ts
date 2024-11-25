@@ -3,13 +3,13 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { ConfigurationService } from '@app/services/configuration.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { environment } from '@env/environment.development';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { Router, RouterLink } from '@angular/router';
-import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
+
 
 @Component({
     selector: 'manu-news',
-    imports: [ImgErrorDirective, RouterLink, CommonModule],
+    imports: [TranslateModule, RouterLink, CommonModule],
     templateUrl: './news.component.html',
     styleUrl: './news.component.scss'
 })

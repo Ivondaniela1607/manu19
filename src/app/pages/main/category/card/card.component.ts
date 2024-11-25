@@ -3,11 +3,11 @@ import { Component, inject, Input, OnChanges, OnInit, signal } from '@angular/co
 import { Router } from '@angular/router';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 import { LocalStorageService } from '@app/services/localStorage.service';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'manu-card',
-    imports: [ImgErrorDirective, CommonModule],
+    imports: [TranslateModule, ImgErrorDirective, CommonModule],
     templateUrl: './card.component.html',
     styleUrl: './card.component.scss'
 })

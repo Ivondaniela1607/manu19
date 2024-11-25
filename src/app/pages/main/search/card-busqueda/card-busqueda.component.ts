@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { environment } from '@env/environment';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
 
     selector: 'manu-card-busqueda',
-    imports: [ ImgErrorDirective, CommonModule],
+    imports: [TranslateModule, ImgErrorDirective, CommonModule],
     templateUrl: './card-busqueda.component.html',
     styleUrl: './card-busqueda.component.scss'
 })

@@ -3,7 +3,7 @@ import { Component, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ArticlesService } from '@app/services/articles.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CardComponent } from './card/card.component';
 import { CardSeriesComponent } from './card-series/card-series.component';
@@ -11,7 +11,7 @@ import { environment } from '@env/environment';
 
 @Component({
     selector: 'manu-category',
-    imports: [CardComponent, CardSeriesComponent, RouterLink, CommonModule],
+    imports: [TranslateModule, CardComponent, CardSeriesComponent, RouterLink, CommonModule],
     templateUrl: './category.component.html',
     styleUrl: './category.component.scss'
 })

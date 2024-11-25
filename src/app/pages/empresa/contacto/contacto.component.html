@@ -6,22 +6,22 @@
           <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
           <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
         </svg>
-        <a [routerLink]="['/']">{{ "inicio"  | titlecase }}</a>
+        <a [routerLink]="['/']">{{ "inicio" | translate | titlecase }}</a>
         &nbsp;|&nbsp;
-        <a class="underline underline-offset-1 cursor-default" [routerLink]="['/empresa/contacto']">{{ 'contacto'  }}</a>
+        <a class="underline underline-offset-1 cursor-default" [routerLink]="['/empresa/contacto']">{{ 'contacto' | translate }}</a>
       </label>
     </div>
   </div>
   <div class="contenedor calidad">
     <div class="text-center mb-4 mt-4 text-3xl">
-      <label for=""><strong>{{ 'contacto.location'  | uppercase }}</strong></label>
+      <label for=""><strong>{{ 'contacto.location' | translate | uppercase }}</strong></label>
     </div>
   </div>
   <div class="services">
     <div class="w-full max-w-[890px] mx-auto">
       <div class="contenedor flex justify-center" >
         <p class="w-full">
-          {{'contacto.txt' }}
+          {{'contacto.txt' | translate}}
         </p>
       </div>
       <div class="px-10 lg:px-20 md:px-20 mt-4 items-center">
@@ -52,7 +52,7 @@
             <div class="flex justify-center items-center ps-4 pe-4">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2899.1709712172114!2d-3.848224124232175!3d43.39435576913436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd49366b99a0d5d3%3A0xab9e267827cc6196!2sManufacturas%20Deportivas%20Javier%20Gonz%C3%A1lez%20Ruiz!5e0!3m2!1ses-419!2sco!4v1707741293007!5m2!1ses-419!2sco" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <a href="https://www.google.es/maps/place/Manufacturas+Deportivas+Javier+Gonz%C3%A1lez+Ruiz/@43.3943558,-3.8482241,17z/data=!4m14!1m7!3m6!1s0xd49366b99a0d5d3:0xab9e267827cc6196!2sManufacturas+Deportivas+Javier+Gonz%C3%A1lez+Ruiz!8m2!3d43.3943519!4d-3.8456492!16s%2Fg%2F1tdpby84!3m5!1s0xd49366b99a0d5d3:0xab9e267827cc6196!8m2!3d43.3943519!4d-3.8456492!16s%2Fg%2F1tdpby84?entry=ttu" target="_blank" class="underline underline-offset-1 text-gray-400 mt-4 cursor-pointer ps-4">{{"abrir maps" }}</a>
+            <a href="https://www.google.es/maps/place/Manufacturas+Deportivas+Javier+Gonz%C3%A1lez+Ruiz/@43.3943558,-3.8482241,17z/data=!4m14!1m7!3m6!1s0xd49366b99a0d5d3:0xab9e267827cc6196!2sManufacturas+Deportivas+Javier+Gonz%C3%A1lez+Ruiz!8m2!3d43.3943519!4d-3.8456492!16s%2Fg%2F1tdpby84!3m5!1s0xd49366b99a0d5d3:0xab9e267827cc6196!8m2!3d43.3943519!4d-3.8456492!16s%2Fg%2F1tdpby84?entry=ttu" target="_blank" class="underline underline-offset-1 text-gray-400 mt-4 cursor-pointer ps-4">{{"abrir maps" | translate}}</a>
           </div>
         </div>
       </div>
@@ -60,14 +60,14 @@
   </div>
   <div class="contenedor calidad mt-10">
     <p class="text-center mb-6 ">
-      {{'contacto.txt1' }}
+      {{'contacto.txt1' | translate}}
     </p>
     <div class="justify-center mt-4">
       <div class="w-full max-w-[642px] mx-auto detailForm">
         <form [formGroup]="form" class="mb-4">
           <div class="grid grid-cols-12 gap-1 lg:gap-4 md:gap-4">
             <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-              <label class="mb-0">*{{'nombre' }}</label>
+              <label class="mb-0">*{{'nombre' | translate}}</label>
             </div>
             <div class="col-span-12 md:col-span-9 ">
               <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="nombre" />
@@ -86,32 +86,32 @@
                 }
             </div>
             <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-              <label class="m-0">{{'empresa.entidad' }}</label>
+              <label class="m-0">{{'empresa.entidad' | translate}}</label>
             </div>
             <div class="col-span-12 md:col-span-9 ">
               <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="empresa" />
             </div>
             <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-              <label class="m-0">{{'direccion' }}</label>
+              <label class="m-0">{{'direccion' | translate}}</label>
             </div>
             <div class="col-span-12 md:col-span-9 ">
               <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="direccion" />
             </div>
             <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-              <label class="m-0">{{'localidad' }}</label>
+              <label class="m-0">{{'localidad' | translate}}</label>
             </div>
             <div class="col-span-12 md:col-span-9 ">
               <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="localidad" />
             </div>
             <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-              <label class="m-0">{{'codigo.postal' }}</label>
+              <label class="m-0">{{'codigo.postal' | translate}}</label>
             </div>
             <div class="col-span-12 md:col-span-6 lg:col-span-6">
               <input type="number" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="codigo_postal" />
             </div>
             <div class="col-span-3"></div>
             <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-              <label class="m-0">*{{'provincia' }}</label>
+              <label class="m-0">*{{'provincia' | translate}}</label>
             </div>
             <div class="col-span-12 md:col-span-9 ">
               <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="provincia"/>
@@ -130,7 +130,7 @@
                 }
             </div>
             <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-              <label class="m-0">*{{'telefono' }}</label>
+              <label class="m-0">*{{'telefono' | translate}}</label>
             </div>
             <div class="col-span-12 md:col-span-6 lg:col-span-6">
               <input type="number" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="telefono" />
@@ -151,7 +151,7 @@
             </div>
             <div class="col-span-3"></div>
             <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-              <label class="m-0">*{{'email' }}</label>
+              <label class="m-0">*{{'email' | translate}}</label>
             </div>
             <div class="col-span-12 md:col-span-9 ">
               <input type="email" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="email" />
@@ -170,21 +170,21 @@
                 }
             </div>
             <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-              <label class="m-0">{{'observaciones' }}</label>
+              <label class="m-0">{{'observaciones' | translate}}</label>
             </div>
             <div class="col-span-12 md:col-span-7 lg:col-span-7">
               <textarea type="text" class="border border-gray-400 w-full h-[105px]" formControlName="observaciones"></textarea>
-              <label for="" class="text-sm">*{{'campos.obligatorios' }}</label>
+              <label for="" class="text-sm">*{{'campos.obligatorios' | translate}}</label>
             </div>
             <div class="col-span-2">
             </div>
           </div>   
           <div class="mt-4 mb-4 w-full  mx-auto">
             <input type="checkbox" class="mt-4 me-2 "  formControlName="check1">
-            <label for="" class="text-gray-400">   {{'campos.check1' }}</label>
+            <label for="" class="text-gray-400">   {{'campos.check1' | translate}}</label>
             <br>
             <input type="checkbox" class="mt-4 me-2 " formControlName="check2">
-            <label for="" class="text-gray-400">{{'campos.check2' }}</label>
+            <label for="" class="text-gray-400">{{'campos.check2' | translate}}</label>
           </div>
           <div class="text-center " >
             <button
@@ -193,7 +193,7 @@
               class="disabled:opacity-40 disabled:cursor-not-allowed mt-6 mb-8 px-4 py-2 rounded text-black border border-black w-[300px] lg:w-[380px] md:w-[380px] h-[72px]" 
               (click)="enviar()"
             > 
-            {{'campos.enviar' }}
+            {{'campos.enviar' | translate}}
             </button>
           </div>
   

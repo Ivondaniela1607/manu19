@@ -5,12 +5,12 @@ import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 import { ConfigurationService } from '@app/services/configuration.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { environment } from '@env/environment';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
     selector: 'manu-view-news',
-    imports: [MatPaginatorModule, ImgErrorDirective, RouterLink, CommonModule],
+    imports: [TranslateModule, MatPaginatorModule, ImgErrorDirective, RouterLink, CommonModule],
     templateUrl: './view-news.component.html',
     styleUrl: './view-news.component.scss'
 })

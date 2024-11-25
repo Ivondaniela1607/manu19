@@ -1,11 +1,11 @@
 
 <div class="contenedor mt-10 mb-0">
   <div class="flex justify-center items-center">
-    <h4 class="text-2xl mb-2" style="font-weight: 700;">{{'novedades'  | uppercase}} MD</h4>
+    <h4 class="text-2xl mb-2" style="font-weight: 700;">{{'novedades' | translate | uppercase}} MD</h4>
   </div>
 </div>
 <div class="contenedor">
-  @if(slideBoolean() && this.slidesStore().length > 0){
+  @if(slideBoolean()){
     <owl-carousel-o [options]="customOptions">
       @for(item of slidesStore(); track item) {
         <ng-container >
@@ -40,7 +40,7 @@
                   flex-direction: column;
                 "
               >
-                <span class="novedad mb-2">{{'novedad'  | uppercase}}</span>
+                <span class="novedad mb-2">{{'novedad' | translate | uppercase}}</span>
                 <span class="nombreArticulo">
                   {{getNombreCatalogo(item) }}
                 </span>  
@@ -52,9 +52,9 @@
         </ng-container>
       }@empty {
         <div class="text-center py-4 text-2xl font-semibold mt-4">
-          <h3>{{"no articulos" }}</h3>
+          <h3>{{"no articulos" | translate}}</h3>
           <br>
-          <h4>{{"no articulos.txt" }}</h4>
+          <h4>{{"no articulos.txt" | translate}}</h4>
         </div>
       }
     </owl-carousel-o>
@@ -64,6 +64,6 @@
 <div class="mt-10 mb-10" style="text-align: center;">
   <button 
     class="bg-white border-gray-900 text-2xl border rounded px-4 py-2 hover:bg-primary duration-500 text-gray-900 hover:text-white" [routerLink]="['/novedades']">
-    {{"acceder"  | uppercase}}
+    {{"acceder" | translate | uppercase}}
   </button>
 </div>

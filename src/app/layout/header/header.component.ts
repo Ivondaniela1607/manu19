@@ -2,7 +2,6 @@ import { NgClass, isPlatformBrowser, CommonModule } from '@angular/common';
 import { TransferState, makeStateKey, ChangeDetectionStrategy, ChangeDetectorRef, Component, PLATFORM_ID, Inject , inject, input, OnInit, signal, ViewChild } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Router, RouterLink } from '@angular/router';
-/* import { TranslateModule, TranslateService } from '@ngx-translate/core' */
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,12 +12,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { SearchService } from '@app/services/search.service';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core'
 
 
 const CARRITO_KEY = makeStateKey<any>('carrito');
 @Component({    
     selector: 'manu-header',
-    imports: [FormsModule, ImgErrorDirective, MatToolbarModule, CommonModule, ImgErrorDirective, RouterLink, MatIconModule, MatTooltipModule, NgClass, MatMenuModule, MatButtonModule],
+    imports: [TranslateModule, FormsModule, ImgErrorDirective, MatToolbarModule, CommonModule, ImgErrorDirective, RouterLink, MatIconModule, MatTooltipModule, NgClass, MatMenuModule, MatButtonModule],
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit{
   languageDefault = signal<string>('es');
 
   /* servicios */
-/*   private translate = inject(TranslateService); */
+  private translate = inject(TranslateService);
   private localStorageService = inject(LocalStorageService);
   private searchService = inject(SearchService);
   private router = inject(Router);
@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit{
   }
 
   changeLanguague(lang: string) {
- /*    this.translate.use(lang) */
+    this.translate.use(lang)
     this.lenguaje.set(lang)
     this.languageDefault.set(lang);
     this.localStorageService.setLanguage(lang);

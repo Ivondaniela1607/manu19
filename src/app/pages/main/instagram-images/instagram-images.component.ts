@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ArticlesService } from '@app/services/articles.service';
 import { environment } from '@env/environment';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
     selector: 'manu-instagram-images',
-    imports: [CarouselModule, CommonModule],
+    imports: [TranslateModule, CarouselModule, CommonModule],
     templateUrl: './instagram-images.component.html',
     styleUrl: './instagram-images.component.scss'
 })

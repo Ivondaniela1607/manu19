@@ -3,12 +3,12 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 import { ArticlesService } from '@app/services/articles.service';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
     selector: 'manu-sobre-nosotros',
-    imports: [ImgErrorDirective, RouterLink, CommonModule],
+    imports: [TranslateModule, ImgErrorDirective, RouterLink, CommonModule],
     templateUrl: './sobre-nosotros.component.html',
     styleUrl: './sobre-nosotros.component.scss'
 })

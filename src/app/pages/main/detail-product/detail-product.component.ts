@@ -5,7 +5,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ArticlesService } from '@app/services/articles.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { environment } from '@env/environment';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { ProductRelacionadoComponent } from '../product-relacionado/product-relacionado.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CarruselComponent } from './carrusel/carrusel.component';
@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 
 @Component({   
     selector: 'manu-detail-product',
-    imports: [ImgErrorDirective, MatExpansionModule, CarruselComponent, MatTooltipModule, ProductRelacionadoComponent, RouterLink, CommonModule],
+    imports: [TranslateModule, ImgErrorDirective, MatExpansionModule, CarruselComponent, MatTooltipModule, ProductRelacionadoComponent, RouterLink, CommonModule],
     templateUrl: './detail-product.component.html',
     styleUrl: './detail-product.component.scss'
 })

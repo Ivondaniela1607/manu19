@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ArticlesService } from '@app/services/articles.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { CardSubcategoryComponent } from './card-subcategory/card-subcategory.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'manu-subcategory',
-    imports: [FormsModule, MatExpansionModule, CardSubcategoryComponent, RouterLink, CommonModule],
+    imports: [TranslateModule, FormsModule, MatExpansionModule, CardSubcategoryComponent, RouterLink, CommonModule],
     templateUrl: './subcategory.component.html',
     styleUrl: './subcategory.component.scss'
 })

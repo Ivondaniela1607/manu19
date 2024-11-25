@@ -1,628 +1,628 @@
 @defer(){
-<section style="background-color: rgb(242, 243, 246)">
-  <div class="contenedor">
-    <div class="font-semibold text-[#979CA2] mt-4">
-      <label for="" class="flex flex-wrap items-center cursor-pointer ms-0 lg:ms-8 md:ms-8">
-        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
-            <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
-            <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
-          </svg>
-        <a [routerLink]="['/']">{{ "inicio"  | titlecase }}</a>
-        &nbsp;|&nbsp;
-        <a class="underline underline-offset-1 cursor-default" [routerLink]="['/empresa/shopping']">Shopping</a>
-      </label>
+  <section style="background-color: rgb(242, 243, 246)">
+    <div class="contenedor">
+      <div class="font-semibold text-[#979CA2] mt-4">
+        <label for="" class="flex flex-wrap items-center cursor-pointer ms-0 lg:ms-8 md:ms-8">
+          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+              <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+              <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+            </svg>
+          <a [routerLink]="['/']">{{ "inicio" | translate | titlecase }}</a>
+          &nbsp;|&nbsp;
+          <a class="underline underline-offset-1 cursor-default" [routerLink]="['/empresa/shopping']">Shopping</a>
+        </label>
+      </div>
     </div>
-  </div>
-  <div class="contenedor calidad">
-    <div class="text-center  text-3xl px-4  mt-4 mb-5">
-      <label for=""><strong>{{ "solicitud presupuesto"  | uppercase }}</strong></label>
-    </div>
-    <form [formGroup]="form">
-      <div class="contentNav">
-        <mat-horizontal-stepper linear class="custom-stepper ">
-          <mat-step>
-            <ng-template matStepLabel>
-              <div class="step-circle" style="background-color: green;"></div>
-              <p>{{ 'revision cesta'  | uppercase }}</p>
-            </ng-template>
-            <div class="grid grid-cols-12 gap-4 mb-2 ">
-              <div class="col-span-8 md:col-span-9 lg:col-span-9 bg-gray-300 py-2 px-4">
-                <strong>
-                  <label class="text-md" for="">{{
-                    "productos"  | uppercase
-                    }}</label></strong>
-              </div>
-              <div class="col-span-4 md:col-span-3 lg:col-span-3 bg-gray-300 py-2 px-4">
-                <strong>
-                  <label class="text-sm md:text-md lg:text-md" for="">
-                    {{"cantidad"  | uppercase}}
-                  </label>
-                </strong>
-              </div>
-            </div>
-            @if(noShopping){
-            <label for="" class="ms-4 mb-2">
-              {{ "no carrito" }}
-            </label>
-            }
-            @if (parquesIfantiles.length > 0 && !noShopping) {
-            <label for="" class="ms-10 mt-8 mb-2 text-parques-infantiles font-semibold">
-              {{ "parques infantiles"  | uppercase }}
-            </label>
-            }
-            @if(!noShopping){
-            <div>
-              @for (item of parquesIfantiles; track item; let i = $index ) {
-              <div class="grid grid-cols-12 gap-4 mb-2">
-                <div class="col-span-8 lg:col-span-9 md:col-span-9 b-grey-light">
-                  <div class="w-4/5">
-                    <div class="grid grid-cols-12">
-                      <div class="col-span-12 lg:col-span-3 md:col-span-3">
-                        <img appImgError class="w-20" [src]="url + item?.product?.resultImgsByArticulo[0]?.ruta"
-                          alt="" />
-                      </div>
-                      <div class="col-span-12 lg:col-span-7 md:col-span-7">
-                        <label class="text-sm font-bold uppercase" for="">
-                          {{ "referencia"  }}:
-                        </label>
-                        <span>{{ item.product.referencia }}</span>
-                        <br />
-                        <label class="text-sm font-bold" for="">
-                          {{ "nombre"  }}:
-                        </label>
-                        <span>{{ item.product.nombre_es }}</span>
-                        <div class="flex items-center text-gray-400 font-semibold mt-1">
-                          @if (item.showEmpotrar) {
-                          <div class="mr-2">
-                            <label class="inline-flex items-center">
-                              <input type="checkbox" (change)="changeEmpoAtor('empotrar', item)"
-                                [checked]="item.product.empotrar" class="form-checkbox" />
-                              <span class="ml-2">{{ "empotrar"  }}</span>
-                            </label>
-                          </div>
-                          }
-                          @if (item.showAtornillar) {
-                          <div class="mr-2">
-                            <label class="inline-flex items-center">
-                              <input type="checkbox" (change)="changeEmpoAtor('atornillar', item)"
-                                [checked]="item.product.atornillar" class="form-checkbox" />
-                              <span class="ml-2">{{ "atornillar"  }}</span>
-                            </label>
-                          </div>
-                          }
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-span-2 lg:col-span-1 md:col-span-1 flex items-center justify-center">
-                    <div class="deleteIcon cursor-pointer text-red-600" (click)="deleteArticulo(item)">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                          d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                      </svg>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="col-span-4 md:col-span-3 lg:col-span-3 b-grey-light">
-                  <div class="w-full flex flex-col items-center">
-                    <div class=" flex items-center">
-                      <button class="sumar-restar-button restar-button px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded"
-                        (click)="restar(item)">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                          stroke="currentColor" class="w-4 h-5">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                        </svg>
-
-                      </button>
-                      <input disabled class="sumar-restar-input text-center w-10" type="" formArrayName="cant"
-                        [value]="item.cant" />
-                      <button class="sumar-restar-button sumar-button px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded"
-                        (click)="sumar(item)">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                          stroke="currentColor" class="w-4 h-5">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            }
-            <div class="ms-0 mb-4 md:ms-10 lg:ms-10 flex items-center font-semibold mt-1">
-              <div class="me-3">
-                <label>
-                  <input type="checkbox" formControlName="seguridad" />
-                  {{ "solicitar suelo"  }}
-                </label>
-              </div>
-              <div>
-                <label>
-                  <input type="checkbox" formControlName="proteccion" />
-                  {{ "solicitar cercado"  }}
-                </label>
-              </div>
-            </div>
-            </div>
-            }
-            @if(mobiliarioUrbano.length > 0 && !noShopping){
-            <label for="" class="ms-10 mt-8 mb-2 text-mobiliario-urbano font-semibold">{{ "mobiliario urbando" |
-              
-              uppercase }}
-            </label>
-            }
-            @if(!noShopping){
-            <div>
-              @for (item of mobiliarioUrbano;; track item; let i = $index) {
-              <div class="grid grid-cols-12 gap-4 mb-2">
-                <div class="col-span-8 lg:col-span-9 md:col-span-9 b-grey-light">
-                  <div class="w-4/5">
-                    <div class="grid grid-cols-12">
-                      <div class="col-span-12 lg:col-span-3 md:col-span-3">
-                        <img appImgError class="w-20" [src]="url + item?.product?.resultImgsByArticulo[0]?.ruta"
-                          alt="" />
-                      </div>
-                      <div class="col-span-12 lg:col-span-7 md:col-span-7">
-                        <label class="text-sm font-bold uppercase" for="">
-                          {{ "referencia"  }}:
-                        </label>
-                        <span>{{ item.product.referencia }}</span>
-                        <br />
-                        <label class="text-sm font-bold" for="">
-                          {{ "nombre"  }}:
-                        </label>
-                        <span>{{ item.product.nombre_es }}</span>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-span-2 lg:col-span-1 md:col-span-1 flex items-center justify-center">
-                    <div class="deleteIcon cursor-pointer text-red-600" (click)="deleteArticulo(item)">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                          d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                      </svg>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="col-span-4 md:col-span-3 lg:col-span-3 b-grey-light">
-                  <div class="w-full flex flex-col items-center">
-                    <div class=" flex items-center">
-                      <button class="sumar-restar-button restar-button px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded"
-                        (click)="restar(item)">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                          stroke="currentColor" class="w-4 h-5">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                        </svg>
-
-                      </button>
-                      <input disabled class="sumar-restar-input text-center w-10" type="" formArrayName="cant"
-                        [value]="item.cant" />
-                      <button class="sumar-restar-button sumar-button px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded"
-                        (click)="sumar(item)">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                          stroke="currentColor" class="w-4 h-5">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              }
-            </div>
-            }
-            @if(equipamientoDeportivo.length > 0 && !noShopping){
-            <label for="" class="ms-10 mt-8 mb-2 text-equipamiento-deportivo font-semibold">{{ "equipamiento deportivo"
-              
-              |
-              uppercase }}
-            </label>
-            }
-            @if(!noShopping){
-            <div>
-              @for(item of equipamientoDeportivo; track item; let i = $index){
-              <div class="grid grid-cols-12 gap-4 mb-2">
-                <div class="col-span-8 lg:col-span-9 md:col-span-9 b-grey-light">
-                  <div class="w-4/5">
-                    <div class="grid grid-cols-12">
-                      <div class="col-span-12 lg:col-span-3 md:col-span-3">
-                        <img appImgError class="w-20" [src]="url + item?.product?.resultImgsByArticulo[0]?.ruta"
-                          alt="" />
-                      </div>
-                      <div class="col-span-12 lg:col-span-7 md:col-span-7">
-                        <label class="text-sm font-bold uppercase" for="">
-                          {{ "referencia"  }}:
-                        </label>
-                        <span>{{ item.product.referencia }}</span>
-                        <br />
-                        <label class="text-sm font-bold" for="">
-                          {{ "nombre"  }}:
-                        </label>
-                        <span>{{ item.product.nombre_es }}</span>
-                        <div class="flex items-center text-gray-400 font-semibold mt-1">
-                          @if(item.showEmpotrar){
-                          <div class="mr-2">
-                            <label class="inline-flex items-center">
-                              <input type="checkbox" (change)="changeEmpoAtor('empotrar', item)"
-                                [checked]="item.product.empotrar" class="form-checkbox" />
-                              <span class="ml-2">{{ "empotrar"  }}</span>
-                            </label>
-                          </div>
-                          }
-                          @if(item.showAtornillar){
-                          <div class="mr-2">
-                            <label class="inline-flex items-center">
-                              <input type="checkbox" (change)="changeEmpoAtor('atornillar', item)"
-                                [checked]="item.product.atornillar" class="form-checkbox" />
-                              <span class="ml-2">{{ "atornillar"  }}</span>
-                            </label>
-                          </div>
-                          }
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-span-2 lg:col-span-1 md:col-span-1 flex items-center justify-center">
-                    <div class="deleteIcon cursor-pointer text-red-600" (click)="deleteArticulo(item)">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                          d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                      </svg>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="col-span-4 md:col-span-3 lg:col-span-3 b-grey-light">
-                  <div class="w-full flex flex-col items-center">
-                    <div class=" flex items-center">
-                      <button class="sumar-restar-button restar-button px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded"
-                        (click)="restar(item)">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                          stroke="currentColor" class="w-4 h-5">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                        </svg>
-
-                      </button>
-                      <input disabled class="sumar-restar-input text-center w-10" type="" formArrayName="cant"
-                        [value]="item.cant" />
-                      <button class="sumar-restar-button sumar-button px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded"
-                        (click)="sumar(item)">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                          stroke="currentColor" class="w-4 h-5">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              }
-
-            </div>
-            }
-            <div class="row m-4 flex justify-center">
-              <button 
-                [ngClass]="{
-                  'hover:bg-primary hover:text-white': !noShopping
-                }" 
-                type="button"
-                class=" text-2xl py-3 px-14 mt-4 border border-gray-500 rounded text-gray-500"
-                matStepperNext [disabled]="noShopping">
-                {{ "siguiente"  }}
-              </button>
-            </div>
-            <div class="flex justify-center ">
-              <a class="back " [routerLink]="['/']"><strong>{{ "volver web"  | uppercase }}</strong>
-              </a>
-            </div>
-
-
-          </mat-step>
-          <mat-step [stepControl]="form">
-            <ng-template matStepLabel>
-              <div class="step-circle" style="background-color: red;"></div>
-              <p>{{ 'envio formulario'  | uppercase }}</p>
-            </ng-template>
-            <div class="grid grid-cols-12 gap-4 mb-8 ">
-              <div class="col-span-12 md:col-span-12 lg:col-span-12 bg-gray-300 py-2 px-4">
-                <strong>
-                  <label class="text-md" for="">{{
-                    "datos contacto"  | uppercase
-                    }}</label></strong>
-              </div>
-            </div>
-            <div class="detailForm m-auto">
-              <form [formGroup]="form" class="mb-4">
-                <div class="grid grid-cols-12 gap-1 lg:gap-4 md:gap-4">
-                  <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-                    <label class="mb-0">*{{'nombre' }}</label>
-                  </div>
-                  <div class="col-span-12 md:col-span-9 ">
-                    <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="nombre" />
-                    @if (form.get('nombre')?.touched &&
-                    (form.get('nombre')?.hasError('required') ||
-                      form.get('nombre')?.hasError('minlength'))) {
-                        <small
-                          class="text-red-600"
-                        >
-                          {{
-                            form.get("nombre")?.hasError("required")
-                              ? "El nombre es requerido"
-                              : "El nombre debe tener al menos 3 caracteres"
-                          }}
-                        </small>
-                      }
-                  </div>
-                  <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-                    <label class="m-0">{{'empresa.entidad' }}</label>
-                  </div>
-                  <div class="col-span-12 md:col-span-9 ">
-                    <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="empresa" />
-                  </div>
-                  <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-                    <label class="m-0">{{'direccion' }}</label>
-                  </div>
-                  <div class="col-span-12 md:col-span-9 ">
-                    <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="direccion" />
-                  </div>
-                  <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-                    <label class="m-0">{{'localidad' }}</label>
-                  </div>
-                  <div class="col-span-12 md:col-span-9 ">
-                    <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="localidad" />
-                  </div>
-                  <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-                    <label class="m-0">{{'codigo.postal' }}</label>
-                  </div>
-                  <div class="col-span-12 md:col-span-6 lg:col-span-6">
-                    <input type="number" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="codigo_postal" />
-                  </div>
-                  <div class="col-span-3"></div>
-                  <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-                    <label class="m-0">*{{'provincia' }}</label>
-                  </div>
-                  <div class="col-span-12 md:col-span-9 ">
-                    <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="provincia"/>
-                    @if (form.get('provincia')?.touched &&
-                    (form.get('provincia')?.hasError('required') ||
-                      form.get('provincia')?.hasError('minlength'))) {
-                        <small
-                          class="text-red-600"
-                        >
-                          {{
-                            form.get("provincia")?.hasError("required")
-                              ? "La provincia es requerida"
-                              : "La provincia debe tener al menos 3 caracteres"
-                          }}
-                        </small>
-                      }
-                  </div>
-                  <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-                    <label class="m-0">*{{'telefono' }}</label>
-                  </div>
-                  <div class="col-span-12 md:col-span-6 lg:col-span-6">
-                    <input type="number" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="telefono" />
-                    @if (form.get('telefono')?.touched &&
-                    (form.get('telefono')?.hasError('required') ||
-                      form.get('telefono')?.hasError('minlength'))) {
-                        <small
-                          class="text-red-600"
-                        >
-                          {{
-                            form.get("telefono")?.hasError("required")
-                              ? "El teléfono es requerido"
-                              : "El teléfono debe tener al menos 10 caracteres"
-                          }}
-                        </small>
-      
-                      }
-                  </div>
-                  <div class="col-span-3"></div>
-                  <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-                    <label class="m-0">*{{'email' }}</label>
-                  </div>
-                  <div class="col-span-12 md:col-span-9 ">
-                    <input type="email" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="email" />
-                    @if (form.get('email')?.touched &&
-                    (form.get('email')?.hasError('required') ||
-                      form.get('email')?.hasError('minlength'))) {
-                        <small
-                          class="text-red-600"
-                        >
-                          {{
-                            form.get("email")?.hasError("required")
-                              ? "El email es requerido"
-                              : ""
-                          }}
-                        </small>
-                      }
-                  </div>
-                  <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
-                    <label class="m-0">{{'observaciones' }}</label>
-                  </div>
-                  <div class="col-span-12 md:col-span-7 lg:col-span-7">
-                    <textarea type="text" class="border border-gray-400 w-full h-[105px]" formControlName="observaciones"></textarea>
-                    <label for="" class="text-sm">*{{'campos.obligatorios' }}</label>
-                  </div>
-                  <div class="col-span-2">
-                  </div>
-                </div>   
-                <div class="mt-4 mb-4 w-full  mx-auto">
-                  <input type="checkbox" class="mt-4 me-2 "  formControlName="check1">
-                  <label for="" class="text-gray-400">   {{'campos.check1' }}</label>
-                  <br>
-                  <input type="checkbox" class="mt-4 me-2 " formControlName="check2">
-                  <label for="" class="text-gray-400">{{'campos.check2' }}</label>
-                </div>
-                <div class="text-center " >
-                  <button
-                    matStepperNext
-                    [disabled]="form.invalid"
-                    [ngClass]="{ 'hover:bg-primary hover:text-white bg-white': form.valid}"
-                    class="disabled:opacity-40 disabled:cursor-not-allowed mt-6 mb-8 px-4 py-2 rounded text-black border border-black w-[300px] lg:w-[380px] md:w-[380px] h-[72px]" 
-                    (click)="enviar()"
-                  > 
-                  {{'campos.enviar' }}
-                  </button>
-                </div>
-        
-              </form>
-
-            </div>
-          </mat-step>
-          <mat-step>
-            <ng-template matStepLabel>
-              <div class="step-circle" style="background-color: green;"></div>
-              <p>{{ 'resumen'  | uppercase }}</p>
-            </ng-template>
-            <div>
-              <div class="grid grid-cols-12 md:ms-4 md:me-4 sm:ms-1 sm:me-1 gap-4  ">
-                <div class="col-span-12 b-grey py-2 px-4">
+    <div class="contenedor calidad">
+      <div class="text-center  text-3xl px-4  mt-4 mb-5">
+        <label for=""><strong>{{ "solicitud presupuesto" | translate | uppercase }}</strong></label>
+      </div>
+      <form [formGroup]="form">
+        <div class="contentNav">
+          <mat-horizontal-stepper linear class="custom-stepper ">
+            <mat-step>
+              <ng-template matStepLabel>
+                <div class="step-circle" style="background-color: green;"></div>
+                <p>{{ 'revision cesta' | translate | uppercase }}</p>
+              </ng-template>
+              <div class="grid grid-cols-12 gap-4 mb-2 ">
+                <div class="col-span-8 md:col-span-9 lg:col-span-9 bg-gray-300 py-2 px-4">
                   <strong>
-                    <label for="">{{
-                      "solicitud enviada"  | uppercase
+                    <label class="text-md" for="">{{
+                      "productos" | translate | uppercase
+                      }}</label></strong>
+                </div>
+                <div class="col-span-4 md:col-span-3 lg:col-span-3 bg-gray-300 py-2 px-4">
+                  <strong>
+                    <label class="text-sm md:text-md lg:text-md" for="">
+                      {{"cantidad" | translate | uppercase}}
+                    </label>
+                  </strong>
+                </div>
+              </div>
+              @if(noShopping){
+              <label for="" class="ms-4 mb-2">
+                {{ "no carrito" | translate}}
+              </label>
+              }
+              @if (parquesIfantiles.length > 0 && !noShopping) {
+              <label for="" class="ms-10 mt-8 mb-2 text-parques-infantiles font-semibold">
+                {{ "parques infantiles" | translate | uppercase }}
+              </label>
+              }
+              @if(!noShopping){
+              <div>
+                @for (item of parquesIfantiles; track item; let i = $index ) {
+                <div class="grid grid-cols-12 gap-4 mb-2">
+                  <div class="col-span-8 lg:col-span-9 md:col-span-9 b-grey-light">
+                    <div class="w-4/5">
+                      <div class="grid grid-cols-12">
+                        <div class="col-span-12 lg:col-span-3 md:col-span-3">
+                          <img appImgError class="w-20" [src]="url + item?.product?.resultImgsByArticulo[0]?.ruta"
+                            alt="" />
+                        </div>
+                        <div class="col-span-12 lg:col-span-7 md:col-span-7">
+                          <label class="text-sm font-bold uppercase" for="">
+                            {{ "referencia" | translate }}:
+                          </label>
+                          <span>{{ item.product.referencia }}</span>
+                          <br />
+                          <label class="text-sm font-bold" for="">
+                            {{ "nombre" | translate }}:
+                          </label>
+                          <span>{{ item.product.nombre_es }}</span>
+                          <div class="flex items-center text-gray-400 font-semibold mt-1">
+                            @if (item.showEmpotrar) {
+                            <div class="mr-2">
+                              <label class="inline-flex items-center">
+                                <input type="checkbox" (change)="changeEmpoAtor('empotrar', item)"
+                                  [checked]="item.product.empotrar" class="form-checkbox" />
+                                <span class="ml-2">{{ "empotrar" | translate }}</span>
+                              </label>
+                            </div>
+                            }
+                            @if (item.showAtornillar) {
+                            <div class="mr-2">
+                              <label class="inline-flex items-center">
+                                <input type="checkbox" (change)="changeEmpoAtor('atornillar', item)"
+                                  [checked]="item.product.atornillar" class="form-checkbox" />
+                                <span class="ml-2">{{ "atornillar" | translate }}</span>
+                              </label>
+                            </div>
+                            }
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-span-2 lg:col-span-1 md:col-span-1 flex items-center justify-center">
+                      <div class="deleteIcon cursor-pointer text-red-600" (click)="deleteArticulo(item)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                          stroke="currentColor" class="size-6">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                        </svg>
+  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-span-4 md:col-span-3 lg:col-span-3 b-grey-light">
+                    <div class="w-full flex flex-col items-center">
+                      <div class=" flex items-center">
+                        <button class="sumar-restar-button restar-button px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded"
+                          (click)="restar(item)">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-4 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                          </svg>
+  
+                        </button>
+                        <input disabled class="sumar-restar-input text-center w-10" type="" formArrayName="cant"
+                          [value]="item.cant" />
+                        <button class="sumar-restar-button sumar-button px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded"
+                          (click)="sumar(item)">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-4 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                          </svg>
+  
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              }
+              <div class="ms-0 mb-4 md:ms-10 lg:ms-10 flex items-center font-semibold mt-1">
+                <div class="me-3">
+                  <label>
+                    <input type="checkbox" formControlName="seguridad" />
+                    {{ "solicitar suelo" | translate }}
+                  </label>
+                </div>
+                <div>
+                  <label>
+                    <input type="checkbox" formControlName="proteccion" />
+                    {{ "solicitar cercado" | translate }}
+                  </label>
+                </div>
+              </div>
+              </div>
+              }
+              @if(mobiliarioUrbano.length > 0 && !noShopping){
+              <label for="" class="ms-10 mt-8 mb-2 text-mobiliario-urbano font-semibold">{{ "mobiliario urbando" |
+                translate |
+                uppercase }}
+              </label>
+              }
+              @if(!noShopping){
+              <div>
+                @for (item of mobiliarioUrbano;; track item; let i = $index) {
+                <div class="grid grid-cols-12 gap-4 mb-2">
+                  <div class="col-span-8 lg:col-span-9 md:col-span-9 b-grey-light">
+                    <div class="w-4/5">
+                      <div class="grid grid-cols-12">
+                        <div class="col-span-12 lg:col-span-3 md:col-span-3">
+                          <img appImgError class="w-20" [src]="url + item?.product?.resultImgsByArticulo[0]?.ruta"
+                            alt="" />
+                        </div>
+                        <div class="col-span-12 lg:col-span-7 md:col-span-7">
+                          <label class="text-sm font-bold uppercase" for="">
+                            {{ "referencia" | translate }}:
+                          </label>
+                          <span>{{ item.product.referencia }}</span>
+                          <br />
+                          <label class="text-sm font-bold" for="">
+                            {{ "nombre" | translate }}:
+                          </label>
+                          <span>{{ item.product.nombre_es }}</span>
+  
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-span-2 lg:col-span-1 md:col-span-1 flex items-center justify-center">
+                      <div class="deleteIcon cursor-pointer text-red-600" (click)="deleteArticulo(item)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                          stroke="currentColor" class="size-6">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                        </svg>
+  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-span-4 md:col-span-3 lg:col-span-3 b-grey-light">
+                    <div class="w-full flex flex-col items-center">
+                      <div class=" flex items-center">
+                        <button class="sumar-restar-button restar-button px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded"
+                          (click)="restar(item)">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-4 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                          </svg>
+  
+                        </button>
+                        <input disabled class="sumar-restar-input text-center w-10" type="" formArrayName="cant"
+                          [value]="item.cant" />
+                        <button class="sumar-restar-button sumar-button px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded"
+                          (click)="sumar(item)">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-4 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                          </svg>
+  
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                }
+              </div>
+              }
+              @if(equipamientoDeportivo.length > 0 && !noShopping){
+              <label for="" class="ms-10 mt-8 mb-2 text-equipamiento-deportivo font-semibold">{{ "equipamiento deportivo"
+                | translate
+                |
+                uppercase }}
+              </label>
+              }
+              @if(!noShopping){
+              <div>
+                @for(item of equipamientoDeportivo; track item; let i = $index){
+                <div class="grid grid-cols-12 gap-4 mb-2">
+                  <div class="col-span-8 lg:col-span-9 md:col-span-9 b-grey-light">
+                    <div class="w-4/5">
+                      <div class="grid grid-cols-12">
+                        <div class="col-span-12 lg:col-span-3 md:col-span-3">
+                          <img appImgError class="w-20" [src]="url + item?.product?.resultImgsByArticulo[0]?.ruta"
+                            alt="" />
+                        </div>
+                        <div class="col-span-12 lg:col-span-7 md:col-span-7">
+                          <label class="text-sm font-bold uppercase" for="">
+                            {{ "referencia" | translate }}:
+                          </label>
+                          <span>{{ item.product.referencia }}</span>
+                          <br />
+                          <label class="text-sm font-bold" for="">
+                            {{ "nombre" | translate }}:
+                          </label>
+                          <span>{{ item.product.nombre_es }}</span>
+                          <div class="flex items-center text-gray-400 font-semibold mt-1">
+                            @if(item.showEmpotrar){
+                            <div class="mr-2">
+                              <label class="inline-flex items-center">
+                                <input type="checkbox" (change)="changeEmpoAtor('empotrar', item)"
+                                  [checked]="item.product.empotrar" class="form-checkbox" />
+                                <span class="ml-2">{{ "empotrar" | translate }}</span>
+                              </label>
+                            </div>
+                            }
+                            @if(item.showAtornillar){
+                            <div class="mr-2">
+                              <label class="inline-flex items-center">
+                                <input type="checkbox" (change)="changeEmpoAtor('atornillar', item)"
+                                  [checked]="item.product.atornillar" class="form-checkbox" />
+                                <span class="ml-2">{{ "atornillar" | translate }}</span>
+                              </label>
+                            </div>
+                            }
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-span-2 lg:col-span-1 md:col-span-1 flex items-center justify-center">
+                      <div class="deleteIcon cursor-pointer text-red-600" (click)="deleteArticulo(item)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                          stroke="currentColor" class="size-6">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                        </svg>
+  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-span-4 md:col-span-3 lg:col-span-3 b-grey-light">
+                    <div class="w-full flex flex-col items-center">
+                      <div class=" flex items-center">
+                        <button class="sumar-restar-button restar-button px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded"
+                          (click)="restar(item)">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-4 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                          </svg>
+  
+                        </button>
+                        <input disabled class="sumar-restar-input text-center w-10" type="" formArrayName="cant"
+                          [value]="item.cant" />
+                        <button class="sumar-restar-button sumar-button px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded"
+                          (click)="sumar(item)">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-4 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                          </svg>
+  
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                }
+  
+              </div>
+              }
+              <div class="row m-4 flex justify-center">
+                <button 
+                  [ngClass]="{
+                    'hover:bg-primary hover:text-white': !noShopping
+                  }" 
+                  type="button"
+                  class=" text-2xl py-3 px-14 mt-4 border border-gray-500 rounded text-gray-500"
+                  matStepperNext [disabled]="noShopping">
+                  {{ "siguiente" | translate }}
+                </button>
+              </div>
+              <div class="flex justify-center ">
+                <a class="back " [routerLink]="['/']"><strong>{{ "volver web" | translate | uppercase }}</strong>
+                </a>
+              </div>
+  
+  
+            </mat-step>
+            <mat-step [stepControl]="form">
+              <ng-template matStepLabel>
+                <div class="step-circle" style="background-color: red;"></div>
+                <p>{{ 'envio formulario' | translate | uppercase }}</p>
+              </ng-template>
+              <div class="grid grid-cols-12 gap-4 mb-8 ">
+                <div class="col-span-12 md:col-span-12 lg:col-span-12 bg-gray-300 py-2 px-4">
+                  <strong>
+                    <label class="text-md" for="">{{
+                      "datos contacto" | translate | uppercase
                       }}</label></strong>
                 </div>
               </div>
-              <div class="flex justify-content-center">
-                <p class="text-gray-400 m-auto text-base font-semibold mt-4 mb-4 texto"
-                  style="text-align: center; font-size: 12px">
-                  {{ "solicitud.enviada.texto"  }}
-                </p>
-              </div>
-              <div style="border: 2px rgb(199, 208, 214) solid" class="p-8 text-center">
-                <strong>
-                  <label for="" class="text-gray-400 mt-3 mb-2 text-lg">
-                    {{"resumen solicitud"  | uppercase}}</label>
-                </strong>
-                <div class="grid grid-cols-12 gap-4 mb-2">
-                  <div class="col-span-8 md:col-span-9 b-grey ms-0">
-                    <div class="b-grey">
-                      <label class="text-white text-sm font-semibold ps-4" for="producto">{{ "producto"  |
-                        uppercase}}</label>
+              <div class="detailForm m-auto">
+                <form [formGroup]="form" class="mb-4">
+                  <div class="grid grid-cols-12 gap-1 lg:gap-4 md:gap-4">
+                    <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+                      <label class="mb-0">*{{'nombre' | translate}}</label>
                     </div>
-                  </div>
-                  <div class="col-span-4 md:col-span-3 lg:col-span-3 b-grey flex justify-center">
-                    <div class="b-grey">
-                      <label class="text-white text-sm font-semibold px-2 lg:ps-4 md:ps-4" for="importe">{{ "cantidad" |
-                         uppercase}}</label>
-                    </div>
-                  </div>
-                </div>
-                @for (item of shoppingCartProducts; track item; let i = $index) {
-                  <div 
-                  class="grid grid-cols-12 border-top mb-2 gap-4 ">
-                    <div [ngClass]="{ 'bg-gray-200': i % 2 === 0, 'bg-gray-100': i % 2 !== 0 }" class="col-span-8 md:col-span-9">
-                      <div class="me-1 flex justify-between">
-                        <p class="sm:ps-0 md:ps-6">
-                          <strong>{{ item.product.referencia }}</strong> -
-                          {{ item.product.nombre_es }}
-                        </p>
-                        <p class="sm:ps-0 md:ps-6">
-                          @if(item.product.atornillar === "1" || item.product.atornillar === true){
-                          <strong>{{
-                            "atornillar" 
+                    <div class="col-span-12 md:col-span-9 ">
+                      <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="nombre" />
+                      @if (form.get('nombre')?.touched &&
+                      (form.get('nombre')?.hasError('required') ||
+                        form.get('nombre')?.hasError('minlength'))) {
+                          <small
+                            class="text-red-600"
+                          >
+                            {{
+                              form.get("nombre")?.hasError("required")
+                                ? "El nombre es requerido"
+                                : "El nombre debe tener al menos 3 caracteres"
                             }}
-                          </strong>
-                          }
-                          @if(item.product.empotrar === "1" || item.product.empotrar === true){
-                          <strong>{{
-                            "empotrar" 
+                          </small>
+                        }
+                    </div>
+                    <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+                      <label class="m-0">{{'empresa.entidad' | translate}}</label>
+                    </div>
+                    <div class="col-span-12 md:col-span-9 ">
+                      <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="empresa" />
+                    </div>
+                    <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+                      <label class="m-0">{{'direccion' | translate}}</label>
+                    </div>
+                    <div class="col-span-12 md:col-span-9 ">
+                      <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="direccion" />
+                    </div>
+                    <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+                      <label class="m-0">{{'localidad' | translate}}</label>
+                    </div>
+                    <div class="col-span-12 md:col-span-9 ">
+                      <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="localidad" />
+                    </div>
+                    <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+                      <label class="m-0">{{'codigo.postal' | translate}}</label>
+                    </div>
+                    <div class="col-span-12 md:col-span-6 lg:col-span-6">
+                      <input type="number" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="codigo_postal" />
+                    </div>
+                    <div class="col-span-3"></div>
+                    <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+                      <label class="m-0">*{{'provincia' | translate}}</label>
+                    </div>
+                    <div class="col-span-12 md:col-span-9 ">
+                      <input type="text" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="provincia"/>
+                      @if (form.get('provincia')?.touched &&
+                      (form.get('provincia')?.hasError('required') ||
+                        form.get('provincia')?.hasError('minlength'))) {
+                          <small
+                            class="text-red-600"
+                          >
+                            {{
+                              form.get("provincia")?.hasError("required")
+                                ? "La provincia es requerida"
+                                : "La provincia debe tener al menos 3 caracteres"
                             }}
-                          </strong>
-                          }
-                        </p>
-                      </div>
+                          </small>
+                        }
                     </div>
-                    <div [ngClass]="{ 'bg-gray-200': i % 2 === 0, 'bg-gray-100': i % 2 !== 0 }" class="col-span-4 md:col-span-3 lg:col-span-3 flex justify-center">
-                      <div>
-                        <p class="text-center">{{ item.cant }}</p>
-                      </div>
+                    <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+                      <label class="m-0">*{{'telefono' | translate}}</label>
                     </div>
-                  </div>
-                  }@empty {
-                  <div class="text-center py-4 text-2xl font-semibold mt-4">
-                    <h3>{{"no articulos" }}</h3>
+                    <div class="col-span-12 md:col-span-6 lg:col-span-6">
+                      <input type="number" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="telefono" />
+                      @if (form.get('telefono')?.touched &&
+                      (form.get('telefono')?.hasError('required') ||
+                        form.get('telefono')?.hasError('minlength'))) {
+                          <small
+                            class="text-red-600"
+                          >
+                            {{
+                              form.get("telefono")?.hasError("required")
+                                ? "El teléfono es requerido"
+                                : "El teléfono debe tener al menos 10 caracteres"
+                            }}
+                          </small>
+        
+                        }
+                    </div>
+                    <div class="col-span-3"></div>
+                    <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+                      <label class="m-0">*{{'email' | translate}}</label>
+                    </div>
+                    <div class="col-span-12 md:col-span-9 ">
+                      <input type="email" class="border border-gray-400 w-full h-[25px] mb-4 md:mb-0 lg:mb-0" formControlName="email" />
+                      @if (form.get('email')?.touched &&
+                      (form.get('email')?.hasError('required') ||
+                        form.get('email')?.hasError('minlength'))) {
+                          <small
+                            class="text-red-600"
+                          >
+                            {{
+                              form.get("email")?.hasError("required")
+                                ? "El email es requerido"
+                                : ""
+                            }}
+                          </small>
+                        }
+                    </div>
+                    <div class="col-span-12 md:col-span-3 lg:justify-end md:justify-end sm:text-start mb-0 flex justify-start items-center">
+                      <label class="m-0">{{'observaciones' | translate}}</label>
+                    </div>
+                    <div class="col-span-12 md:col-span-7 lg:col-span-7">
+                      <textarea type="text" class="border border-gray-400 w-full h-[105px]" formControlName="observaciones"></textarea>
+                      <label for="" class="text-sm">*{{'campos.obligatorios' | translate}}</label>
+                    </div>
+                    <div class="col-span-2">
+                    </div>
+                  </div>   
+                  <div class="mt-4 mb-4 w-full  mx-auto">
+                    <input type="checkbox" class="mt-4 me-2 "  formControlName="check1">
+                    <label for="" class="text-gray-400">   {{'campos.check1' | translate}}</label>
                     <br>
-                    <h4>{{"no articulos.txt" }}</h4>
+                    <input type="checkbox" class="mt-4 me-2 " formControlName="check2">
+                    <label for="" class="text-gray-400">{{'campos.check2' | translate}}</label>
                   </div>
-                  }
-                <div class="text-start mt-4 mb-4">
-                  <label for="" class="text-primary font-semibold">{{
-                    "detalles"  | uppercase
-                    }}</label>
-                  @if(form.get('seguridad')?.value ){
-                  <p>
-                    {{ "solicitar suelo"  | uppercase }}
-                  </p>
-                  }
-                  @if(form.get('proteccion')?.value){
-                  <p>
-                    {{ "solicitar cercado"  | uppercase }}
-                  </p>
-                  }
+                  <div class="text-center " >
+                    <button
+                      matStepperNext
+                      [disabled]="form.invalid"
+                      [ngClass]="{ 'hover:bg-primary hover:text-white bg-white': form.valid}"
+                      class="disabled:opacity-40 disabled:cursor-not-allowed mt-6 mb-8 px-4 py-2 rounded text-black border border-black w-[300px] lg:w-[380px] md:w-[380px] h-[72px]" 
+                      (click)="enviar()"
+                    > 
+                    {{'campos.enviar' | translate}}
+                    </button>
+                  </div>
+          
+                </form>
+  
+              </div>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>
+                <div class="step-circle" style="background-color: green;"></div>
+                <p>{{ 'resumen' | translate | uppercase }}</p>
+              </ng-template>
+              <div>
+                <div class="grid grid-cols-12 md:ms-4 md:me-4 sm:ms-1 sm:me-1 gap-4  ">
+                  <div class="col-span-12 b-grey py-2 px-4">
+                    <strong>
+                      <label for="">{{
+                        "solicitud enviada" | translate | uppercase
+                        }}</label></strong>
+                  </div>
                 </div>
-                <div class="text-start mt-4 mb-4">
-                  <label for="" class="text-primary font-semibold">{{
-                    "datos contacto"  | uppercase
-                    }}</label>
-                  <p>
-                    <strong>{{ "nombre"  }}:</strong>
-                    {{ form.get("nombre")?.value }}
+                <div class="flex justify-content-center">
+                  <p class="text-gray-400 m-auto text-base font-semibold mt-4 mb-4 texto"
+                    style="text-align: center; font-size: 12px">
+                    {{ "solicitud.enviada.texto" | translate }}
                   </p>
-                  <p>
-                    <strong>{{ "provincia"  }}:</strong>
-                    {{ form.get("provincia")?.value }}
-                  </p>
-                  <p>
-                    <strong>{{ "telefono"  }}:</strong>
-                    {{ form.get("telefono")?.value }}
-                  </p>
-                  <p><strong>email: </strong>{{ form.get("email")?.value }}</p>
                 </div>
-                <div class="text-end mt-4 mb-2 flex items-center justify-end">
-                  <button [disabled]="downloadPdf()" class="flex items-center justify-center bg-primary text-white py-2 px-4 w-[200px]"
-                    type="button"
-                    style=" font-size: 12px; color: white; background-color: #c71522; border-radius: 2px; border: none;"
-                    (click)="presupuestoPDF()">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                      stroke="currentColor" class="size-6">
-                      <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-                    </svg>
-
-                    <strong>{{ "presupuesto.pdf"  | uppercase }}</strong>
-                  </button>
-                </div>
-                <div class="text-end">
-                  <label class="text-gray-400 font-semibold" for="">{{"presupuesto.ref"  | uppercase}}: REF{{
-                    referencia }}</label>
+                <div style="border: 2px rgb(199, 208, 214) solid" class="p-8 text-center">
+                  <strong>
+                    <label for="" class="text-gray-400 mt-3 mb-2 text-lg">
+                      {{"resumen solicitud" | translate | uppercase}}</label>
+                  </strong>
+                  <div class="grid grid-cols-12 gap-4 mb-2">
+                    <div class="col-span-8 md:col-span-9 b-grey ms-0">
+                      <div class="b-grey">
+                        <label class="text-white text-sm font-semibold ps-4" for="producto">{{ "producto" | translate |
+                          uppercase}}</label>
+                      </div>
+                    </div>
+                    <div class="col-span-4 md:col-span-3 lg:col-span-3 b-grey flex justify-center">
+                      <div class="b-grey">
+                        <label class="text-white text-sm font-semibold px-2 lg:ps-4 md:ps-4" for="importe">{{ "cantidad" |
+                          translate | uppercase}}</label>
+                      </div>
+                    </div>
+                  </div>
+                  @for (item of shoppingCartProducts; track item; let i = $index) {
+                    <div 
+                    class="grid grid-cols-12 border-top mb-2 gap-4 ">
+                      <div [ngClass]="{ 'bg-gray-200': i % 2 === 0, 'bg-gray-100': i % 2 !== 0 }" class="col-span-8 md:col-span-9">
+                        <div class="me-1 flex justify-between">
+                          <p class="sm:ps-0 md:ps-6">
+                            <strong>{{ item.product.referencia }}</strong> -
+                            {{ item.product.nombre_es }}
+                          </p>
+                          <p class="sm:ps-0 md:ps-6">
+                            @if(item.product.atornillar === "1" || item.product.atornillar === true){
+                            <strong>{{
+                              "atornillar" | translate
+                              }}
+                            </strong>
+                            }
+                            @if(item.product.empotrar === "1" || item.product.empotrar === true){
+                            <strong>{{
+                              "empotrar" | translate
+                              }}
+                            </strong>
+                            }
+                          </p>
+                        </div>
+                      </div>
+                      <div [ngClass]="{ 'bg-gray-200': i % 2 === 0, 'bg-gray-100': i % 2 !== 0 }" class="col-span-4 md:col-span-3 lg:col-span-3 flex justify-center">
+                        <div>
+                          <p class="text-center">{{ item.cant }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    }@empty {
+                    <div class="text-center py-4 text-2xl font-semibold mt-4">
+                      <h3>{{"no articulos" | translate}}</h3>
+                      <br>
+                      <h4>{{"no articulos.txt" | translate}}</h4>
+                    </div>
+                    }
+                  <div class="text-start mt-4 mb-4">
+                    <label for="" class="text-primary font-semibold">{{
+                      "detalles" | translate | uppercase
+                      }}</label>
+                    @if(form.get('seguridad')?.value ){
+                    <p>
+                      {{ "solicitar suelo" | translate | uppercase }}
+                    </p>
+                    }
+                    @if(form.get('proteccion')?.value){
+                    <p>
+                      {{ "solicitar cercado" | translate | uppercase }}
+                    </p>
+                    }
+                  </div>
+                  <div class="text-start mt-4 mb-4">
+                    <label for="" class="text-primary font-semibold">{{
+                      "datos contacto" | translate | uppercase
+                      }}</label>
+                    <p>
+                      <strong>{{ "nombre" | translate }}:</strong>
+                      {{ form.get("nombre")?.value }}
+                    </p>
+                    <p>
+                      <strong>{{ "provincia" | translate }}:</strong>
+                      {{ form.get("provincia")?.value }}
+                    </p>
+                    <p>
+                      <strong>{{ "telefono" | translate }}:</strong>
+                      {{ form.get("telefono")?.value }}
+                    </p>
+                    <p><strong>email: </strong>{{ form.get("email")?.value }}</p>
+                  </div>
+                  <div class="text-end mt-4 mb-2 flex items-center justify-end">
+                    <button [disabled]="downloadPdf()" class="flex items-center justify-center bg-primary text-white py-2 px-4 w-[200px]"
+                      type="button"
+                      style=" font-size: 12px; color: white; background-color: #c71522; border-radius: 2px; border: none;"
+                      (click)="presupuestoPDF()">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                      </svg>
+  
+                      <strong>{{ "presupuesto.pdf" | translate | uppercase }}</strong>
+                    </button>
+                  </div>
+                  <div class="text-end">
+                    <label class="text-gray-400 font-semibold" for="">{{"presupuesto.ref" | translate | uppercase}}: REF{{
+                      referencia }}</label>
+                  </div>
                 </div>
               </div>
-            </div>
-          </mat-step>
-        </mat-horizontal-stepper>
-      </div>
-    </form>
-  </div>
-</section>
-}@placeholder {
-<div class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-800 bg-opacity-20 z-50">
-  <div class="flex items-center justify-center">
-    <div class="relative flex items-center justify-center">
-      <div class="w-16 h-16 border-4 border-primary border-dashed rounded-full animate-spin"></div>
-      <div class="absolute inset-0 flex items-center justify-center">
-        <div class="w-10 h-10 bg-primary rounded-full"></div>
+            </mat-step>
+          </mat-horizontal-stepper>
+        </div>
+      </form>
+    </div>
+  </section>
+  }@placeholder {
+  <div class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-800 bg-opacity-20 z-50">
+    <div class="flex items-center justify-center">
+      <div class="relative flex items-center justify-center">
+        <div class="w-16 h-16 border-4 border-primary border-dashed rounded-full animate-spin"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-10 h-10 bg-primary rounded-full"></div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-}
+  }

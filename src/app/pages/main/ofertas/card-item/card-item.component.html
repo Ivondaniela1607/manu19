@@ -3,7 +3,7 @@
   @if (item.novedad === '1') {
     <div class="absolute tag-nuevo"
     [ngClass]="{'tag-center': i % 5 === 0, 'tag-normal': i % 5 !== 0}">
-    {{ "nuevo" | uppercase }}
+    {{ "nuevo" | translate | uppercase }}
   </div>
   }
   @if (getOfertaTexto(item)) {

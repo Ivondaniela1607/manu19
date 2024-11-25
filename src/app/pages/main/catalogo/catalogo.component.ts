@@ -3,14 +3,14 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ArticlesService } from '@app/services/articles.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { environment } from '@env/environment';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 
 
 @Component({
     selector: 'manu-catalogo',
-    imports: [ImgErrorDirective, RouterLink,  CommonModule],
+    imports: [TranslateModule, ImgErrorDirective, RouterLink,  CommonModule],
     templateUrl: './catalogo.component.html',
     styleUrl: './catalogo.component.scss'
 })

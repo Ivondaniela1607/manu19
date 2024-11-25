@@ -8,26 +8,26 @@
             <path stroke-linecap="round" stroke-linejoin="round"
               d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
           </svg>
-          <a class="cursor-pointer" [routerLink]="['']">{{ "inicio"  | titlecase }}</a> &nbsp;|&nbsp;
-          <a class="cursor-default">{{ "novedades"  | titlecase }} </a> &nbsp;|&nbsp;
+          <a class="cursor-pointer" [routerLink]="['']">{{ "inicio" | translate | titlecase }}</a> &nbsp;|&nbsp;
+          <a class="cursor-default">{{ "novedades" | translate | titlecase }} </a> &nbsp;|&nbsp;
   
           @if (opc && opc === 1) {
-          <a class="cursor-default underline underline-offset-1">{{ "parques infantiles"  | titlecase }} </a>
+          <a class="cursor-default underline underline-offset-1">{{ "parques infantiles" | translate | titlecase }} </a>
           }
           @if (opc && opc === 2) {
-          <a class="cursor-default underline underline-offset-1">{{ "equipamiento deportivo"  | titlecase }} </a>
+          <a class="cursor-default underline underline-offset-1">{{ "equipamiento deportivo" | translate | titlecase }} </a>
           }
           @if (opc && opc === 3) {
-          <a class="cursor-default underline underline-offset-1">{{ "mobiliario urbano"  | titlecase }} </a>
+          <a class="cursor-default underline underline-offset-1">{{ "mobiliario urbano" | translate | titlecase }} </a>
           }
           @if (opc && opc === 4) {
-          <a class="cursor-default underline underline-offset-1">{{ "todo"  | titlecase }} </a>
+          <a class="cursor-default underline underline-offset-1">{{ "todo" | translate | titlecase }} </a>
           }
         </label>
       </div>
       <div class="">
         <div class="text-center mb-4 mt-4 text-3xl">
-          <label for=""><strong>{{ "novedades"  | uppercase }}</strong></label>
+          <label for=""><strong>{{ "novedades" | translate | uppercase }}</strong></label>
         </div>
         @if(isLoading()){
           <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" (selectedTabChange)="onTabChange($event)">
@@ -38,15 +38,15 @@
                     'background-color': selectedTabIndex === 0 ? 'rgb(106, 31, 142)' : 'white',
                     'color': selectedTabIndex === 0 ? 'white' : 'rgb(106, 31, 142)',
                     'padding': '10px 20px'
-                  }">{{ "parques infantiles"  | titlecase }}</a>
+                  }">{{ "parques infantiles" | translate | titlecase }}</a>
                 </strong>
               </ng-template>
               <ng-template matTabContent="">
                 @if(novedadesFilter.length === 0){
                   <div class="text-center py-4 text-2xl font-semibold mt-4">
-                    <h3>{{"no articulos" }}</h3>
+                    <h3>{{"no articulos" | translate}}</h3>
                     <br>
-                    <h4>{{"no articulos.txt" }}</h4>
+                    <h4>{{"no articulos.txt" | translate}}</h4>
                   </div>
                 }
                 @if (novedadesFilter.length > 0 ) {
@@ -71,9 +71,9 @@
                     </ng-container>
                     }@empty {
                       <div class="text-center py-4 text-2xl font-semibold mt-4">
-                        <h3>{{"no articulos" }}</h3>
+                        <h3>{{"no articulos" | translate}}</h3>
                         <br>
-                        <h4>{{"no articulos.txt" }}</h4>
+                        <h4>{{"no articulos.txt" | translate}}</h4>
                       </div>
                     }
                   </div>
@@ -87,15 +87,15 @@
                     'background-color': selectedTabIndex === 1 ? 'rgb(38, 144, 204)' : 'white',
                     'color': selectedTabIndex === 1 ? 'white' : 'rgb(38, 144, 204)',
                     'padding': '10px 20px'
-                  }">{{ "equipamiento deportivo"  | titlecase }}</a>
+                  }">{{ "equipamiento deportivo" | translate | titlecase }}</a>
                 </strong>
               </ng-template>
               <ng-template matTabContent="">
                 @if(novedadesFilter.length === 0){
                   <div class="text-center py-4 text-2xl font-semibold mt-4">
-                    <h3>{{"no articulos" }}</h3>
+                    <h3>{{"no articulos" | translate}}</h3>
                     <br>
-                    <h4>{{"no articulos.txt" }}</h4>
+                    <h4>{{"no articulos.txt" | translate}}</h4>
                   </div>
                 }
                 @if (novedadesFilter.length > 0) {
@@ -119,9 +119,9 @@
                       </ng-container>
                     }@empty {
                       <div class="text-center py-4 text-2xl font-semibold mt-4">
-                        <h3>{{"no articulos" }}</h3>
+                        <h3>{{"no articulos" | translate}}</h3>
                         <br>
-                        <h4>{{"no articulos.txt" }}</h4>
+                        <h4>{{"no articulos.txt" | translate}}</h4>
                       </div>
                     }
                   </div>
@@ -135,15 +135,15 @@
                     'background-color': selectedTabIndex === 2 ? 'rgb(158, 184, 38)' : 'white',
                     'color': selectedTabIndex === 2 ? 'white' : 'rgb(158, 184, 38)',
                     'padding': '10px 20px'
-                  }">{{ "mobiliario urbano"  | titlecase }}</a>
+                  }">{{ "mobiliario urbano" | translate | titlecase }}</a>
                 </strong>
               </ng-template>
               <ng-template matTabContent="">
                 @if(novedadesFilter.length === 0){
                   <div class="text-center py-4 text-2xl font-semibold mt-4">
-                    <h3>{{"no articulos" }}</h3>
+                    <h3>{{"no articulos" | translate}}</h3>
                     <br>
-                    <h4>{{"no articulos.txt" }}</h4>
+                    <h4>{{"no articulos.txt" | translate}}</h4>
                   </div>
                 }
                 @if (novedadesFilter.length > 0) {
@@ -167,9 +167,9 @@
                       </ng-container>
                     }@empty {
                       <div class="text-center py-4 text-2xl font-semibold mt-4">
-                        <h3>{{"no articulos" }}</h3>
+                        <h3>{{"no articulos" | translate}}</h3>
                         <br>
-                        <h4>{{"no articulos.txt" }}</h4>
+                        <h4>{{"no articulos.txt" | translate}}</h4>
                       </div>
                     }
                   </div>
@@ -183,15 +183,15 @@
                     'background-color': selectedTabIndex === 3 ? 'rgb(183, 45, 44)' : 'white',
                     'color': selectedTabIndex === 3 ? 'white' : 'rgb(183, 45, 44)',
                     'padding': '10px 20px'
-                  }">{{ "todo"  | titlecase }}</a>
+                  }">{{ "todo" | translate | titlecase }}</a>
                 </strong>
               </ng-template>
               <ng-template matTabContent="" >
                 @if(novedadesFilter.length === 0){
                   <div class="text-center py-4 text-2xl font-semibold mt-4">
-                    <h3>{{"no articulos" }}</h3>
+                    <h3>{{"no articulos" | translate}}</h3>
                     <br>
-                    <h4>{{"no articulos.txt" }}</h4>
+                    <h4>{{"no articulos.txt" | translate}}</h4>
                   </div>
                 }
                 @if (byCategoriaPI.length > 0) {
@@ -220,9 +220,9 @@
                       </ng-container>
                     }@empty {
                       <div class="text-center py-4 text-2xl font-semibold mt-4">
-                        <h3>{{"no articulos" }}</h3>
+                        <h3>{{"no articulos" | translate}}</h3>
                         <br>
-                        <h4>{{"no articulos.txt" }}</h4>
+                        <h4>{{"no articulos.txt" | translate}}</h4>
                       </div>
                     }
       
@@ -254,9 +254,9 @@
                       </ng-container>
                     }@empty {
                       <div class="text-center py-4 text-2xl font-semibold mt-4">
-                        <h3>{{"no articulos" }}</h3>
+                        <h3>{{"no articulos" | translate}}</h3>
                         <br>
-                        <h4>{{"no articulos.txt" }}</h4>
+                        <h4>{{"no articulos.txt" | translate}}</h4>
                       </div>
                     }
       
@@ -288,9 +288,9 @@
                       </ng-container>
                     }@empty {
                       <div class="text-center py-4 text-2xl font-semibold mt-4">
-                        <h3>{{"no articulos" }}</h3>
+                        <h3>{{"no articulos" | translate}}</h3>
                         <br>
-                        <h4>{{"no articulos.txt" }}</h4>
+                        <h4>{{"no articulos.txt" | translate}}</h4>
                       </div>
                     }
       

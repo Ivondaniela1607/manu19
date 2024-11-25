@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, Input, OnInit, signal } from '@angular/core';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 import { LocalStorageService } from '@app/services/localStorage.service';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
 
     selector: 'manu-card-item',
-    imports: [ImgErrorDirective, CommonModule],
+    imports: [TranslateModule, ImgErrorDirective, CommonModule],
     templateUrl: './card-item.component.html',
     styleUrl: './card-item.component.scss'
 })

@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { ArticlesService } from '@app/services/articles.service';
@@ -13,7 +13,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
     selector: 'manu-novelty',
-    imports: [CarouselModule, CommonModule, RouterLink, ImgErrorDirective],
+    imports: [TranslateModule, CarouselModule, CommonModule, RouterLink, ImgErrorDirective],
     templateUrl: './novelty.component.html',
     styleUrl: './novelty.component.scss'
 })

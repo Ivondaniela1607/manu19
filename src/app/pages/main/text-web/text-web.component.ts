@@ -3,12 +3,12 @@ import { ArticlesService } from '@app/services/articles.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'manu-text-web',
-    imports: [RouterLink, CommonModule],
+    imports: [TranslateModule, RouterLink, CommonModule],
     templateUrl: './text-web.component.html',
     styleUrl: './text-web.component.scss'
 })

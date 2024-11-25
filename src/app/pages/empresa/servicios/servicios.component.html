@@ -6,15 +6,15 @@
           <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
           <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
         </svg>
-        <a [routerLink]="['/']">{{ "inicio" | titlecase }}</a>
+        <a [routerLink]="['/']">{{ "inicio" | translate | titlecase }}</a>
         &nbsp;|&nbsp;
-        <a class="underline underline-offset-1 cursor-default" [routerLink]="['/empresa/servicios']">{{ 'servicios' }}</a>
+        <a class="underline underline-offset-1 cursor-default" [routerLink]="['/empresa/servicios']">{{ 'servicios' | translate }}</a>
       </label>
     </div>
   </div>
   <div class="contenedor calidad">
     <div class="text-center mb-4 mt-4 text-3xl">
-      <label for=""><strong>{{ 'servicios' | uppercase }}</strong></label>
+      <label for=""><strong>{{ 'servicios' | translate | uppercase }}</strong></label>
     </div>
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" (selectedTabChange)="onTabChange($event)">
       <mat-tab>
@@ -24,32 +24,32 @@
               'background-color': selectedTabIndex === 0 ? '#C71522' : 'white',
               'color': selectedTabIndex === 0 ? 'white' : 'black',
               'padding': '10px 20px'
-            }">{{ "instalacion" | titlecase }}</a>
+            }">{{ "instalacion" | translate | titlecase }}</a>
           </strong>
         </ng-template>
         <ng-template matTabContent="">
           <div class="contentNav">
             <p>
-              {{ "servicios.txt1" }}
+              {{ "servicios.txt1" | translate }}
             </p>
             <br />
             <p>
-              {{ "servicios.txt2" }}
+              {{ "servicios.txt2" | translate }}
             </p>
             <br />
             <p>
-              {{ "servicios.txt3" }}
+              {{ "servicios.txt3" | translate }}
             </p>
             <p>
-              {{ "servicios.txt4" }}
-            </p>
-            <br />
-            <p>
-              {{ "servicios.txt5" }}
+              {{ "servicios.txt4" | translate }}
             </p>
             <br />
             <p>
-              {{ "servicios.txt6" }}
+              {{ "servicios.txt5" | translate }}
+            </p>
+            <br />
+            <p>
+              {{ "servicios.txt6" | translate }}
             </p>
             <div class="install-mant mt-6 mb-6">
               <img (click)="viewImg('assets/images/others/Instalacion_Manufacturas_Deportivas_w1.jpg')" appImgError class="img1 cursor-pointer" src="assets/images/others/Instalacion_Manufacturas_Deportivas_w1.jpg" alt="" />
@@ -68,19 +68,19 @@
                      'background-color': selectedTabIndex === 1 ? '#C71522' : 'white',
               'color': selectedTabIndex === 1? 'white' : 'black',
               'padding': '10px 20px'
-            }">{{ "mantenimiento"  }}</a>
+            }">{{ "mantenimiento" | translate  }}</a>
           </strong>
         </ng-template>
         <ng-template matTabContent="">
           <div class="contentNav">
-            <p class="text-2xl font-semibold mb-2">{{ "servicios.mantenimiento.title1" | uppercase}}</p>
+            <p class="text-2xl font-semibold mb-2">{{ "servicios.mantenimiento.title1" | translate | uppercase}}</p>
             <div class="ms-0 md:ms-16 lg:ms-16">
               <p>
-                {{ "servicios.mantenimiento.txt1" }}
+                {{ "servicios.mantenimiento.txt1" | translate }}
               </p>
               <br />
               <p>
-                {{ "servicios.mantenimiento.txt2" }}
+                {{ "servicios.mantenimiento.txt2" | translate }}
               </p>
               <div class="containImg mt-4 mb-2">
                 <img class="cursor-pointer" (click)="viewImg('assets/images/others/install1.png')" appImgError src="assets/images/others/install1.png" alt="" />
@@ -88,20 +88,20 @@
                 <img class="cursor-pointer" (click)="viewImg('assets/images/others/install3.png')" appImgError src="assets/images/others/install3.png" alt="" />
               </div>
             </div>
-            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.mantenimiento.title2" | uppercase}}</p>
+            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.mantenimiento.title2" | translate | uppercase}}</p>
             <div class="ms-0 md:ms-16 lg:ms-16">
               <p>
-                {{ "servicios.mantenimiento.txt3"}}
+                {{ "servicios.mantenimiento.txt3" | translate}}
               </p>
               <br />
-              <p>{{ "servicios.mantenimiento.txt4"}}</p>
+              <p>{{ "servicios.mantenimiento.txt4" | translate}}</p>
               <br />
               <p>
-                {{ "servicios.mantenimiento.txt5"}}
+                {{ "servicios.mantenimiento.txt5" | translate}}
               </p>
             </div>
 
-            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.mantenimiento.title3" | uppercase}}</p>
+            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.mantenimiento.title3" | translate | uppercase}}</p>
             <div class="flex justify-center cursor-pointer" [routerLink]="'/repuestos'">
               <img appImgError src="assets/images/others/repuesto1.png" alt="" />
             </div>
@@ -115,28 +115,28 @@
               'background-color': selectedTabIndex === 2 ? '#C71522' : 'white',
               'color': selectedTabIndex === 2 ? 'white' : 'black',
               'padding': '10px 20px'
-            }">{{ "pintura" | titlecase }}</a>
+            }">{{ "pintura" | translate | titlecase }}</a>
           </strong>
         </ng-template>
         <ng-template matTabContent="">
           <div class="contentNav">
-            <p class="text-2xl font-semibold mb-2">{{ "servicios.pintura.title1" }}</p>
+            <p class="text-2xl font-semibold mb-2">{{ "servicios.pintura.title1" | translate }}</p>
             <div class="ms-0 md:ms-16 lg:ms-16">
               <p>
-                {{ "servicios.pintura.txt1" }} <br />
-                {{ "servicios.pintura.txt2" }}
+                {{ "servicios.pintura.txt1" | translate }} <br />
+                {{ "servicios.pintura.txt2" | translate }}
               </p>
             </div>
-            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.pintura.title2" }}</p>
+            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.pintura.title2" | translate }}</p>
             <div class="ms-0 md:ms-16 lg:ms-16">
               <p>
-                {{ "servicios.pintura.txt3" }}
+                {{ "servicios.pintura.txt3" | translate }}
               </p>
             </div>
-            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.pintura.title3" }}</p>
+            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.pintura.title3" | translate }}</p>
             <div class="ms-0 md:ms-16 lg:ms-16">
               <p>
-                {{ "servicios.pintura.txt4" }}
+                {{ "servicios.pintura.txt4" | translate }}
               </p>
             </div>
 
@@ -145,23 +145,23 @@
               <div class="text-center flex justify-center">
                 <img appImgError class="w-100" src="assets/images/others/Esquema_tren_pintura_al_polvo_w.jpg" alt="" />
               </div>
-              <p class="mb-1"><strong>{{ "servicios.pintura.title4" }}</strong></p>
-              <p class="mt-2">{{ "servicios.pintura.txt5"}}</p>
-              <p class="mt-2">{{ "servicios.pintura.txt6" }}</p>
-              <p class="mt-2">{{ "servicios.pintura.txt7" }}</p>
-              <p class="mt-2">{{ "servicios.pintura.txt8" }}</p>
-              <p class="mt-2">{{ "servicios.pintura.txt9" }}</p>
-              <p class="mt-2">{{ "servicios.pintura.txt10" }}</p>
-              <p class="mt-2">{{ "servicios.pintura.txt11" }}</p>
-              <p class="mt-2">{{ "servicios.pintura.txt12" }}</p>
+              <p class="mb-1"><strong>{{ "servicios.pintura.title4" | translate }}</strong></p>
+              <p class="mt-2">{{ "servicios.pintura.txt5" | translate}}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt6" | translate }}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt7" | translate }}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt8" | translate }}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt9" | translate }}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt10" | translate }}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt11" | translate }}</p>
+              <p class="mt-2">{{ "servicios.pintura.txt12" | translate }}</p>
             </div>
-            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.pintura.title5" }}</p>
+            <p class="text-2xl font-semibold mt-4 mb-2">{{ "servicios.pintura.title5" | translate }}</p>
             <div class="ms-0 md:ms-16 lg:ms-16">
               <p>
-                <strong>{{ "servicios.pintura.txt13" }}</strong> <br />
+                <strong>{{ "servicios.pintura.txt13" | translate }}</strong> <br />
                 6000 x 2100 x 1000 mm.<br />
-                <strong>{{ "servicios.pintura.txt14" }}</strong> <br />
-                {{ "servicios.pintura.txt15" }}<br />
+                <strong>{{ "servicios.pintura.txt14" | translate }}</strong> <br />
+                {{ "servicios.pintura.txt15" | translate }}<br />
               </p>
             </div>
 

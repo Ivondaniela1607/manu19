@@ -4,13 +4,13 @@ import { Router, RouterLink } from '@angular/router';
 import { ArticlesService } from '@app/services/articles.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { environment } from '@env/environment';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 
 @Component({
     selector: 'manu-repuestos',
-    imports: [ImgErrorDirective, MatTabsModule, RouterLink, CommonModule],
+    imports: [TranslateModule, ImgErrorDirective, MatTabsModule, RouterLink, CommonModule],
     templateUrl: './repuestos.component.html',
     styleUrl: './repuestos.component.scss'
 })

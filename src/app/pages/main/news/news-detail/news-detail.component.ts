@@ -6,11 +6,11 @@ import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 import { ConfigurationService } from '@app/services/configuration.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { environment } from '@env/environment';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'manu-news-detail',
-    imports: [ImgErrorDirective, RouterLink, CommonModule],
+    imports: [TranslateModule, ImgErrorDirective, RouterLink, CommonModule],
     templateUrl: './news-detail.component.html',
     styleUrl: './news-detail.component.scss'
 })

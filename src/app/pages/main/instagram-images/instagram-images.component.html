@@ -16,10 +16,10 @@
         src="assets/images/icons/instagram.svg"
         alt="instagram"
       />
-      <strong>{{ "siguenos instagram"  }}</strong>
+      <strong>{{ "siguenos instagram" | translate }}</strong>
     </a>
   </div>
-  @if(slideBoolean() && slidesStore().length > 0){
+  @if(slideBoolean()){
     <owl-carousel-o [options]="customOptions">
       @for (item of slidesStore(); track item) {
         <ng-container >

@@ -26,8 +26,10 @@ export class CarruselComponent implements OnChanges{
     dots: false,
     navSpeed: 700,
     navText: [
-      '<img src="assets/icons/chevron-left.svg" style="width: 70px; height: 70px;">',
-      '<img src="assets/icons/chevron-right.svg" style="width: 70px; height: 70px;">'
+/* '<img src="assets/icons/chevron-left.svg" style="width: 70px; height: 70px;">',
+      '<img src="assets/icons/chevron-right.svg" style="width: 70px; height: 70px;">' */      
+      '<',
+      '>'
     ],
     responsive: {
       0: {

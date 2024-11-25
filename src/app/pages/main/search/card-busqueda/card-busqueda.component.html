@@ -11,7 +11,7 @@
               <img appImgError fill [src]="url+item?.image?.ruta" alt="" />
               @if (item.novedad === '1') {
                 <div class="absolute tag-nuevo tag-normal">
-                  {{ "nuevo" | uppercase }}
+                  {{ "nuevo" | translate | uppercase }}
                 </div>
               }
               @if (getOfertaTexto(item)) {
@@ -37,9 +37,9 @@
           </div>
         }@empty {
           <div class="text-center py-4 text-2xl font-semibold mt-4">
-            <h3>{{"no articulos"}}</h3>
+            <h3>{{"no articulos" | translate}}</h3>
             <br>
-            <h4>{{"no articulos.txt"}}</h4>
+            <h4>{{"no articulos.txt" | translate}}</h4>
           </div>
         }
       </div>
@@ -75,9 +75,9 @@
           </div>
         }@empty {
           <div class="text-center py-4 text-2xl font-semibold mt-4">
-            <h3>{{"no articulos"}}</h3>
+            <h3>{{"no articulos" | translate}}</h3>
             <br>
-            <h4>{{"no articulos.txt"}}</h4>
+            <h4>{{"no articulos.txt" | translate}}</h4>
           </div>
         }
       </div>
@@ -113,9 +113,9 @@
           </div>
         }@empty {
           <div class="text-center py-4 text-2xl font-semibold mt-4">
-            <h3>{{"no articulos"}}</h3>
+            <h3>{{"no articulos" | translate}}</h3>
             <br>
-            <h4>{{"no articulos.txt"}}</h4>
+            <h4>{{"no articulos.txt" | translate}}</h4>
           </div>
         }
       </div>

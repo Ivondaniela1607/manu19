@@ -4,13 +4,13 @@ import { Router, RouterLink } from '@angular/router';
 import { ArticlesService } from '@app/services/articles.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { environment } from '@env/environment';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
 import { CardItemComponent } from './card-item/card-item.component';
 
 @Component({
     selector: 'manu-ofertas',
-    imports: [CardItemComponent, MatTabsModule, RouterLink, CommonModule],
+    imports: [TranslateModule, CardItemComponent, MatTabsModule, RouterLink, CommonModule],
     templateUrl: './ofertas.component.html',
     styleUrl: './ofertas.component.scss'
 })

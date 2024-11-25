@@ -5,13 +5,13 @@ import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 import { ArticlesService } from '@app/services/articles.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { environment } from '@env/environment';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @Component({    
     selector: 'manu-product-relacionado',
-    imports: [CarouselModule, CommonModule, ImgErrorDirective],
+    imports: [TranslateModule, CarouselModule, CommonModule, ImgErrorDirective],
     templateUrl: './product-relacionado.component.html',
     styleUrl: './product-relacionado.component.scss'
 })
@@ -40,8 +40,10 @@ export class ProductRelacionadoComponent implements OnInit{
     stagePadding: 30,
     startPosition: 'URLHash',
     navText: [
-      '<img src="assets/icons/chevron-left.svg" style="width: 70px; height: 70px;">',
-      '<img src="assets/icons/chevron-right.svg" style="width: 70px; height: 70px;">'
+      /* '<img src="assets/icons/chevron-left.svg" style="width: 70px; height: 70px;">',
+            '<img src="assets/icons/chevron-right.svg" style="width: 70px; height: 70px;">' */      
+            '<',
+            '>'
     ],
     // navText: ['Anterior', 'Siguiente'],
     nav: true,

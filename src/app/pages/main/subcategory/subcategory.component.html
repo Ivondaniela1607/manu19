@@ -20,7 +20,7 @@
             <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
             <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
           </svg>
-          <a [routerLink]="['/']">{{ "inicio"  | titlecase }}</a>
+          <a [routerLink]="['/']">{{ "inicio" | translate | titlecase }}</a>
           &nbsp;|&nbsp;
           <a class="cursor-pointer"(click)="detail(category())">{{
             getCategoriaText(category()) | titlecase }}
@@ -42,7 +42,7 @@
         <div class="w-full bg-white px-4 py-4">
           <strong>
             <label for="" class="font-semibold w-full">
-              {{ "que necesitas"  | uppercase }}
+              {{ "que necesitas" | translate | uppercase }}
             </label>
           </strong>
         </div>
@@ -53,7 +53,7 @@
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                <span>{{ "ordenar"  | uppercase }}</span>
+                <span>{{ "ordenar" | translate | uppercase }}</span>
               </mat-panel-title>
             </mat-expansion-panel-header>
             <div>
@@ -75,7 +75,7 @@
             <mat-expansion-panel >
                <mat-expansion-panel-header>
                  <mat-panel-title>
-                   <span>{{ "edad"  | uppercase }} </span>
+                   <span>{{ "edad" | translate | uppercase }} </span>
                  </mat-panel-title>
                </mat-expansion-panel-header>
                <div >
@@ -103,7 +103,7 @@
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                <span>{{ "serie"  | uppercase }}</span>
+                <span>{{ "serie" | translate | uppercase }}</span>
               </mat-panel-title>
             </mat-expansion-panel-header>
             <div>
@@ -131,7 +131,7 @@
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                <span>{{ "color"  | uppercase }}</span>
+                <span>{{ "color" | translate | uppercase }}</span>
               </mat-panel-title>
             </mat-expansion-panel-header>
             <div>
@@ -164,7 +164,7 @@
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                <span>{{ "materiales"  | uppercase }}</span>
+                <span>{{ "materiales" | translate | uppercase }}</span>
               </mat-panel-title>
             </mat-expansion-panel-header>
             <div>
@@ -199,7 +199,7 @@
               (click)="checkInclusivo()"
             />
    
-            <label>{{"inclusivo"  | uppercase}} </label>
+            <label>{{"inclusivo" | translate | uppercase}} </label>
           </div>
           <hr class="my-4"/>
           <div>
@@ -210,7 +210,7 @@
               (click)="checkNovedad()"
               [checked]="filtros.novedad"
             />
-            <label> {{"novedad"  | uppercase}} </label>
+            <label> {{"novedad" | translate | uppercase}} </label>
           </div>
           <hr class="my-4"/>
           <div>
@@ -221,11 +221,11 @@
               (click)="checkOferta()"
               [checked]="filtros.oferta"
             />
-            <label> {{"oferta"  | uppercase}} </label>
+            <label> {{"oferta" | translate | uppercase}} </label>
           </div>
           <hr class="my-4"/>
           @if (opc.id_categoria === 1 ) {
-            <label for="">{{'altura caida'  | uppercase}}</label>
+            <label for="">{{'altura caida' | translate | uppercase}}</label>
             <div class="mt-4">
               <div class="mb-3">
                 <small><strong>{{minSelectedAlturaCaida()}}m - {{maxSelectedAlturaCaida()}}m</strong> </small>
@@ -259,7 +259,7 @@
               </div>
             </div>
             <div class="range mt-2 mb-4">
-              <label for="">{{'superficie impacto'  | uppercase}}</label>
+              <label for="">{{'superficie impacto' | translate | uppercase}}</label>
               <div class="mt-4">
                 <div class="mb-3">
                   <small><strong>{{minSelectedSuperficieImpacto()}}m2 - {{maxSelectedSuperficieImpacto()}}m2</strong> </small>
@@ -295,7 +295,7 @@
               <hr class="my-4"/>
             </div> 
           }
-          <label> {{cantReferencias()}} {{"referencias"  | uppercase}} </label>
+          <label> {{cantReferencias()}} {{"referencias" | translate | uppercase}} </label>
         </div>
       </div>
       <div class="col-span-12 md:col-span-9 lg:col-span-9">

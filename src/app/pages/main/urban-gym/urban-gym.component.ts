@@ -8,12 +8,12 @@ import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
     selector: 'manu-urban-gym',
-    imports: [ImgErrorDirective, CarouselModule, CommonModule],
+    imports: [TranslateModule, ImgErrorDirective, CarouselModule, CommonModule],
     templateUrl: './urban-gym.component.html',
     styleUrl: './urban-gym.component.scss'
 })

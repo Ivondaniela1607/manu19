@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
+import { TranslateModule } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { environment } from '@env/environment';
 import { ArticlesService } from '@app/services/articles.service';
@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 
 @Component({
     selector: 'manu-shopping-cart',
-    imports: [MatProgressSpinnerModule, ImgErrorDirective, CdkStepperModule, MatStepperModule, ReactiveFormsModule, FormsModule, RouterLink, CommonModule],
+    imports: [TranslateModule, MatProgressSpinnerModule, ImgErrorDirective, CdkStepperModule, MatStepperModule, ReactiveFormsModule, FormsModule, RouterLink, CommonModule],
     templateUrl: './shopping-cart.component.html',
     styleUrl: './shopping-cart.component.scss',
     providers: [{ provide: CdkStepper }]

@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 import { LocalStorageService } from '@app/services/localStorage.service';
 import { environment } from '@env/environment';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'manu-card-subcategory',
-    imports: [ImgErrorDirective, CommonModule],
+    imports: [TranslateModule, ImgErrorDirective, CommonModule],
     templateUrl: './card-subcategory.component.html',
     styleUrl: './card-subcategory.component.scss'
 })

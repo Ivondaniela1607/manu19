@@ -3,14 +3,14 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ArticlesService } from '@app/services/articles.service';
 import { LocalStorageService } from '@app/services/localStorage.service';
-/* import { TranslateModule } from '@ngx-translate/core'; */
+import { TranslateModule } from '@ngx-translate/core';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 
 
 
 @Component({
     selector: 'manu-profesionales',
-    imports: [ImgErrorDirective, RouterLink, CommonModule],
+    imports: [TranslateModule, ImgErrorDirective, RouterLink, CommonModule],
     templateUrl: './profesionales.component.html',
     styleUrl: './profesionales.component.scss'
 })

@@ -6,13 +6,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ImgErrorDirective } from '../../core/directives/imgError.directive';
 import { environment } from '@env/environment';
 import { BreakpointService } from '@app/services/BreakPointObserver.service';
-
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
 @Component({
     selector: 'manu-footer',
-    imports: [ImgErrorDirective, CommonModule, RouterLink, MatTooltipModule, ImgErrorDirective],
+    imports: [TranslateModule, ImgErrorDirective, CommonModule, RouterLink, MatTooltipModule, ImgErrorDirective],
     templateUrl: './footer.component.html',
     styleUrl: './footer.component.scss',
     changeDetection: ChangeDetectionStrategy.Default

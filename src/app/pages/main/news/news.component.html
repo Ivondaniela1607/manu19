@@ -1,7 +1,7 @@
 <div class="contenedor my-10">
   <div class="flex justify-center items-center">
     <h4 class="font-semibold text-2xl mb-2">
-      {{ "noticias" | uppercase }} MD
+      {{ "noticias" | translate | uppercase }} MD
     </h4>
   </div>
 </div>
@@ -48,7 +48,7 @@
             />
           </svg>
           <a (click)="detail(news()[0])" class="text-primary underline">{{
-            "leer mas"
+            "leer mas" | translate
           }}</a>
         </strong>
       </div>
@@ -96,7 +96,7 @@
                 />
               </svg>
               <a (click)="detail(news()[1])" class="text-primary underline">{{
-                "leer mas"
+                "leer mas" | translate
               }}</a>
             </strong>
           </div>
@@ -148,7 +148,7 @@
                 />
               </svg>
               <a (click)="detail(news()[2])" class="text-primary underline">{{
-                "leer mas"
+                "leer mas" | translate
               }}</a>
             </strong>
           </div>
@@ -163,7 +163,7 @@
         [routerLink]="['/view-news']"
         class="bg-white border-gray-900 text-2xl border rounded px-8 py-2 hover:bg-primary text-gray-900 hover:text-white"
       >
-        {{ "acceder" | uppercase }}
+        {{ "acceder" | translate | uppercase }}
       </button>
     </div>
   </div>
