@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, NgZone, OnInit, signal } from '@angular/core';
 import { ArticlesService } from '@app/services/articles.service';
 import { environment } from '@env/environment';
 import { TranslateModule } from '@ngx-translate/core';
@@ -34,10 +34,8 @@ export class InstagramImagesComponent implements OnInit{
     stagePadding: 30,
     startPosition: 'URLHash',
     navText: [
-     /*  '<img src="assets/icons/chevron-left.svg" style="width: 70px; height: 70px;">',
-      '<img src="assets/icons/chevron-right.svg" style="width: 70px; height: 70px;">' */
-      '<',
-      '>'
+      `<span class="material-icons">arrow_back_ios</span>`,
+      `<span class="material-icons">arrow_forward_ios</span>`
     ],
     // navText: ['Anterior', 'Siguiente'],
     nav: true,
@@ -65,9 +63,14 @@ export class InstagramImagesComponent implements OnInit{
 
   /* serivces */
   private articlesService = inject(ArticlesService);
+  private ngZone = inject(NgZone);
 
   ngOnInit(): void {
+    this.ngZone.runOutsideAngular(() => {
+      window.addEventListener('touchstart', () => {}, { passive: true });
+    });
     this.getImagenesInstagram();
+
   }
 
   getImagenesInstagram() {

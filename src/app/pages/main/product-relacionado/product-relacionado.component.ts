@@ -40,10 +40,8 @@ export class ProductRelacionadoComponent implements OnInit{
     stagePadding: 30,
     startPosition: 'URLHash',
     navText: [
-      /* '<img src="assets/icons/chevron-left.svg" style="width: 70px; height: 70px;">',
-            '<img src="assets/icons/chevron-right.svg" style="width: 70px; height: 70px;">' */      
-            '<',
-            '>'
+      `<span class="material-icons">arrow_back_ios</span>`,
+      `<span class="material-icons">arrow_forward_ios</span>`
     ],
     // navText: ['Anterior', 'Siguiente'],
     nav: true,

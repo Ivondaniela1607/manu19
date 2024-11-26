@@ -4,6 +4,8 @@ import { RouterLink } from '@angular/router';
 import { ImgErrorDirective } from '@app/core/directives/imgError.directive';
 import { ArticlesService } from '@app/services/articles.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+
 
 
 @Component({
@@ -14,15 +16,21 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class SobreNosotrosComponent implements OnInit{
 
+
   /* signals */
   lenguaje = signal<string>('');
   data = signal<any>([]);
 
+  /* services */
   private articlesService = inject(ArticlesService);
+  private sanitizer = inject(DomSanitizer);
+
 
   ngOnInit(): void {
     this.getTextWebByTipo();
   }
+
+  
 
   getTextWebByTipo() {
     this.articlesService
@@ -37,6 +45,7 @@ export class SobreNosotrosComponent implements OnInit{
   getTitulo(item: any): string {
     switch (this.lenguaje()) {
       case 'es':
+        const value = this.sanitizer.bypassSecurityTrustHtml(item.titulo_es)
         return item.titulo_es;
       case 'en':
         return item.titulo_en;
@@ -52,7 +61,6 @@ export class SobreNosotrosComponent implements OnInit{
   }
 
   getTexto1(item: any): string {
-
     switch (this.lenguaje()) {
       case 'es':
         return item.txt_1_es;
@@ -69,7 +77,6 @@ export class SobreNosotrosComponent implements OnInit{
     }
   }
   getTexto2(item: any): string {
-
     switch (this.lenguaje()) {
       case 'es':
         return item.txt_2_es;
@@ -85,21 +92,27 @@ export class SobreNosotrosComponent implements OnInit{
         return item.txt_2_es;
     }
   }
-  getTexto3(item: any): string {
 
+  getTexto3(item: any): any {
     switch (this.lenguaje()) {
       case 'es':
-        return item.txt_3_es;
+        const valueSanitizedEs = this.sanitizer.bypassSecurityTrustHtml(item.txt_3_es);
+        return valueSanitizedEs;
       case 'en':
-        return item.txt_3_en;
+        const valueSanitizedEn = this.sanitizer.bypassSecurityTrustHtml(item.txt_3_en);
+        return valueSanitizedEn;
       case 'fr':
-        return item.txt_3_fr;
+        const valueSanitizedFr = this.sanitizer.bypassSecurityTrustHtml(item.txt_3_fr);
+        return valueSanitizedFr;
       case 'po':
-        return item.txt_3_po;
+        const valueSanitizedPo = this.sanitizer.bypassSecurityTrustHtml(item.txt_3_po);
+        return valueSanitizedPo;
       case 'it':
-        return item.txt_3_it;
+        const valueSanitizedIt = this.sanitizer.bypassSecurityTrustHtml(item.txt_3_it);
+        return valueSanitizedIt;
       default:
-        return item.txt_3_es;
+        const valueSanitizedEss = this.sanitizer.bypassSecurityTrustHtml(item.txt_3_es);
+        return valueSanitizedEss;
     }
   }
 }

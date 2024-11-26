@@ -38,8 +38,8 @@ export class UrbanGymComponent implements OnInit{
     stagePadding: 30,
     startPosition: 'URLHash',
     navText: [
-      '<',
-      '>'
+      `<span class="material-icons">arrow_back_ios</span>`,
+      `<span class="material-icons">arrow_forward_ios</span>`
     ],
     nav: true,
     responsive: {

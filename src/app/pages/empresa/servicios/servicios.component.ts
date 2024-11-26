@@ -24,7 +24,6 @@ export class ServiciosComponent {
   }
 
   viewImg(img: string) {
-    console.log('img', img);
     const dialogRef = this._matDialog.open(ModalViewImagesComponent, {
       width: "900px",
       disableClose: true,

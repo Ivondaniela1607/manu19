@@ -15,10 +15,11 @@
   .owl-carousel .owl-nav .owl-next,
   .owl-carousel .owl-dot {
     font-family: "fontAwesome";
+    font-size: 60px !important;
   }
   .owl-carousel .owl-nav .owl-prev {
     background: transparent;
-    height: 400px;
+    height: 250px;
     width: 310px;
     display: flex;
     justify-content: start;
@@ -26,7 +27,7 @@
   }
   .owl-carousel .owl-nav .owl-next {
     background: transparent;
-    height: 400px;
+    height: 250px;
     width: 310px;
     display: flex;
     justify-content: end;
@@ -48,6 +49,12 @@
     position: absolute;
     top: 10%;
     left: 3%;
+  }
+  .owl-next .material-icons{
+    font-size: 60px !important;
+  }
+  .owl-prev .material-icons{
+    font-size: 60px !important;
   }
   .owl-next img{
     width: 70px;
@@ -115,4 +122,29 @@
 
 * {
   outline: none !important;
+}
+
+@media only screen and (max-width: 1024px) { 
+  :host ::ng-deep {
+    .owl-carousel .owl-nav .owl-prev,
+    .owl-carousel .owl-nav .owl-next,
+    .owl-carousel .owl-nav .owl-prev {
+      width: 200px;
+    }
+    .owl-carousel .owl-nav .owl-next {
+      width: 200px;
+    } 
+  }
+}
+@media only screen and (max-width: 425px) { 
+  :host ::ng-deep {
+    .owl-carousel .owl-nav .owl-prev,
+    .owl-carousel .owl-nav .owl-next,
+    .owl-carousel .owl-nav .owl-prev {
+      width: 50px;
+    }
+    .owl-carousel .owl-nav .owl-next {
+      width: 50px;
+    } 
+  }
 }

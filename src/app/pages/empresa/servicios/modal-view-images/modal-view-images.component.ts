@@ -15,7 +15,6 @@ export class ModalViewImagesComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<ModalViewImagesComponent>,
   ) {
-    console.log('dataaaa', data);
     this.img.set(data)
   }
 }

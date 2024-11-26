@@ -57,7 +57,12 @@
   .owl-prev img{
     width: 70px;
     height: 70px;
-
+  }
+  .owl-next .material-icons{
+    font-size: 60px !important;
+  }
+  .owl-prev .material-icons{
+    font-size: 60px !important;
   }
 }
 
@@ -115,3 +120,47 @@
   outline: none !important;
 }
 
+@media only screen and (max-width: 1024px) { 
+  :host ::ng-deep {
+    .owl-next {
+      right: 0;
+    }
+
+    .owl-prev {
+      left: 0;
+    }
+  }
+
+  :host ::ng-deep {
+    .owl-carousel .owl-nav .owl-prev,
+    .owl-carousel .owl-nav .owl-next,
+    .owl-carousel .owl-nav .owl-prev {
+      background: transparent;
+      height: 250px;
+      width: 50px;
+    }
+    .owl-carousel .owl-nav .owl-next {
+      background: transparent;
+      height: 250px;
+      width: 50px;
+    } 
+  }
+}
+
+@media only screen and (max-width: 768px) { 
+  :host ::ng-deep {
+    .owl-carousel .owl-nav .owl-prev,
+    .owl-carousel .owl-nav .owl-next,
+    .owl-carousel .owl-nav .owl-prev {
+      background: transparent;
+      height: 300px;
+    }
+    .owl-carousel .owl-nav .owl-next {
+      background: transparent;
+      height: 300px;
+    }
+    
+    
+  }
+  
+ }

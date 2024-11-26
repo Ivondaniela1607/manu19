@@ -33,13 +33,13 @@ export class NoveltyComponent implements OnInit {
 
     // slideBy: 2,
     navSpeed: 700,
-    URLhashListener: false,
+    URLhashListener: true,
     freeDrag: true,
     stagePadding: 30,
     startPosition: 'URLHash',
     navText: [
-      '<',
-      '>'
+      `<span class="material-icons">arrow_back_ios</span>`,
+      `<span class="material-icons">arrow_forward_ios</span>`
     ],
     // navText: ['Anterior', 'Siguiente'],
     nav: true,
@@ -82,13 +82,13 @@ export class NoveltyComponent implements OnInit {
 
 
   constructor() {
-    const sanitizedLeftNav = this.sanitizer.bypassSecurityTrustHtml(
+/*     const sanitizedLeftNav = this.sanitizer.bypassSecurityTrustHtml(
       '<img src="assets/icons/chevron-left.svg" style="width: 70px; height: 70px;">'
     );
 
     const sanitizedRightNav = this.sanitizer.bypassSecurityTrustHtml(
       '<img src="assets/icons/chevron-right.svg" style="width: 70px; height: 70px;">'
-    );
+    ); */
     effect( () => {
       this.lenguaje = this.localStorageService.getLanguageSignal();
       if (this.lenguaje()) {
@@ -134,6 +134,7 @@ export class NoveltyComponent implements OnInit {
       (elemento:any) =>
         conditionFunction(elemento)
     ));
+    this.slideBoolean.set(true);
 
 /*     this.slidesStore.set(
       this.arregloRes
