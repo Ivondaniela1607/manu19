@@ -3,7 +3,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection, isDevMode } from '@angular/core';
 import { PreloadAllModules, provideRouter, withComponentInputBinding, withInMemoryScrolling, withPreloading, withViewTransitions } from '@angular/router';
 import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
+import { provideClientHydration, withHttpTransferCacheOptions, withNoHttpTransferCache } from '@angular/platform-browser';
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { provideServiceWorker } from '@angular/service-worker';
@@ -18,7 +18,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideClientHydration(),
+    provideClientHydration(withHttpTransferCacheOptions(
+      { includePostRequests: true}
+    )),
     provideAnimationsAsync(),
     provideRouter(routes,
       withViewTransitions(),
